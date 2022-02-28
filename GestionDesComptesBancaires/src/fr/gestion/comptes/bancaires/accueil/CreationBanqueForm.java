@@ -80,7 +80,7 @@ public class CreationBanqueForm {
 		txtrIsbBank.setBounds(166, 41, 132, 57);
 		txtrIsbBank.setBackground(new Color(190, 247, 251));
 		txtrIsbBank.setFont(new Font("SansSerif", Font.BOLD, 26));
-		txtrIsbBank.setText("ISB BANK");
+		txtrIsbBank.setText("ISN BANK");
 		frame.getContentPane().add(txtrIsbBank);
 		
 		textField = new JTextField();
