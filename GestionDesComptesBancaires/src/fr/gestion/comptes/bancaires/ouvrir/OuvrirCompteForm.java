@@ -1,25 +1,21 @@
 package fr.gestion.comptes.bancaires.ouvrir;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.Color;
-import javax.swing.JPanel;
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JTextPane;
-import javax.swing.ButtonGroup;
-import javax.swing.DropMode;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 public class OuvrirCompteForm  {
 
@@ -195,9 +191,7 @@ public class OuvrirCompteForm  {
 		
 		tautInteret = new JTextField();
 		tautInteret.setColumns(10);
-		
-		
-		
+				
 		
 		
 		
