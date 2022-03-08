@@ -17,6 +17,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.border.BevelBorder;
 
 public class ListeComptesForm {
 
@@ -70,6 +71,7 @@ public class ListeComptesForm {
 		txtGestionDeLa.setColumns(10);
 		
 		table = new JTable();
+		table.setBorder(null);
 		table.setColumnSelectionAllowed(true);
 		table.setFont(new Font("Verdana", Font.PLAIN, 15));
 		table.setBackground(new Color(118, 199, 240));
@@ -154,7 +156,7 @@ public class ListeComptesForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(1188, Short.MAX_VALUE))
+					.addContainerGap(1176, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(17)
 					.addComponent(table, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)

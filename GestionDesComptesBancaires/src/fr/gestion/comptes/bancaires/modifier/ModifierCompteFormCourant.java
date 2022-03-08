@@ -10,6 +10,8 @@ import java.awt.FlowLayout;
 import javax.swing.SpringLayout;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.BoxLayout;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
 
 public class ModifierCompteFormCourant {
 
@@ -46,6 +48,12 @@ public class ModifierCompteFormCourant {
 		frame.getContentPane().setEnabled(false);
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		frame.getContentPane().add(scrollPane);
+		
+		JButton btnNewButton = new JButton("New button");
+		scrollPane.setViewportView(btnNewButton);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
