@@ -4,7 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -15,8 +19,10 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.border.BevelBorder;
 
 public class ListeComptesForm {
@@ -70,6 +76,9 @@ public class ListeComptesForm {
 		txtGestionDeLa.setText("Gestion de la liste des comptes");
 		txtGestionDeLa.setColumns(10);
 		
+		
+		/*
+		
 		table = new JTable();
 		table.setBorder(null);
 		table.setColumnSelectionAllowed(true);
@@ -89,12 +98,47 @@ public class ListeComptesForm {
 			},
 			new String[] {
 				"New column", "New column", "New column", "New column"
-			}
+			} 
 		));
 		table.getColumnModel().getColumn(0).setPreferredWidth(154);
 		table.getColumnModel().getColumn(1).setPreferredWidth(154);
 		table.getColumnModel().getColumn(2).setPreferredWidth(154);
-		table.getColumnModel().getColumn(3).setPreferredWidth(154);
+		table.getColumnModel().getColumn(3).setPreferredWidth(154); */
+		
+		// table 
+		
+		
+		String data[][] = { { "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
+				{ "003", "Aman", "Delhi", "India" }, { "001", "vinod", "Bihar", "India" },
+				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
+				{ "004", "Ranjan", "Bangloor", "India" }, { "001", "vinod", "Bihar", "India" },
+				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
+				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
+				{ "003", "Aman", "Delhi", "India" }, { "004", "Ranjan", "Bangloor", "India" },
+				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
+				{ "003", "Aman", "Delhi", "India" }, { "001", "vinod", "Bihar", "India" },
+				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
+				{ "004", "Ranjan", "Bangloor", "India" }, { "001", "vinod", "Bihar", "India" },
+				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
+				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
+				{ "003", "Aman", "Delhi", "India" }, { "004", "Ranjan", "Bangloor", "India" } };
+
+		String col[] = { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" };
+		JTable table = new JTable(data, col);
+		table.setFont(new Font("Verdana", Font.PLAIN, 12));
+		table.setPreferredScrollableViewportSize(new Dimension(500, 200));
+		table.setFillsViewportHeight(true);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		// frame.getContentPane().add(scrollPane);
+
+		JTableHeader header = table.getTableHeader();
+		header.setBackground(new Color(123, 167, 220));
+		header.setFont(new Font("Verdana", Font.BOLD, 14) );
+		
+		
+////////////////////////////////////////// TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 		
 		btnNewButton = new JButton("Modifier");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
@@ -134,6 +178,15 @@ public class ListeComptesForm {
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ListeComptesForm.class.getResource("/res/ISN_BANK_logo_sans_trais.png")));
+		
+		
+		
+		
+		
+		
+		
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -159,7 +212,7 @@ public class ListeComptesForm {
 					.addContainerGap(1176, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(17)
-					.addComponent(table, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(29, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(536)
@@ -174,7 +227,7 @@ public class ListeComptesForm {
 					.addGap(43)
 					.addComponent(txtGestionDeLa, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 					.addGap(46)
-					.addComponent(table, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(26)
