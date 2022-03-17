@@ -3,7 +3,7 @@ package fr.gestion.comptes.bancaires.comptes;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+
 import javax.swing.ScrollPaneConstants;
 
 import java.awt.Color;
@@ -21,18 +21,25 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
+
 import javax.swing.table.JTableHeader;
+
 
 import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
 
-import javax.swing.border.BevelBorder;
+import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
+import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
+
+import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
+
+
+
 
 public class ListeComptesForm {
 
 	private JFrame frame;
-	private JTable table;
+
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
@@ -72,6 +79,20 @@ public class ListeComptesForm {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		
+
+
+		
+		//btnNewButton = new JButton("Modifier");
+		
+		JLabel lbGestionDeLa = new JLabel("Gestion de la liste des comptes");
+		lbGestionDeLa.setBackground(new Color(118, 199, 240));
+		lbGestionDeLa.setHorizontalAlignment(SwingConstants.CENTER);
+		lbGestionDeLa.setFont(new Font("Verdana", Font.BOLD, 30));
+		lbGestionDeLa.setOpaque(true);
+		
+		
+		
+
 		
 		/*
 		
@@ -139,12 +160,17 @@ public class ListeComptesForm {
 		btnNewButton = new JButton("Modifier");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(131, 224, 229));
+		btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ModifierCompteFormCourant listC = new ModifierCompteFormCourant();
+                listC.main(null);
+            }
+        });
 		
-		btnNewButton_1 = new JButton("Cr\u00E9diter");
+		btnNewButton_1 = new JButton("Créditer");
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_1.setBackground(new Color(131, 224, 229));
-		// lien vers la page transferer
-		
 		btnNewButton_1.addActionListener(new ActionListener() {
            
 			public void actionPerformed(ActionEvent arg0) {
@@ -159,8 +185,6 @@ public class ListeComptesForm {
 		btnNewButton_2 = new JButton("Transf\u00E9rer");
 		btnNewButton_2.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_2.setBackground(new Color(131, 224, 229));
-		
-		// lien vers la page transferer
 		btnNewButton_2.addActionListener(new ActionListener() {
 	           
 			public void actionPerformed(ActionEvent arg0) {
@@ -175,27 +199,30 @@ public class ListeComptesForm {
 		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_3.setBackground(new Color(131, 224, 229));
 		// lien vers la page transferer
-		btnNewButton_3.addActionListener(new ActionListener() {
-	           
-			public void actionPerformed(ActionEvent arg0) {
+	
+		
+		btnOuvdbiter = new JButton("D\u00E9biter");
+		btnOuvdbiter.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnOuvdbiter.setBackground(new Color(131, 224, 229));
+		btnOuvdbiter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
-                Transferer listC = new Transferer();
+                DebiterCompteForm listC = new DebiterCompteForm();
                 listC.main(null);
             }
         });
 		
-		
-		btnOuvdbiter = new JButton("D\u00E9biter");
-		btnOuvdbiter.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnOuvdbiter.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnOuvdbiter.setBackground(new Color(131, 224, 229));
-		
 		btnNewButton_5 = new JButton("Ouvrir un compte");
 		btnNewButton_5.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_5.setBackground(new Color(131, 224, 229));
+		
+		btnNewButton_5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+				OuvrirCompteForm listC = new OuvrirCompteForm();
+                listC.main(null);
+            }
+        });
 		
 		btnNewButton_6 = new JButton("D\u00E9connexion");
 		btnNewButton_6.addActionListener(new ActionListener() {
