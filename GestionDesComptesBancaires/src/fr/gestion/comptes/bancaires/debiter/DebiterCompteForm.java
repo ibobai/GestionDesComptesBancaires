@@ -57,13 +57,13 @@ public class DebiterCompteForm {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("DÃ©biter un compte");
+		JLabel lblNewLabel = new JLabel("Débiter un compte");
 		lblNewLabel.setBackground(new Color(118, 199, 240));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblNewLabel.setOpaque(true);
 		
-		JLabel lblNumroDeCompte_2 = new JLabel("DÃ©biter le compte NÂ°");
+		JLabel lblNumroDeCompte_2 = new JLabel("Débiter le compte N°");
 		lblNumroDeCompte_2.setOpaque(true);
 		lblNumroDeCompte_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte_2.setBackground(new Color(118, 199, 240));
