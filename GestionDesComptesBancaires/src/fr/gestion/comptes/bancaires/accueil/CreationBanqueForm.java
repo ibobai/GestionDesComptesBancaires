@@ -3,23 +3,29 @@ package fr.gestion.comptes.bancaires.accueil;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.FlowLayout;
-import javax.swing.JTextArea;
+
+
 import java.awt.Font;
+
 import java.awt.Color;
+
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
+
 import javax.swing.SwingConstants;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+
 import java.awt.event.ActionEvent;
 
 public class CreationBanqueForm {
@@ -56,6 +62,9 @@ public class CreationBanqueForm {
 	public CreationBanqueForm() {
 		initialize();
 	}
+	
+	
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -94,6 +103,10 @@ public class CreationBanqueForm {
 		JButton btnNewButton_1 = new JButton("Valider");
 		btnNewButton_1.setBackground(new Color(118, 199, 240));
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
+<<<<<<< HEAD
+=======
+		
+>>>>>>> a2adbe5ec0a900d5c60430b631a3b922ee2601ff
 		btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
@@ -102,6 +115,7 @@ public class CreationBanqueForm {
             }
         });
 	
+
 		
 		lblNewLabel_4 = new JLabel("Mot de passe");
 		lblNewLabel_4.setOpaque(true);

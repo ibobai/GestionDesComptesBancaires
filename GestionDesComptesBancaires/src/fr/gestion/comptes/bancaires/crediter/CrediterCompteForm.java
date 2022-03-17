@@ -22,7 +22,6 @@ import javax.swing.JLabel;
 public class CrediterCompteForm {
 
 	private JFrame frame;
-	private JTextField txtCrditerUnCompte;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField;
@@ -59,13 +58,8 @@ public class CrediterCompteForm {
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		txtCrditerUnCompte = new JTextField();
-		txtCrditerUnCompte.setText("Cr\u00E9diter un compte");
-		txtCrditerUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCrditerUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
-		txtCrditerUnCompte.setColumns(10);
-		txtCrditerUnCompte.setBackground(new Color(118, 199, 240));
+	
+	
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -110,6 +104,7 @@ public class CrediterCompteForm {
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(192, 192, 192));
+<<<<<<< HEAD
 		btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
@@ -123,13 +118,14 @@ public class CrediterCompteForm {
 /////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 		
+=======
+		
+		JLabel lblNewLabel = new JLabel("Crediter un compte");
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
+>>>>>>> a2adbe5ec0a900d5c60430b631a3b922ee2601ff
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(339, Short.MAX_VALUE)
-					.addComponent(txtCrditerUnCompte, GroupLayout.PREFERRED_SIZE, 616, GroupLayout.PREFERRED_SIZE)
-					.addGap(329))
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(222)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -148,13 +144,17 @@ public class CrediterCompteForm {
 					.addPreferredGap(ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
 					.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 					.addGap(428))
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(496, Short.MAX_VALUE)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+					.addGap(188))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(86)
-					.addComponent(txtCrditerUnCompte, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addGap(131)
+					.addGap(117)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addGap(114)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
@@ -174,5 +174,4 @@ public class CrediterCompteForm {
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
-
 }
