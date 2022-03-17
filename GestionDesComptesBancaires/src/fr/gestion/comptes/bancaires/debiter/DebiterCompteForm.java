@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -63,7 +66,11 @@ public class DebiterCompteForm {
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblNewLabel.setOpaque(true);
 		
-		JLabel lblNumroDeCompte_2 = new JLabel("Débiter le compte N°");
+
+		
+
+		JLabel lblNumroDeCompte_2 = new JLabel("Débiter le compte Num:");
+
 		lblNumroDeCompte_2.setOpaque(true);
 		lblNumroDeCompte_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte_2.setBackground(new Color(118, 199, 240));
@@ -90,16 +97,29 @@ public class DebiterCompteForm {
 		btnNewButton = new JButton("Valider");
 		btnNewButton.setBackground(new Color(131, 224, 229));
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
 		
 		button = new JButton("<-------");
 		button.setBackground(new Color(192, 192, 192));
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
+		
+		
+		
+		
+		/////////////////////////////////////////////////////////////////////////////////////////////////
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

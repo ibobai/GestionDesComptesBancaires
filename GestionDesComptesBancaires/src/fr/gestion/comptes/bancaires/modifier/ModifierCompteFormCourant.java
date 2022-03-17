@@ -17,6 +17,9 @@ import javax.swing.JTextPane;
 import javax.swing.ButtonGroup;
 import javax.swing.DropMode;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
@@ -89,6 +92,29 @@ public class ModifierCompteFormCourant  {
 		btnBack.setBackground(new Color(192, 192, 192));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+			}
+		});
+		
+		JButton btnValider = new JButton("Valider");
+		btnValider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+			}
+		});
+		btnValider.setBackground(new Color(118, 199, 240));
+		
+		
+		
+		/*
+		JButton btnBack = new JButton("<-------");
+		btnBack.setBackground(new Color(192, 192, 192));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
@@ -98,6 +124,9 @@ public class ModifierCompteFormCourant  {
 			}
 		});
 		btnValider.setBackground(new Color(118, 199, 240));
+		
+		*/
+		
 		
 		JLabel lblTypeDeCompte = new JLabel("Type de compte");
 		lblTypeDeCompte.setOpaque(true);

@@ -25,8 +25,12 @@ import javax.swing.ImageIcon;
 import javax.swing.table.JTableHeader;
 
 
+import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
+
+
 import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
+
 
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
@@ -225,12 +229,15 @@ public class ListeComptesForm {
         });
 		
 		btnNewButton_6 = new JButton("D\u00E9connexion");
-		btnNewButton_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_6.setFont(new Font("Verdana", Font.PLAIN, 15));
+     	btnNewButton_6.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_6.setBackground(new Color(118, 199, 240));
+		btnNewButton_6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+				CreationBanqueForm listC = new CreationBanqueForm();
+                listC.main(null);
+            }
+        });
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ListeComptesForm.class.getResource("/res/ISN_BANK_logo_sans_trais.png")));

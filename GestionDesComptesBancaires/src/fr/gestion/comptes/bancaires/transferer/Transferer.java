@@ -21,6 +21,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.JTableHeader;
 
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 public class Transferer {
 
 	private JFrame frame;
@@ -68,9 +70,13 @@ public class Transferer {
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.setBackground(new Color(123, 167, 220));
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+			  public void actionPerformed(ActionEvent arg0) {
+	                frame.setVisible(false);
+	                ListeComptesForm listC = new ListeComptesForm();
+	                listC.main(null);
+	            }
+	        });
+			
 
 		lblNewLabel = new JLabel("Transf\u00E9rer");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -94,13 +100,25 @@ public class Transferer {
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_5.setBackground(new Color(131, 224, 229));
-
-		btnNewButton_1 = new JButton("<-------");
-		btnNewButton_1.setBackground(new Color(192, 192, 192));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
 
 		textField = new JTextField();
 		textField.setColumns(10);
+
+		btnNewButton = new JButton("<-------");
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnNewButton.setBackground(new Color(192, 192, 192));
+
+		btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
+		
+
 
 		// table
 
