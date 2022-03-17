@@ -23,12 +23,15 @@ import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+
+import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
+import fr.gestion.comptes.bancaires.transferer.Transferer;
+
 import javax.swing.border.BevelBorder;
 
 public class ListeComptesForm {
 
 	private JFrame frame;
-	private JTextField txtGestionDeLa;
 	private JTable table;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -68,13 +71,6 @@ public class ListeComptesForm {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
-		
-		txtGestionDeLa = new JTextField();
-		txtGestionDeLa.setBackground(new Color(118, 199, 240));
-		txtGestionDeLa.setHorizontalAlignment(SwingConstants.CENTER);
-		txtGestionDeLa.setFont(new Font("Verdana", Font.BOLD, 30));
-		txtGestionDeLa.setText("Gestion de la liste des comptes");
-		txtGestionDeLa.setColumns(10);
 		
 		
 		/*
@@ -147,14 +143,47 @@ public class ListeComptesForm {
 		btnNewButton_1 = new JButton("Cr\u00E9diter");
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_1.setBackground(new Color(131, 224, 229));
+		// lien vers la page transferer
+		
+		btnNewButton_1.addActionListener(new ActionListener() {
+           
+			public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                CrediterCompteForm listC = new CrediterCompteForm();
+                listC.main(null);
+            }
+        });
+		
+		
 		
 		btnNewButton_2 = new JButton("Transf\u00E9rer");
 		btnNewButton_2.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_2.setBackground(new Color(131, 224, 229));
 		
+		// lien vers la page transferer
+		btnNewButton_2.addActionListener(new ActionListener() {
+	           
+			public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                Transferer listC = new Transferer();
+                listC.main(null);
+            }
+        });
+		
+		
 		btnNewButton_3 = new JButton("Cloturer");
 		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_3.setBackground(new Color(131, 224, 229));
+		// lien vers la page transferer
+		btnNewButton_3.addActionListener(new ActionListener() {
+	           
+			public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                Transferer listC = new Transferer();
+                listC.main(null);
+            }
+        });
+		
 		
 		btnOuvdbiter = new JButton("D\u00E9biter");
 		btnOuvdbiter.addActionListener(new ActionListener() {
@@ -179,6 +208,10 @@ public class ListeComptesForm {
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ListeComptesForm.class.getResource("/res/ISN_BANK_logo_sans_trais.png")));
 		
+		JLabel lblNewLabel_1 = new JLabel("Gestion de la liste des comptes");
+		lblNewLabel_1.setBackground(Color.CYAN);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 26));
+		
 		
 		
 		
@@ -190,10 +223,6 @@ public class ListeComptesForm {
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(344)
-					.addComponent(txtGestionDeLa, GroupLayout.PREFERRED_SIZE, 616, GroupLayout.PREFERRED_SIZE)
-					.addGap(336))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(185)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -217,18 +246,25 @@ public class ListeComptesForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(536)
 					.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(558, Short.MAX_VALUE))
+					.addContainerGap(570, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(386)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 438, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(460, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-					.addGap(43)
-					.addComponent(txtGestionDeLa, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addGap(46)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(63)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)))
+					.addGap(94)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(26)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
@@ -243,7 +279,7 @@ public class ListeComptesForm {
 								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnNewButton_3, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 							.addContainerGap(75, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 							.addGap(26))))
@@ -251,5 +287,10 @@ public class ListeComptesForm {
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
 	}
 }
