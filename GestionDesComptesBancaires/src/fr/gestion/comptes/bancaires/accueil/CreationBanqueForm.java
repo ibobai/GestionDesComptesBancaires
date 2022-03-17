@@ -34,11 +34,11 @@ public class CreationBanqueForm {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JButton btnNewButton;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JTextField textField_3;
-	private JTextField textField_2;
+	private JLabel lblLogo;
+	private JLabel lblUtilisateur;
+	private JLabel lblMpd;
+	private JTextField InputMdp;
+	private JTextField InputUtilisateur;
 
 	/**
 	 * Launch the application.
@@ -90,20 +90,20 @@ public class CreationBanqueForm {
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(CreationBanqueForm.class.getResource("/res/ISN BANK.png")));
+		lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon(CreationBanqueForm.class.getResource("/res/ISN BANK.png")));
 		
-		lblNewLabel_3 = new JLabel("Utilisateur");
-		lblNewLabel_3.setOpaque(true);
+		lblUtilisateur = new JLabel("Utilisateur");
+		lblUtilisateur.setOpaque(true);
 
-		lblNewLabel_3.setBackground(new Color(131, 224, 229));
-		lblNewLabel_3.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUtilisateur.setBackground(new Color(131, 224, 229));
+		lblUtilisateur.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblUtilisateur.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnNewButton_1 = new JButton("Valider");
-		btnNewButton_1.setBackground(new Color(118, 199, 240));
-		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnValiderCreationBanque = new JButton("Valider");
+		btnValiderCreationBanque.setBackground(new Color(118, 199, 240));
+		btnValiderCreationBanque.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValiderCreationBanque.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
 				ListeComptesForm listC = new ListeComptesForm();
@@ -113,17 +113,17 @@ public class CreationBanqueForm {
 	
 
 		
-		lblNewLabel_4 = new JLabel("Mot de passe");
-		lblNewLabel_4.setOpaque(true);
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_4.setBackground(new Color(131, 224, 229));
+		lblMpd = new JLabel("Mot de passe");
+		lblMpd.setOpaque(true);
+		lblMpd.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMpd.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblMpd.setBackground(new Color(131, 224, 229));
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
+		InputMdp = new JTextField();
+		InputMdp.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		InputUtilisateur = new JTextField();
+		InputUtilisateur.setColumns(10);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -140,44 +140,44 @@ public class CreationBanqueForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(161, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED))
 							.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(lblNewLabel_3, GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+								.addComponent(lblUtilisateur, GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
 								.addGap(143))))
 					.addGap(4)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE))
+						.addComponent(InputMdp, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
+						.addComponent(InputUtilisateur, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE))
 					.addGap(197))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(625, Short.MAX_VALUE)
-					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 					.addGap(535))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(398, Short.MAX_VALUE)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 531, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 531, GroupLayout.PREFERRED_SIZE)
 					.addGap(355))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
 					.addGap(94)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(InputUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
 					.addGap(31)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(InputMdp, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
 					.addGap(74)
-					.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
 					.addGap(165)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()

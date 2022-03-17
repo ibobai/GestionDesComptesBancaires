@@ -21,11 +21,11 @@ import javax.swing.JLabel;
 
 public class CrediterCompteForm {
 
-	private JLabel lblNewLabel;
+	private JLabel lblcrediterUnCompte;
 	private JFrame frame;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField;
+	private JTextField inputCrediterUnCompte;
+	private JTextField inputSolde;
+	private JTextField InputMontant;
 	private JButton btnNewButton;
 
 	/**
@@ -62,16 +62,16 @@ public class CrediterCompteForm {
 	
 	
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		inputCrediterUnCompte = new JTextField();
+		inputCrediterUnCompte.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		inputSolde = new JTextField();
+		inputSolde.setColumns(10);
 		
-		JButton btnNewButton_6 = new JButton("Valider");
-		btnNewButton_6.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_6.setBackground(new Color(118, 199, 240));
-		btnNewButton_6.addActionListener(new ActionListener() {
+		JButton btnValiderCrediterUnCompte = new JButton("Valider");
+		btnValiderCrediterUnCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValiderCrediterUnCompte.setBackground(new Color(118, 199, 240));
+		btnValiderCrediterUnCompte.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
@@ -81,27 +81,27 @@ public class CrediterCompteForm {
 		
 		
 		
-		JLabel lblNewLabel_3 = new JLabel("Cr\u00E9diter un compte");
-		lblNewLabel_3.setOpaque(true);
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_3.setBackground(new Color(131, 224, 229));
+		JLabel lblCrediterCompte = new JLabel("Cr\u00E9diter un compte");
+		lblCrediterCompte.setOpaque(true);
+		lblCrediterCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCrediterCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblCrediterCompte.setBackground(new Color(131, 224, 229));
 
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Solde");
-		lblNewLabel_3_1.setOpaque(true);
-		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_1.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBackground(new Color(131, 224, 229));
+		JLabel lblSolde = new JLabel("Solde");
+		lblSolde.setOpaque(true);
+		lblSolde.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSolde.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblSolde.setBackground(new Color(131, 224, 229));
 		
-		JLabel lblNewLabel_3_2 = new JLabel("Montant");
-		lblNewLabel_3_2.setOpaque(true);
-		lblNewLabel_3_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3_2.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblNewLabel_3_2.setBackground(new Color(131, 224, 229));
+		JLabel lblMontant = new JLabel("Montant");
+		lblMontant.setOpaque(true);
+		lblMontant.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMontant.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblMontant.setBackground(new Color(131, 224, 229));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		InputMontant = new JTextField();
+		InputMontant.setColumns(10);
 		
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
@@ -115,11 +115,11 @@ public class CrediterCompteForm {
         });
 		
 
-    	lblNewLabel = new JLabel("Crediter un compte");
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
-		lblNewLabel.setBackground(new Color(118, 199, 240));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setOpaque(true);
+    	lblcrediterUnCompte = new JLabel("Crediter un compte");
+		lblcrediterUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
+		lblcrediterUnCompte.setBackground(new Color(118, 199, 240));
+		lblcrediterUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblcrediterUnCompte.setOpaque(true);
 
 
 		
@@ -135,46 +135,46 @@ public class CrediterCompteForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(222)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3_2, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblCrediterCompte, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
 					.addGap(77)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(textField)
-						.addComponent(textField_2)
-						.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
+						.addComponent(InputMontant)
+						.addComponent(inputSolde)
+						.addComponent(inputCrediterUnCompte, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
 					.addContainerGap(144, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(64)
 					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
-					.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnValiderCrediterUnCompte, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 					.addGap(428))
 				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 					.addContainerGap(496, Short.MAX_VALUE)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblcrediterUnCompte, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
 					.addGap(188))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(117)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblcrediterUnCompte, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 					.addGap(114)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblCrediterCompte, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(inputCrediterUnCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(30)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(inputSolde, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(28)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_3_2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(InputMontant, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(71)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnValiderCrediterUnCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(49))
 		);
