@@ -21,6 +21,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.JTableHeader;
 
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 public class Transferer {
 
 	private JFrame frame;
@@ -98,6 +100,13 @@ public class Transferer {
 		btnNewButton_1 = new JButton("<-------");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
 
 		textField = new JTextField();
 		textField.setColumns(10);

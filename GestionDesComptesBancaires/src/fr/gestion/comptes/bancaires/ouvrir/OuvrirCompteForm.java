@@ -78,7 +78,7 @@ public class OuvrirCompteForm  {
 		lblOuvrirUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOuvrirUnCompte.setOpaque(true);
 		
-		JLabel lblNumroDeCompte = new JLabel("Numéro de compte");
+		JLabel lblNumroDeCompte = new JLabel("Numero de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
