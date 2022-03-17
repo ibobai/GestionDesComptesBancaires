@@ -66,7 +66,11 @@ public class DebiterCompteForm {
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblNewLabel.setOpaque(true);
 		
+
+		
+
 		JLabel lblNumroDeCompte_2 = new JLabel("Débiter le compte Num:");
+
 		lblNumroDeCompte_2.setOpaque(true);
 		lblNumroDeCompte_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte_2.setBackground(new Color(118, 199, 240));

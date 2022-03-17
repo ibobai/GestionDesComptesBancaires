@@ -83,7 +83,7 @@ public class ModifierCompteFormCourant  {
 		lblOuvrirUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOuvrirUnCompte.setOpaque(true);
 		
-		JLabel lblNumroDeCompte = new JLabel("Numéro de compte");
+		JLabel lblNumroDeCompte = new JLabel("Numero de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
@@ -153,7 +153,7 @@ public class ModifierCompteFormCourant  {
 		lblPlafond.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlafond.setBackground(new Color(118, 199, 240));
 		
-		JLabel lblPrenom = new JLabel("Prénom");
+		JLabel lblPrenom = new JLabel("Prenom");
 		lblPrenom.setOpaque(true);
 		lblPrenom.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrenom.setBackground(new Color(118, 199, 240));
@@ -168,7 +168,7 @@ public class ModifierCompteFormCourant  {
 		lblSoldeMinAuto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSoldeMinAuto.setBackground(new Color(118, 199, 240));
 		
-		JLabel lblTautInteret = new JLabel("Taux d'interêt");
+		JLabel lblTautInteret = new JLabel("Taux d'interet");
 		lblTautInteret.setOpaque(true);
 		lblTautInteret.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTautInteret.setBackground(new Color(118, 199, 240));

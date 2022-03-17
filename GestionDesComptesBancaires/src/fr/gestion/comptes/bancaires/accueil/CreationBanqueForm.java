@@ -104,6 +104,11 @@ public class CreationBanqueForm {
 		btnNewButton_1.setBackground(new Color(118, 199, 240));
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
 
+<<<<<<< HEAD
+=======
+		
+
+>>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
 		btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);

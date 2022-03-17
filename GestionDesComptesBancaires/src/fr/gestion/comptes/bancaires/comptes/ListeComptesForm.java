@@ -24,7 +24,18 @@ import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
+<<<<<<< HEAD
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
+=======
+
+import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
+
+
+import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
+import fr.gestion.comptes.bancaires.transferer.Transferer;
+
+
+>>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormEpargne;
