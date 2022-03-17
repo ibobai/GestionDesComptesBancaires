@@ -105,7 +105,10 @@ public class CrediterCompteForm {
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(192, 192, 192));
+<<<<<<< HEAD
+=======
 
+>>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
 		btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
@@ -114,18 +117,29 @@ public class CrediterCompteForm {
             }
         });
 		
+
+		JLabel lblNewLabel = new JLabel("Crediter un compte");
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
+		
 		
 		
 /////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
+
+=======
 	
 		
 
 		
 		JLabel lblNewLabel = new JLabel("Crediter un compte");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
+<<<<<<< HEAD
 		lblNewLabel.setBackground(new Color(118, 199, 240));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setOpaque(true);
+=======
+>>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
+>>>>>>> 4941a602845c50722bcbb24b005c0b2aae99634b
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

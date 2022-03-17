@@ -109,8 +109,25 @@ public class Transferer {
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_5.setBackground(new Color(131, 224, 229));
+<<<<<<< HEAD
+
+		btnNewButton_1 = new JButton("<-------");
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+=======
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
+>>>>>>> 4941a602845c50722bcbb24b005c0b2aae99634b
 
 		btnNewButton_1 = new JButton("<-------");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
