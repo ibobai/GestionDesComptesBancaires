@@ -13,6 +13,10 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
+
 import javax.swing.JLabel;
 
 public class CrediterCompteForm {
@@ -72,6 +76,15 @@ public class CrediterCompteForm {
 		JButton btnNewButton_6 = new JButton("Valider");
 		btnNewButton_6.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_6.setBackground(new Color(118, 199, 240));
+		btnNewButton_6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
+		
 		
 		JLabel lblNewLabel_3 = new JLabel("Cr\u00E9diter un compte");
 		lblNewLabel_3.setOpaque(true);
@@ -97,6 +110,19 @@ public class CrediterCompteForm {
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(192, 192, 192));
+		btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
+		
+		
+/////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
