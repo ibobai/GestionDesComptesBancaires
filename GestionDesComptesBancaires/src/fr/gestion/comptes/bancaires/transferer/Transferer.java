@@ -68,7 +68,9 @@ public class Transferer {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBackground(new Color(123, 167, 220));
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnNewButton.setBackground(new Color(118, 199, 240));
+	
 		btnNewButton.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent arg0) {
 	                frame.setVisible(false);
@@ -80,9 +82,16 @@ public class Transferer {
 
 		lblNewLabel = new JLabel("Transf\u00E9rer");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(new Color(123, 167, 220));
+		lblNewLabel.setBackground(new Color(118, 199, 240));
+		
+
+
+		
+		
+		
+		
 
 		lblNewLabel_2 = new JLabel("  1112311555");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -101,14 +110,12 @@ public class Transferer {
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_5.setBackground(new Color(131, 224, 229));
 		
+		
 
-		textField = new JTextField();
-		textField.setColumns(10);
-
-		btnNewButton = new JButton("<-------");
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton.setBackground(new Color(192, 192, 192));
-
+		btnNewButton_1 = new JButton("<-------");
+		btnNewButton_1.setBackground(new Color(192, 192, 192));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		
 		btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
@@ -119,6 +126,8 @@ public class Transferer {
 		
 		
 
+		textField = new JTextField();
+		textField.setColumns(10);
 
 		// table
 

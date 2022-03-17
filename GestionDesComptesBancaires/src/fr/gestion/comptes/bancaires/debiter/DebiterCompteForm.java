@@ -95,7 +95,8 @@ public class DebiterCompteForm {
 		textField_2.setColumns(10);
 		
 		btnNewButton = new JButton("Valider");
-		btnNewButton.setBackground(new Color(131, 224, 229));
+		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnNewButton.setBackground(new Color(118, 199, 240));
 		btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
