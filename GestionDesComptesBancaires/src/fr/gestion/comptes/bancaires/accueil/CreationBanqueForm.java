@@ -103,7 +103,6 @@ public class CreationBanqueForm {
 		JButton btnNewButton_1 = new JButton("Valider");
 		btnNewButton_1.setBackground(new Color(118, 199, 240));
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
-
 		btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);

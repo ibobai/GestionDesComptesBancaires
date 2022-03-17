@@ -25,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
-
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 
 
@@ -177,8 +176,7 @@ public class ListeComptesForm {
                 listC.main(null);
             }
         });
-		
-		
+		 
 		btnNewButton_2 = new JButton("Transf\u00E9rer");
 		btnNewButton_2.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_2.setBackground(new Color(131, 224, 229));
@@ -189,6 +187,7 @@ public class ListeComptesForm {
                 listC.main(null);
             }
         });
+		
 		
 		btnNewButton_3 = new JButton("Cloturer");
 		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 15));

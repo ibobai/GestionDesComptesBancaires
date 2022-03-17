@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 
 public class CrediterCompteForm {
 
+	private JLabel lblNewLabel;
 	private JFrame frame;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -105,7 +106,6 @@ public class CrediterCompteForm {
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton.setBackground(new Color(192, 192, 192));
-
 		btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
@@ -115,17 +115,19 @@ public class CrediterCompteForm {
         });
 		
 
-		JLabel lblNewLabel = new JLabel("Crediter un compte");
+    	lblNewLabel = new JLabel("Crediter un compte");
 		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
-		
-		
-		
-/////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-
 		lblNewLabel.setBackground(new Color(118, 199, 240));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setOpaque(true);
+
+
+		
+		
+/////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		
+		
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

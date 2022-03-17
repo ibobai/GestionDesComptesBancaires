@@ -31,6 +31,7 @@ public class Transferer {
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_5;
 	private JButton btnNewButton_1;
+	
 	private JTextField textField;
 
 
