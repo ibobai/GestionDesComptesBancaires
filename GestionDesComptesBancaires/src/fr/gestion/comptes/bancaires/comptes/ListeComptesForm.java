@@ -24,9 +24,9 @@ import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
-<<<<<<< HEAD
+
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
-=======
+
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 
@@ -35,7 +35,7 @@ import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
 
 
->>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
+
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormEpargne;
@@ -175,10 +175,26 @@ public class ListeComptesForm {
 		btnNewButton_1 = new JButton("Créditer");
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_1.setBackground(new Color(131, 224, 229));
+		btnNewButton_1.addActionListener(new ActionListener() {
+		 public void actionPerformed(ActionEvent arg0) {
+             frame.setVisible(false);
+             DebiterCompteForm listC = new DebiterCompteForm();
+             listC.main(null);
+         }
+     });
+		
 		
 		btnNewButton_2 = new JButton("Transf\u00E9rer");
 		btnNewButton_2.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnNewButton_2.setBackground(new Color(131, 224, 229));
+		
+		btnNewButton_2.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent arg0) {
+	             frame.setVisible(false);
+	             DebiterCompteForm listC = new DebiterCompteForm();
+	             listC.main(null);
+	         }
+	     });
 		
 		btnNewButton_3 = new JButton("Cloturer");
 		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 15));
