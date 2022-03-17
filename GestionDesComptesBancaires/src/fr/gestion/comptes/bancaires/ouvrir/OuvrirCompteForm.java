@@ -94,6 +94,8 @@ public class OuvrirCompteForm  {
 		});
 		
 		JButton btnValider = new JButton("Valider");
+		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValider.setBackground(new Color(118, 199, 240));
 		btnValider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);

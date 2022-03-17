@@ -85,6 +85,7 @@ public class CrediterCompteForm {
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3.setFont(new Font("Verdana", Font.PLAIN, 15));
 		lblNewLabel_3.setBackground(new Color(131, 224, 229));
+
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Solde");
 		lblNewLabel_3_1.setOpaque(true);
@@ -120,7 +121,11 @@ public class CrediterCompteForm {
 		
 		
 /////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
 
+		lblNewLabel.setBackground(new Color(118, 199, 240));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setOpaque(true);
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
