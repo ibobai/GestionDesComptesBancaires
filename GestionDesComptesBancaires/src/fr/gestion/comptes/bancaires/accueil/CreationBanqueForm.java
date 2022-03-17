@@ -14,6 +14,9 @@ import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
@@ -91,10 +94,17 @@ public class CreationBanqueForm {
 		JButton btnNewButton_1 = new JButton("Valider");
 		btnNewButton_1.setBackground(new Color(118, 199, 240));
 		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
+		
+		
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+				ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+	
 		
 		lblNewLabel_4 = new JLabel("Mot de passe");
 		lblNewLabel_4.setOpaque(true);
