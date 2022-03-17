@@ -100,7 +100,7 @@ public class Transferer {
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_5.setBackground(new Color(131, 224, 229));
-<<<<<<< HEAD
+
 
 		btnNewButton_1 = new JButton("<-------");
 		btnNewButton_1.setBackground(new Color(192, 192, 192));
@@ -112,9 +112,6 @@ public class Transferer {
                 listC.main(null);
             }
         });
-=======
-		
->>>>>>> 94798c1660941404e5ae777dfaab12de8319c9ed
 
 		textField = new JTextField();
 		textField.setColumns(10);
