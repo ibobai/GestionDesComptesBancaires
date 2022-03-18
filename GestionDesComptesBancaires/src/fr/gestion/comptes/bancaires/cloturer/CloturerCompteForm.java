@@ -10,11 +10,15 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class CloturerCompteForm {
 
@@ -58,6 +62,13 @@ public class CloturerCompteForm {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnSupprimer = new JButton("Supprimer");
+		btnSupprimer.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnSupprimer.setCursor(cur1);
+			}
+		});
 		btnSupprimer.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSupprimer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -69,6 +80,14 @@ public class CloturerCompteForm {
 		
 		
 		JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnAnnuler.setCursor(cur1);
+			}
+			
+		});
 		btnAnnuler.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAnnuler.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {

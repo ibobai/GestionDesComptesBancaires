@@ -8,6 +8,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -17,6 +19,8 @@ import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class DebiterCompteForm {
 
@@ -95,6 +99,13 @@ public class DebiterCompteForm {
 		textMontant.setColumns(10);
 		
 		btnValider = new JButton("Valider");
+		btnValider.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnValider.setCursor(cur1);
+			}
+		});
 		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValider.setBackground(new Color(118, 199, 240));
 		btnValider.addActionListener(new ActionListener() {

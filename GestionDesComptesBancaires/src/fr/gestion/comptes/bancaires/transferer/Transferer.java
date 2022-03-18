@@ -1,6 +1,7 @@
 package fr.gestion.comptes.bancaires.transferer;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -22,6 +23,8 @@ import javax.swing.SwingConstants;
 import javax.swing.table.JTableHeader;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class Transferer {
 
@@ -70,6 +73,13 @@ public class Transferer {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JButton btnValider = new JButton("Valider");
+		btnValider.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnValider.setCursor(cur1);
+			}
+		});
 		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValider.setBackground(new Color(118, 199, 240));
 	
@@ -126,6 +136,12 @@ public class Transferer {
 
 
 		btnRoutour = new JButton("<-------");
+		btnRoutour.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+			btnRoutour.setCursor(cur1);
+			}
+		});
 		btnRoutour.setBackground(new Color(192, 192, 192));
 		btnRoutour.setFont(new Font("Tahoma", Font.BOLD, 12));
 		

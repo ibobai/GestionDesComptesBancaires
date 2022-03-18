@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JPanel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
@@ -24,6 +26,8 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class ModifierCompteFormCourant  {
 
@@ -89,6 +93,13 @@ public class ModifierCompteFormCourant  {
 		lblNumroDeCompte.setOpaque(true);
 		
 		JButton btnBack = new JButton("<-------");
+		btnBack.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnBack.setCursor(cur1);
+			}
+		});
 		btnBack.setBackground(new Color(192, 192, 192));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -99,6 +110,13 @@ public class ModifierCompteFormCourant  {
 		});
 		
 		JButton btnValider = new JButton("Valider");
+		btnValider.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnValider.setCursor(cur1);
+			}
+		});
 		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValider.setBackground(new Color(118, 199, 240));
 	

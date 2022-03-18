@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,6 +20,8 @@ import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
 
 import javax.swing.JLabel;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class CrediterCompteForm {
 
@@ -69,6 +73,13 @@ public class CrediterCompteForm {
 		inputSolde.setColumns(10);
 		
 		JButton btnValiderCrediterUnCompte = new JButton("Valider");
+		btnValiderCrediterUnCompte.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnValiderCrediterUnCompte.setCursor(cur1);
+			}
+		});
 		btnValiderCrediterUnCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValiderCrediterUnCompte.setBackground(new Color(118, 199, 240));
 		btnValiderCrediterUnCompte.addActionListener(new ActionListener() {

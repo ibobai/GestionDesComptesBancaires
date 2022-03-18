@@ -57,7 +57,7 @@ public class Cloturer {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
-		frame.setBounds(100, 100, 800, 400);
+		frame.setBounds(100, 100, 1048, 540);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	

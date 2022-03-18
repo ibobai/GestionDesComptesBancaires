@@ -1,6 +1,7 @@
 package fr.gestion.comptes.bancaires.ouvrir;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 
 import javax.swing.SwingConstants;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class OuvrirCompteForm  {
 
@@ -84,6 +87,13 @@ public class OuvrirCompteForm  {
 		lblNumroDeCompte.setOpaque(true);
 		
 		JButton btnBack = new JButton("<-------");
+		btnBack.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnBack.setCursor(cur1);
+			}
+		});
 		btnBack.setBackground(new Color(192, 192, 192));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -94,6 +104,13 @@ public class OuvrirCompteForm  {
 		});
 		
 		JButton btnValider = new JButton("Valider");
+		btnValider.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnValider.setCursor(cur1);
+			}
+		});
 		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValider.setBackground(new Color(118, 199, 240));
 		btnValider.addActionListener(new ActionListener() {

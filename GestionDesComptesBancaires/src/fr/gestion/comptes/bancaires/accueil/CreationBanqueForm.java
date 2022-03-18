@@ -106,7 +106,7 @@ public class CreationBanqueForm {
 		btnValiderCreationBanque.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				Cursor  cur1 = new Cursor(Cursor.MOVE_CURSOR);
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
 				btnValiderCreationBanque.setCursor(cur1);
 				
 			}

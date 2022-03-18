@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import javax.swing.SwingConstants;
@@ -37,6 +38,8 @@ import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormEpargne;
 import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
 
 import javax.swing.border.BevelBorder;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class ListeComptesForm {
 
@@ -156,6 +159,14 @@ public class ListeComptesForm {
 ////////////////////////////////////////// TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 		
 		btnModifier = new JButton("Modifier");
+		btnModifier.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnModifier.setCursor(cur1);
+				
+			}
+		});
 		btnModifier.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnModifier.setBackground(new Color(131, 224, 229));
 		btnModifier.addActionListener(new ActionListener() {
@@ -167,6 +178,13 @@ public class ListeComptesForm {
         });
 		
 		btnCredite = new JButton("Créditer");
+		btnCredite.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnCredite.setCursor(cur1);
+			}
+		});
 		btnCredite.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnCredite.setBackground(new Color(131, 224, 229));
 		btnCredite.addActionListener(new ActionListener() {
@@ -178,6 +196,13 @@ public class ListeComptesForm {
         });
 		 
 		btnTransferer = new JButton("Transf\u00E9rer");
+		btnTransferer.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnTransferer.setCursor(cur1);
+			}
+		});
 		btnTransferer.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnTransferer.setBackground(new Color(131, 224, 229));
 		btnTransferer.addActionListener(new ActionListener() {
@@ -190,11 +215,27 @@ public class ListeComptesForm {
 		
 		
 		btnCloturer = new JButton("Cloturer");
+		btnCloturer.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnCloturer.setCursor(cur1);
+			}
+		});
 		btnCloturer.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnCloturer.setBackground(new Color(131, 224, 229));
 		
 		
 		btnOuvdbiter = new JButton("D\u00E9biter");
+		btnOuvdbiter.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnOuvdbiter.setCursor(cur1);
+				
+			}
+		});
 		btnOuvdbiter.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnOuvdbiter.setBackground(new Color(131, 224, 229));
 		btnOuvdbiter.addActionListener(new ActionListener() {
@@ -206,6 +247,16 @@ public class ListeComptesForm {
         });
 		
 		btnOuvCompte = new JButton("Ouvrir un compte");
+		btnOuvCompte.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				
+					Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+					btnOuvCompte.setCursor(cur1);
+					
+				}
+			});
+			
 		btnOuvCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnOuvCompte.setBackground(new Color(131, 224, 229));
 		
@@ -218,6 +269,14 @@ public class ListeComptesForm {
         });
 		
 		btnDeconnexion = new JButton("D\u00E9connexion");
+		btnDeconnexion.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+				btnDeconnexion.setCursor(cur1);
+				
+			}
+		});
      	btnDeconnexion.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnDeconnexion.setBackground(new Color(118, 199, 240));
 		btnDeconnexion.addActionListener(new ActionListener() {
