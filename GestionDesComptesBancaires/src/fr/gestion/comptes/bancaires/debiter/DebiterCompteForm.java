@@ -21,11 +21,11 @@ import java.awt.event.ActionEvent;
 public class DebiterCompteForm {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JButton btnNewButton;
-	private JButton button;
+	private JTextField textDebiter;
+	private JTextField textSolde;
+	private JTextField textMontant;
+	private JButton btnValider;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -60,44 +60,44 @@ public class DebiterCompteForm {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("Débiter un compte");
-		lblNewLabel.setBackground(new Color(118, 199, 240));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
-		lblNewLabel.setOpaque(true);
+		JLabel lblDebiter = new JLabel("Débiter un compte");
+		lblDebiter.setBackground(new Color(118, 199, 240));
+		lblDebiter.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDebiter.setFont(new Font("Verdana", Font.BOLD, 30));
+		lblDebiter.setOpaque(true);
 		
 
 		
 
-		JLabel lblNumroDeCompte_2 = new JLabel("Débiter le compte Num:");
+		JLabel lblNumroDeCompte = new JLabel("Débiter le compte Num:");
 
-		lblNumroDeCompte_2.setOpaque(true);
-		lblNumroDeCompte_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumroDeCompte_2.setBackground(new Color(118, 199, 240));
+		lblNumroDeCompte.setOpaque(true);
+		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		
-		JLabel lblNumroDeCompte_2_1 = new JLabel("Solde");
-		lblNumroDeCompte_2_1.setOpaque(true);
-		lblNumroDeCompte_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumroDeCompte_2_1.setBackground(new Color(118, 199, 240));
+		JLabel lblSolde = new JLabel("Solde");
+		lblSolde.setOpaque(true);
+		lblSolde.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSolde.setBackground(new Color(118, 199, 240));
 		
 		JLabel lblNumroDeCompte_2_2 = new JLabel("Montant");
 		lblNumroDeCompte_2_2.setOpaque(true);
 		lblNumroDeCompte_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte_2_2.setBackground(new Color(118, 199, 240));
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		textDebiter = new JTextField();
+		textDebiter.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		textSolde = new JTextField();
+		textSolde.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
+		textMontant = new JTextField();
+		textMontant.setColumns(10);
 		
-		btnNewButton = new JButton("Valider");
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton.setBackground(new Color(118, 199, 240));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnValider = new JButton("Valider");
+		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValider.setBackground(new Color(118, 199, 240));
+		btnValider.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
@@ -106,9 +106,9 @@ public class DebiterCompteForm {
         });
 		
 		
-		button = new JButton("<-------");
-		button.setBackground(new Color(192, 192, 192));
-		button.addActionListener(new ActionListener() {
+		btnBack = new JButton("<-------");
+		btnBack.setBackground(new Color(192, 192, 192));
+		btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
@@ -129,46 +129,46 @@ public class DebiterCompteForm {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(371)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblNumroDeCompte_2, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNumroDeCompte_2_1, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+								.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNumroDeCompte_2_2, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE))
 							.addGap(109)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(textSolde, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textDebiter, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textMontant, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(416)
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 463, GroupLayout.PREFERRED_SIZE))
+							.addComponent(lblDebiter, GroupLayout.PREFERRED_SIZE, 463, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(97)
-							.addComponent(button))
+							.addComponent(btnBack))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(552)
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(398, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(56)
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblDebiter, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
 					.addGap(120)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNumroDeCompte_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textDebiter, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 					.addGap(27)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNumroDeCompte_2_1, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textSolde, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 					.addGap(30)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblNumroDeCompte_2_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textMontant, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 					.addGap(56)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
 					.addGap(63)
-					.addComponent(button)
+					.addComponent(btnBack)
 					.addContainerGap(85, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
