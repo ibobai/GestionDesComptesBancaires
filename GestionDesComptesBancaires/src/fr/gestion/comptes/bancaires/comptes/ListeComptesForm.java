@@ -41,15 +41,15 @@ import javax.swing.border.BevelBorder;
 public class ListeComptesForm {
 
 	private JFrame frame;
-	private JTextField txtGestionDeLa;
+	private JTextField tGestionDeLa;
 	private JTable table;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
-	private JButton btnNewButton_3;
+	private JButton btnModifier;
+	private JButton btnCredite;
+	private JButton btnTransferer;
+	private JButton btnCloturer;
 	private JButton btnOuvdbiter;
-	private JButton btnNewButton_5;
-	private JButton btnNewButton_6;
+	private JButton btnOuvCompte;
+	private JButton btnDeconnexion;
 	private JLabel lblNewLabel;
 
 	/**
@@ -85,12 +85,12 @@ public class ListeComptesForm {
 		
 		//btnNewButton = new JButton("Modifier");
 		
-		txtGestionDeLa = new JTextField();
-		txtGestionDeLa.setBackground(new Color(118, 199, 240));
-		txtGestionDeLa.setHorizontalAlignment(SwingConstants.CENTER);
-		txtGestionDeLa.setFont(new Font("Verdana", Font.BOLD, 30));
-		txtGestionDeLa.setText("Gestion de la liste des comptes");
-		txtGestionDeLa.setColumns(10);
+		tGestionDeLa = new JTextField();
+		tGestionDeLa.setBackground(new Color(118, 199, 240));
+		tGestionDeLa.setHorizontalAlignment(SwingConstants.CENTER);
+		tGestionDeLa.setFont(new Font("Verdana", Font.BOLD, 30));
+		tGestionDeLa.setText("Gestion de la liste des comptes");
+		tGestionDeLa.setColumns(10);
 		
 		/*
 		
@@ -155,10 +155,10 @@ public class ListeComptesForm {
 		
 ////////////////////////////////////////// TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 		
-		btnNewButton = new JButton("Modifier");
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton.setBackground(new Color(131, 224, 229));
-		btnNewButton.addActionListener(new ActionListener() {
+		btnModifier = new JButton("Modifier");
+		btnModifier.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnModifier.setBackground(new Color(131, 224, 229));
+		btnModifier.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ModifierCompteFormCourant listC = new ModifierCompteFormCourant();
@@ -166,10 +166,10 @@ public class ListeComptesForm {
             }
         });
 		
-		btnNewButton_1 = new JButton("Créditer");
-		btnNewButton_1.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_1.setBackground(new Color(131, 224, 229));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btnCredite = new JButton("Créditer");
+		btnCredite.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnCredite.setBackground(new Color(131, 224, 229));
+		btnCredite.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 CrediterCompteForm listC = new CrediterCompteForm();
@@ -177,10 +177,10 @@ public class ListeComptesForm {
             }
         });
 		 
-		btnNewButton_2 = new JButton("Transf\u00E9rer");
-		btnNewButton_2.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_2.setBackground(new Color(131, 224, 229));
-		btnNewButton_2.addActionListener(new ActionListener() {
+		btnTransferer = new JButton("Transf\u00E9rer");
+		btnTransferer.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnTransferer.setBackground(new Color(131, 224, 229));
+		btnTransferer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 Transferer listC = new Transferer();
@@ -189,9 +189,9 @@ public class ListeComptesForm {
         });
 		
 		
-		btnNewButton_3 = new JButton("Cloturer");
-		btnNewButton_3.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_3.setBackground(new Color(131, 224, 229));
+		btnCloturer = new JButton("Cloturer");
+		btnCloturer.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnCloturer.setBackground(new Color(131, 224, 229));
 		
 		
 		btnOuvdbiter = new JButton("D\u00E9biter");
@@ -205,11 +205,11 @@ public class ListeComptesForm {
             }
         });
 		
-		btnNewButton_5 = new JButton("Ouvrir un compte");
-		btnNewButton_5.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_5.setBackground(new Color(131, 224, 229));
+		btnOuvCompte = new JButton("Ouvrir un compte");
+		btnOuvCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnOuvCompte.setBackground(new Color(131, 224, 229));
 		
-		btnNewButton_5.addActionListener(new ActionListener() {
+		btnOuvCompte.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
 				OuvrirCompteForm listC = new OuvrirCompteForm();
@@ -217,10 +217,10 @@ public class ListeComptesForm {
             }
         });
 		
-		btnNewButton_6 = new JButton("D\u00E9connexion");
-     	btnNewButton_6.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton_6.setBackground(new Color(118, 199, 240));
-		btnNewButton_6.addActionListener(new ActionListener() {
+		btnDeconnexion = new JButton("D\u00E9connexion");
+     	btnDeconnexion.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnDeconnexion.setBackground(new Color(118, 199, 240));
+		btnDeconnexion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
 				CreationBanqueForm listC = new CreationBanqueForm();
@@ -238,19 +238,19 @@ public class ListeComptesForm {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(344)
-					.addComponent(txtGestionDeLa, GroupLayout.PREFERRED_SIZE, 616, GroupLayout.PREFERRED_SIZE)
+					.addComponent(tGestionDeLa, GroupLayout.PREFERRED_SIZE, 616, GroupLayout.PREFERRED_SIZE)
 					.addGap(336))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(185)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnNewButton_5, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnOuvCompte, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnOuvdbiter, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 513, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton_3, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+						.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnCredite, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
 					.addGap(218))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
@@ -262,7 +262,7 @@ public class ListeComptesForm {
 					.addContainerGap(29, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(536)
-					.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+					.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(558, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -271,27 +271,27 @@ public class ListeComptesForm {
 					.addContainerGap()
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
 					.addGap(43)
-					.addComponent(txtGestionDeLa, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+					.addComponent(tGestionDeLa, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 					.addGap(46)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(26)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnNewButton_5, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnOuvCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnCredite, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 							.addGap(27)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnOuvdbiter, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 							.addGap(27)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton_3, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+								.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 							.addContainerGap(75, Short.MAX_VALUE))
 						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_6, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 							.addGap(26))))
 		);
 		frame.getContentPane().setLayout(groupLayout);
