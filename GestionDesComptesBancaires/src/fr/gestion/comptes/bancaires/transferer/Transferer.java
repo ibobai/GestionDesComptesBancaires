@@ -145,7 +145,7 @@ public class Transferer {
 		btnRoutour.setBackground(new Color(192, 192, 192));
 		btnRoutour.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		btnValider.addActionListener(new ActionListener() {
+		btnRoutour.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
