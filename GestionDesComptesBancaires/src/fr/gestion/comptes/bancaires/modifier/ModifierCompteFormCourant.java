@@ -77,11 +77,11 @@ public class ModifierCompteFormCourant  {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblOuvrirUnCompte = new JLabel("Modifier un compte");
-		lblOuvrirUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
-		lblOuvrirUnCompte.setBackground(new Color(118, 199, 240));
-		lblOuvrirUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOuvrirUnCompte.setOpaque(true);
+		JLabel lblModifierUnCompte = new JLabel("Modifier un compte");
+		lblModifierUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
+		lblModifierUnCompte.setBackground(new Color(118, 199, 240));
+		lblModifierUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblModifierUnCompte.setOpaque(true);
 		
 		JLabel lblNumroDeCompte = new JLabel("Numero de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
@@ -182,23 +182,15 @@ public class ModifierCompteFormCourant  {
 		lblSoldeInitial.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSoldeInitial.setBackground(new Color(118, 199, 240));
 		
-	
-		
 		rdbtnCourant = new JRadioButton("Courant");
 		rdbtnCourant.setBackground(new Color(131, 224, 229));
 		rdbtnCourant.setHorizontalAlignment(SwingConstants.CENTER);
 				
-		
 		rdbtnEpargne = new JRadioButton("Epargne");
 		rdbtnEpargne.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnEpargne.setBackground(new Color(131, 224, 229));
 		
-		
-		
-		
-		
 		//Les text
-		
 		
 		numDeCompte = new JTextField();
 		numDeCompte.setColumns(10);
@@ -231,10 +223,6 @@ public class ModifierCompteFormCourant  {
 		tautInteret.setColumns(10);
 		
 		
-		
-		
-		
-		
 		//Pour choisir un seul type de compte.
 		ButtonGroup typeDesComptes = new ButtonGroup();
 		typeDesComptes.add(rdbtnEpargne); 
@@ -243,7 +231,6 @@ public class ModifierCompteFormCourant  {
 		//Pour les listeners !
 //		rdbtnEpargne.addActionListener(this);
 //		rdbtnCourant.addActionListener(this);
-
 
 		rdbtnCourant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -256,7 +243,6 @@ public class ModifierCompteFormCourant  {
 				lblFraisDeTransfert.setBackground(new Color(118, 199, 240));
 				soldeMinAuto.setEditable(true);
 				fraisDeTransfert.setEditable(true);
-
 
 			}
 		});
@@ -284,7 +270,7 @@ public class ModifierCompteFormCourant  {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(516, Short.MAX_VALUE)
-					.addComponent(lblOuvrirUnCompte, GroupLayout.PREFERRED_SIZE, 352, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblModifierUnCompte, GroupLayout.PREFERRED_SIZE, 352, GroupLayout.PREFERRED_SIZE)
 					.addGap(432))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(64)
@@ -341,7 +327,7 @@ public class ModifierCompteFormCourant  {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblOuvrirUnCompte, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+					.addComponent(lblModifierUnCompte, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)

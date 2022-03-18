@@ -26,13 +26,14 @@ import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 public class Transferer {
 
 	private JFrame frame;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_5;
+	private JLabel lblTransferer;
+	private JLabel lblChampsNumDeCompte;
+	private JLabel lblMontant;
+	private JLabel lblNumDeCompte;
 	private JButton btnNewButton_1;
+	private JButton btnRoutour;
 	
-	private JTextField textField;
+	private JTextField txtMontant;
 
 
 	/**
@@ -68,11 +69,11 @@ public class Transferer {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnNewButton.setBackground(new Color(118, 199, 240));
+		JButton btnValider = new JButton("Valider");
+		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValider.setBackground(new Color(118, 199, 240));
 	
-		btnNewButton.addActionListener(new ActionListener() {
+		btnValider.addActionListener(new ActionListener() {
 			  public void actionPerformed(ActionEvent arg0) {
 	                frame.setVisible(false);
 	                ListeComptesForm listC = new ListeComptesForm();
@@ -81,11 +82,11 @@ public class Transferer {
 	        });
 			
 
-		lblNewLabel = new JLabel("Transf\u00E9rer");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Verdana", Font.BOLD, 30));
-		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(new Color(118, 199, 240));
+		lblTransferer = new JLabel("Transf\u00E9rer");
+		lblTransferer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTransferer.setFont(new Font("Verdana", Font.BOLD, 30));
+		lblTransferer.setOpaque(true);
+		lblTransferer.setBackground(new Color(118, 199, 240));
 		
 
 
@@ -94,22 +95,22 @@ public class Transferer {
 		
 		
 
-		lblNewLabel_2 = new JLabel("  1112311555");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBackground(new Color(255, 255, 255));
-		lblNewLabel_2.setOpaque(true);
+		lblChampsNumDeCompte = new JLabel("  1112311555");
+		lblChampsNumDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblChampsNumDeCompte.setBackground(new Color(255, 255, 255));
+		lblChampsNumDeCompte.setOpaque(true);
 
-		lblNewLabel_3 = new JLabel("Montant :");
-		lblNewLabel_3.setOpaque(true);
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_3.setBackground(new Color(131, 224, 229));
+		lblMontant = new JLabel("Montant :");
+		lblMontant.setOpaque(true);
+		lblMontant.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMontant.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMontant.setBackground(new Color(131, 224, 229));
 
-		lblNewLabel_5 = new JLabel("Num\u00E9ro du compte Emetteur :");
-		lblNewLabel_5.setOpaque(true);
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_5.setBackground(new Color(131, 224, 229));
+		lblNumDeCompte = new JLabel("Num\u00E9ro du compte Emetteur :");
+		lblNumDeCompte.setOpaque(true);
+		lblNumDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumDeCompte.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNumDeCompte.setBackground(new Color(131, 224, 229));
 
 
 		btnNewButton_1 = new JButton("<-------");
@@ -124,11 +125,11 @@ public class Transferer {
         });
 
 
-		btnNewButton_1 = new JButton("<-------");
-		btnNewButton_1.setBackground(new Color(192, 192, 192));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnRoutour = new JButton("<-------");
+		btnRoutour.setBackground(new Color(192, 192, 192));
+		btnRoutour.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		btnNewButton.addActionListener(new ActionListener() {
+		btnValider.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
@@ -138,8 +139,10 @@ public class Transferer {
 		
 		
 
-		textField = new JTextField();
-		textField.setColumns(10);
+		txtMontant = new JTextField();
+		txtMontant.setToolTipText("");
+		txtMontant.setColumns(10);
+		System.out.println(txtMontant.getText());
 
 		// table
 
@@ -175,52 +178,53 @@ public class Transferer {
 		// Layout
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
-				.createSequentialGroup().addGap(101).addComponent(btnNewButton_1).addPreferredGap(
-						ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(101)
+					.addComponent(btnRoutour)
+					.addPreferredGap(ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 782, GroupLayout.PREFERRED_SIZE)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 277,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(37).addComponent(textField, GroupLayout.PREFERRED_SIZE, 252,
-												GroupLayout.PREFERRED_SIZE))
-								.addGroup(groupLayout.createSequentialGroup()
-										.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 256,
-												GroupLayout.PREFERRED_SIZE)
-										.addGap(48).addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 470,
-												GroupLayout.PREFERRED_SIZE)))
-						.addGroup(groupLayout.createSequentialGroup()
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
-								.addGap(190)))
-				.addContainerGap(257, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup().addContainerGap(523, Short.MAX_VALUE)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE)
-						.addGap(493)));
-		groupLayout
-				.setVerticalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup().addContainerGap()
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-								.addGap(53)
-								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
-										.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-								.addGap(18)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-										GroupLayout.PREFERRED_SIZE)
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 782, GroupLayout.PREFERRED_SIZE)
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 277, GroupLayout.PREFERRED_SIZE)
+								.addGap(37)
+								.addComponent(txtMontant, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
+							.addGroup(groupLayout.createSequentialGroup()
+								.addComponent(lblNumDeCompte, GroupLayout.PREFERRED_SIZE, 256, GroupLayout.PREFERRED_SIZE)
 								.addGap(48)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 43,
-												GroupLayout.PREFERRED_SIZE)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnNewButton_1).addComponent(btnNewButton,
-												GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-								.addGap(41)));
+								.addComponent(lblChampsNumDeCompte, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 138, GroupLayout.PREFERRED_SIZE)
+							.addGap(190)))
+					.addContainerGap(257, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(523, Short.MAX_VALUE)
+					.addComponent(lblTransferer, GroupLayout.PREFERRED_SIZE, 268, GroupLayout.PREFERRED_SIZE)
+					.addGap(493))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblTransferer, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+					.addGap(53)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(lblChampsNumDeCompte, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNumDeCompte, GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(48)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtMontant, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnRoutour)
+						.addComponent(btnValider, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+					.addGap(41))
+		);
 		frame.getContentPane().setLayout(groupLayout);
 
 	}
