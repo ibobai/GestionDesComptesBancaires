@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import java.awt.Font;
 
 import java.awt.Color;
-
+import java.awt.Cursor;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -27,6 +27,8 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class CreationBanqueForm {
 
@@ -101,6 +103,14 @@ public class CreationBanqueForm {
 		lblUtilisateur.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton btnValiderCreationBanque = new JButton("Valider");
+		btnValiderCreationBanque.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				Cursor  cur1 = new Cursor(Cursor.MOVE_CURSOR);
+				btnValiderCreationBanque.setCursor(cur1);
+				
+			}
+		});
 		btnValiderCreationBanque.setBackground(new Color(118, 199, 240));
 		btnValiderCreationBanque.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValiderCreationBanque.addActionListener(new ActionListener() {
