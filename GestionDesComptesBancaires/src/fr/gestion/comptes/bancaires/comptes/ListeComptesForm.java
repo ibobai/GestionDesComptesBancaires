@@ -243,6 +243,9 @@ public class ListeComptesForm {
                 listC.main(null);
             }
         });
+	
+		
+	///////// OUVRIR UN COMPTE #######################################################################################
 		
 		btnOuvCompte = new JButton("Ouvrir un compte");
 		btnOuvCompte.addMouseMotionListener(new MouseMotionAdapter() {
@@ -254,7 +257,8 @@ public class ListeComptesForm {
 					
 				}
 			});
-			
+		
+		
 		btnOuvCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnOuvCompte.setBackground(new Color(131, 224, 229));
 		
@@ -265,6 +269,10 @@ public class ListeComptesForm {
                 listC.main(null);
             }
         });
+		
+		
+		
+		////// DECONNEXION ###############################################################################################"""
 		
 		btnDeconnexion = new JButton("D\u00E9connexion");
 		btnDeconnexion.addMouseMotionListener(new MouseMotionAdapter() {

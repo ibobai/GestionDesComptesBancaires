@@ -26,7 +26,6 @@ import java.awt.event.MouseEvent;
 public class OuvrirCompteForm  {
 
 	private JFrame frame;
-	private JTextField numDeCompte;
 	private JTextField nomDeClient;
 	private JTextField telDeClient;
 	private JTextField fraisDeTransfert;
@@ -41,6 +40,9 @@ public class OuvrirCompteForm  {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		System.out.println(GenererNumCompte());
+	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -58,6 +60,11 @@ public class OuvrirCompteForm  {
 	 */
 	public OuvrirCompteForm() {
 		initialize();
+	}
+	public static int GenererNumCompte() {
+		double nb = Math.random()*1000000;
+		int res=(int)Math.floor(nb);
+		return (res);
 	}
 
 	
@@ -81,10 +88,15 @@ public class OuvrirCompteForm  {
 		lblOuvrirUnCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblOuvrirUnCompte.setOpaque(true);
 		
-		JLabel lblNumroDeCompte = new JLabel("Numero de compte");
+		
+		JLabel lblNumroDeCompte = new JLabel("Numéro de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
+		
+		
+		
+		
 		
 		JButton btnBack = new JButton("<-------");
 		btnBack.addMouseMotionListener(new MouseMotionAdapter() {
@@ -121,31 +133,7 @@ public class OuvrirCompteForm  {
 			}
 		});
 		btnValider.setBackground(new Color(118, 199, 240));
-		
-		
-		/* btnNewButton = new JButton("Valider");
-		btnNewButton.setBackground(new Color(131, 224, 229));
-		btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
-                ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
-            }
-        });
-		
-		
-		button = new JButton("<-------");
-		button.setBackground(new Color(192, 192, 192));
-		button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
-                ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
-            }
-        });
-		*/
-		
-		
+			
 		JLabel lblTypeDeCompte = new JLabel("Type de compte");
 		lblTypeDeCompte.setOpaque(true);
 		lblTypeDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
@@ -206,16 +194,6 @@ public class OuvrirCompteForm  {
 		rdbtnEpargne = new JRadioButton("Epargne");
 		rdbtnEpargne.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnEpargne.setBackground(new Color(131, 224, 229));
-		
-		
-		
-		
-		
-		//Les text
-		
-		
-		numDeCompte = new JTextField();
-		numDeCompte.setColumns(10);
 		
 		nomDeClient = new JTextField();
 		nomDeClient.setColumns(10);
@@ -290,6 +268,15 @@ public class OuvrirCompteForm  {
 			}
 		});
 		
+		JLabel lblNumCompteGénéré = new JLabel(String.valueOf(GenererNumCompte()));
+		lblNumCompteGénéré.setBackground(new Color(245, 255, 250));
+		
+		lblNumCompteGénéré.setOpaque(true);
+		lblNumCompteGénéré.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		
+		
+		//  Layout #############################################################################################################################################"
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -303,7 +290,7 @@ public class OuvrirCompteForm  {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnBack)
-							.addPreferredGap(ComponentPlacement.RELATED, 991, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED, 1004, Short.MAX_VALUE)
 							.addComponent(btnValider)
 							.addGap(82))
 						.addGroup(groupLayout.createSequentialGroup()
@@ -320,8 +307,11 @@ public class OuvrirCompteForm  {
 							.addGap(92)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addGroup(groupLayout.createSequentialGroup()
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(soldeInitial, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
+									.addContainerGap())
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+										.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 											.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 												.addComponent(nomDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
 												.addComponent(telDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
@@ -333,21 +323,18 @@ public class OuvrirCompteForm  {
 												.addComponent(lblPrenom, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 												.addComponent(lblSoldeMinAuto, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
 												.addComponent(lblTautInteret, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)))
-										.addGroup(groupLayout.createSequentialGroup()
+										.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 											.addComponent(rdbtnCourant, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
 											.addComponent(rdbtnEpargne, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-										.addComponent(numDeCompte, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+										.addComponent(lblNumCompteGénéré, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
 									.addGap(103)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(prenomDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
 										.addComponent(soldeMinAuto, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
 										.addComponent(adresseDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
 										.addComponent(tautInteret, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE))
-									.addGap(157))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(soldeInitial, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
-									.addContainerGap())))))
+									.addGap(157))))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -357,7 +344,7 @@ public class OuvrirCompteForm  {
 					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(numDeCompte, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNumCompteGénéré, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 					.addGap(29)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTypeDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
@@ -395,7 +382,7 @@ public class OuvrirCompteForm  {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnBack)
 						.addComponent(btnValider))
-					.addContainerGap(77, Short.MAX_VALUE))
+					.addContainerGap(72, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
