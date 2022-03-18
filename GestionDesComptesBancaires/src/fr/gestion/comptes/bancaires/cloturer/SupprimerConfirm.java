@@ -5,8 +5,15 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 
 public class SupprimerConfirm {
 
@@ -43,22 +50,45 @@ public class SupprimerConfirm {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblNewLabel = new JLabel("Le compte est supprim\u00E9 !");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		JLabel lblCompteSupprimé = new JLabel("Le compte est supprim\u00E9 !");
+		lblCompteSupprimé.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
+		JButton btnBack = new JButton("Retour \u00E0 la page d'accueil");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnBack.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
+		
+		
+		
+/////////////////////////////  LAYOUT ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(116)
-					.addComponent(lblNewLabel)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(116)
+							.addComponent(lblCompteSupprimé))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(124)
+							.addComponent(btnBack)))
 					.addContainerGap(117, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(103)
-					.addComponent(lblNewLabel)
-					.addContainerGap(136, Short.MAX_VALUE))
+					.addGap(65)
+					.addComponent(lblCompteSupprimé)
+					.addGap(67)
+					.addComponent(btnBack)
+					.addContainerGap(82, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

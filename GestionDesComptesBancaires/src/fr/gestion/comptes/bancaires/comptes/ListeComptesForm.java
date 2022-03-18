@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
+import fr.gestion.comptes.bancaires.cloturer.CloturerCompteForm;
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 
 
@@ -224,6 +225,13 @@ public class ListeComptesForm {
 		});
 		btnCloturer.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnCloturer.setBackground(new Color(131, 224, 229));
+		btnCloturer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                frame.setVisible(false);
+                CloturerCompteForm listC = new CloturerCompteForm();
+                listC.main(null);
+            }
+        });
 		
 		
 		btnOuvdbiter = new JButton("D\u00E9biter");
