@@ -124,17 +124,7 @@ public class Transferer {
         });
 
 
-		btnNewButton_1 = new JButton("<-------");
-		btnNewButton_1.setBackground(new Color(192, 192, 192));
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
-                ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
-            }
-        });
 		
 		
 

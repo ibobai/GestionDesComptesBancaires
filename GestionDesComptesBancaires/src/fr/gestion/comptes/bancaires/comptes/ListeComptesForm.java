@@ -41,7 +41,6 @@ import javax.swing.border.BevelBorder;
 public class ListeComptesForm {
 
 	private JFrame frame;
-	private JTextField tGestionDeLa;
 	private JTable table;
 	private JButton btnModifier;
 	private JButton btnCredite;
@@ -81,16 +80,6 @@ public class ListeComptesForm {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
-		
-		
-		//btnNewButton = new JButton("Modifier");
-		
-		tGestionDeLa = new JTextField();
-		tGestionDeLa.setBackground(new Color(118, 199, 240));
-		tGestionDeLa.setHorizontalAlignment(SwingConstants.CENTER);
-		tGestionDeLa.setFont(new Font("Verdana", Font.BOLD, 30));
-		tGestionDeLa.setText("Gestion de la liste des comptes");
-		tGestionDeLa.setColumns(10);
 		
 		/*
 		
@@ -231,15 +220,20 @@ public class ListeComptesForm {
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(ListeComptesForm.class.getResource("/res/ISN_BANK_logo_sans_trais.png")));	
 		
+		JLabel lblGestionListeCompte = new JLabel("Gestion de la liste des comptes");
+		lblGestionListeCompte.setFont(new Font("Verdana", Font.BOLD, 30));
+	
+		lblGestionListeCompte.setBackground(new Color(118, 199, 240));
+		lblGestionListeCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGestionListeCompte.setOpaque(true);
+		
+		
+		
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(344)
-					.addComponent(tGestionDeLa, GroupLayout.PREFERRED_SIZE, 616, GroupLayout.PREFERRED_SIZE)
-					.addGap(336))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(185)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -255,7 +249,9 @@ public class ListeComptesForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(1176, Short.MAX_VALUE))
+					.addGap(253)
+					.addComponent(lblGestionListeCompte, GroupLayout.PREFERRED_SIZE, 576, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(347, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(17)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)
@@ -263,18 +259,21 @@ public class ListeComptesForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(536)
 					.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(558, Short.MAX_VALUE))
+					.addContainerGap(570, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-					.addGap(43)
-					.addComponent(tGestionDeLa, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-					.addGap(46)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(59)
+							.addComponent(lblGestionListeCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)))
+					.addGap(102)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(26)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
@@ -289,7 +288,7 @@ public class ListeComptesForm {
 								.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 							.addContainerGap(75, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 							.addGap(26))))
