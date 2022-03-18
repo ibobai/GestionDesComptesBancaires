@@ -64,7 +64,12 @@ public class OuvrirCompteForm  {
 	public static int GenererNumCompte() {
 		double nb = Math.random()*1000000;
 		int res=(int)Math.floor(nb);
-		return (res);
+		
+		while (res < 100000) {
+			nb = Math.random()*1000000;
+			res=(int)Math.floor(nb);	
+		}
+		return (res);	
 	}
 
 	
@@ -93,8 +98,6 @@ public class OuvrirCompteForm  {
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
-		
-		
 		
 		
 		
