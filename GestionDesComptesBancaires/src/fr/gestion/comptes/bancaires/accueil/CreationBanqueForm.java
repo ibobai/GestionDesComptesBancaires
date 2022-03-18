@@ -23,12 +23,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
 
 public class CreationBanqueForm {
 
@@ -39,8 +41,9 @@ public class CreationBanqueForm {
 	private JLabel lblLogo;
 	private JLabel lblUtilisateur;
 	private JLabel lblMpd;
-	private JTextField InputMdp;
 	private JTextField InputUtilisateur;
+	protected Object btnAnnuler;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -114,10 +117,35 @@ public class CreationBanqueForm {
 		btnValiderCreationBanque.setBackground(new Color(118, 199, 240));
 		btnValiderCreationBanque.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValiderCreationBanque.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
-				ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
+            public void actionPerformed(ActionEvent e) {
+            	
+            	if (e.getSource()==btnAnnuler)System.exit(0);
+            	else {
+            		String lg="essai";
+            		String mp="123";
+            		String lg1=InputUtilisateur.getText();
+            		String mp1=passwordField.getText();
+            		if (lg1.length()==0  || mp1.length()==0) {
+            			InputUtilisateur.setText("");
+            			passwordField.setText("");
+            			JOptionPane.showInputDialog(this, "Vos saie ne son pas correcte");
+            			
+            		}
+            		else if(lg.contentEquals(lg1) && mp.contentEquals(mp1)) {
+            			JOptionPane.showInputDialog(this, "Vous êtes autentifié (es)");frame.setVisible(false);
+                        ListeComptesForm listC = new ListeComptesForm();
+                        listC.main(null);
+            			
+            		}
+            		
+            		else {
+            			InputUtilisateur.setText("");
+            			passwordField.setText("");
+            			JOptionPane.showInputDialog(this, "Le login ou mot de passe est incorecte");
+            			
+            		}
+            	}
+                
             }
         });
 	
@@ -129,11 +157,16 @@ public class CreationBanqueForm {
 		lblMpd.setFont(new Font("Verdana", Font.PLAIN, 15));
 		lblMpd.setBackground(new Color(131, 224, 229));
 		
-		InputMdp = new JTextField();
-		InputMdp.setColumns(10);
-		
 		InputUtilisateur = new JTextField();
 		InputUtilisateur.setColumns(10);
+		
+		JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
+		passwordField = new JPasswordField();
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
@@ -148,7 +181,7 @@ public class CreationBanqueForm {
 					.addComponent(textField_1, 709, 709, 709)
 					.addGap(109))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(161, Short.MAX_VALUE)
+					.addContainerGap(148, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
@@ -160,14 +193,17 @@ public class CreationBanqueForm {
 								.addGap(143))))
 					.addGap(4)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
-						.addComponent(InputMdp, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
-						.addComponent(InputUtilisateur, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE))
-					.addGap(197))
+						.addComponent(passwordField)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+							.addComponent(InputUtilisateur, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)))
+					.addGap(210))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(625, Short.MAX_VALUE)
+					.addContainerGap(645, Short.MAX_VALUE)
 					.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-					.addGap(535))
+					.addGap(103)
+					.addComponent(btnAnnuler)
+					.addGap(343))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(398, Short.MAX_VALUE)
 					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 531, GroupLayout.PREFERRED_SIZE)
@@ -183,11 +219,13 @@ public class CreationBanqueForm {
 						.addComponent(lblUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
 						.addComponent(InputUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
 					.addGap(31)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(InputMdp, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(passwordField)
+						.addComponent(lblMpd, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
 					.addGap(74)
-					.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnAnnuler))
 					.addGap(165)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()

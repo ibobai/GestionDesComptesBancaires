@@ -93,13 +93,6 @@ public class ModifierCompteFormCourant  {
 		lblNumroDeCompte.setOpaque(true);
 		
 		JButton btnBack = new JButton("<-------");
-		btnBack.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseMoved(MouseEvent e) {
-				Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
-				btnBack.setCursor(cur1);
-			}
-		});
 		btnBack.setBackground(new Color(192, 192, 192));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
