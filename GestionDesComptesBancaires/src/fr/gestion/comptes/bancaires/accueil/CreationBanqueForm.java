@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.daos.Main;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -132,7 +133,8 @@ public class CreationBanqueForm {
             			
             		}
             		else if(lg.contentEquals(lg1) && mp.contentEquals(mp1)) {
-            			JOptionPane.showInputDialog(this, "Vous êtes autentifié (es)");frame.setVisible(false);
+            			Main.getCompte(1);
+            			JOptionPane.showInputDialog(this, "Vous ï¿½tes autentifiï¿½ (es)");frame.setVisible(false);
                         ListeComptesForm listC = new ListeComptesForm();
                         listC.main(null);
             			
