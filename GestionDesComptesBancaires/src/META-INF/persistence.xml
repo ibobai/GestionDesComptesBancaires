@@ -3,11 +3,11 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<persistence-unit name="GestionDesComptesBancaires">
+	<persistence-unit name="GestionDesComptesBancaires" transaction-type="RESOURCE_LOCAL">
 		<class>fr.gestion.comptes.bancaires.pojos.Client</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Compte</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Comptecous</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Compteepa</class>
-		<class>fr.gestion.comptes.bancaires.pojos.Compte</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Conseiller</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Transfert</class>
 
@@ -15,9 +15,12 @@
 			<property name="hibernate.connection.driver_class"
 				value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.url"
-				value="jdbc:mysql://localhost/gestionBancaire" />
+				value="jdbc:mysql://localhost:3307/isnbank" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.connection.username" value="root" />
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/isnbank"/>
 
 		</properties>
 	</persistence-unit>

@@ -5,18 +5,24 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import fr.gestion.comptes.bancaires.pojos.Compte;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
 
 public class Main {
 
 	
-
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GestionDesComptesBancaires");
 	private static EntityManager em = emf.createEntityManager();
-
+	
 	public static void getCompte(Integer id) {
 		Compte p1 = em.find(Compte.class, id);
-		System.out.println(p1.getNumCom());
+		Comptecous c1 = em.find(Comptecous.class, id);
+		System.out.println(c1.getCompteID());
+		System.out.println(p1.getSolde());
 	}
+
+	
+
+
 	public static void persistCompte(Compte  c) {
 
 		Compte p2 = new Compte();
