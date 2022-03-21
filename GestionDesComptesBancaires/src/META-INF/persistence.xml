@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="GestionDesComptesBancaires">
+		<class>fr.gestion.comptes.bancaires.pojos.Client</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Comptecous</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Compteepa</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Compte</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Conseiller</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Transfert</class>
+
+		<properties>
+			<property name="hibernate.connection.driver_class"
+				value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost/gestionBancaire" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.username" value="root" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
