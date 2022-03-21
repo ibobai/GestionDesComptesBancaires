@@ -1,18 +1,23 @@
 package fr.gestion.comptes.bancaires.ouvrir;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
+import javax.print.attribute.AttributeSet;
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,7 +28,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 
 import javax.swing.SwingConstants;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
+
 import java.awt.event.MouseMotionAdapter;
+import java.text.NumberFormat;
 import java.awt.event.MouseEvent;
 
 public class OuvrirCompteForm  {
@@ -43,9 +52,6 @@ public class OuvrirCompteForm  {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
-		System.out.println(GenererNumCompte());
-	
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -64,6 +70,9 @@ public class OuvrirCompteForm  {
 	public OuvrirCompteForm() {
 		initialize();
 	}
+	
+	//################################        fonction   Generer      ####################################################################
+	
 	public static int GenererNumCompte() {
 		double nb = Math.random()*1000000;
 		int res=(int)Math.floor(nb);
@@ -74,6 +83,34 @@ public class OuvrirCompteForm  {
 		}
 		return (res);	
 	}
+	
+	//################################        Methode limitation de textfield       ####################################################################
+	
+	class JTextFieldLimit extends PlainDocument {
+		  private int limit;
+		  JTextFieldLimit(int limit) {
+		    super();
+		    this.limit = limit;
+		  }
+
+		  JTextFieldLimit(int limit, boolean upper) {
+		    super();
+		    this.limit = limit;
+		  }
+
+		  public void insertString(int offset, String str, AttributeSet attr) throws BadLocationException {
+		    if (str == null)
+		      return;
+
+		    if ((getLength() + str.length()) <= limit) {
+		      super.insertString(offset, str, (javax.swing.text.AttributeSet) attr);
+		    }
+		  }
+		}
+	
+	
+	//################################                  ####################################################################
+
 
 	
 	//Toutes les variables.
@@ -84,6 +121,7 @@ public class OuvrirCompteForm  {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setResizable(false);
@@ -222,23 +260,49 @@ public class OuvrirCompteForm  {
 			}
 		});
 		
-	//  ###################       champ de texte        ############################################################################################################################
+	//  ###################       champs de texte        ############################################################################################################################
 		
 		
 		nomDeClient = new JTextField();
-		nomDeClient.setColumns(10);
+		//nomDeClient.setColumns(10);
+		nomDeClient.setDocument(new JTextFieldLimit(10));
 		
 		telDeClient = new JTextField();
 		telDeClient.setColumns(10);
 		
 		fraisDeTransfert = new JTextField();
 		fraisDeTransfert.setColumns(10);
+		fraisDeTransfert.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'événement
+		        }
+		     }
+		});
 		
 		plafond = new JTextField();
 		plafond.setColumns(10);
-		
+		plafond.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'événement
+		        }
+		     }
+		});
+				
 		soldeInitial = new JTextField();
-		soldeInitial.setColumns(10);
+		soldeInitial.setColumns(5);
+		soldeInitial.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'événement
+		        }
+		     }
+		});
+		
 		
 		prenomDeClient = new JTextField();
 		prenomDeClient.setColumns(10);
@@ -248,9 +312,27 @@ public class OuvrirCompteForm  {
 		
 		soldeMinAuto = new JTextField();
 		soldeMinAuto.setColumns(10);
+		soldeMinAuto.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE)) {
+		            e.consume();  // ignorer l'événement
+		        }
+		     }
+		});
+		
 		
 		tautInteret = new JTextField();
 		tautInteret.setColumns(10);
+		tautInteret.addKeyListener(new KeyAdapter() {
+		    public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'événement
+		        }
+		     }
+		});
+
 				
 		
 		//Pour choisir un seul type de compte.
@@ -293,21 +375,17 @@ public class OuvrirCompteForm  {
 		                listC.main(null);
 					}
 					else {
-						/*
-						JOptionPane.showInputDialog(this, "Vos saie ne son pas correcte"); */
-						
-						
-						JDialog d = new JDialog(frame, "Boite de dialogue"); 
-					      // Créer une étiquette
-					    JLabel l = new JLabel("   Veuillez saisir tous les champs ! "); 
+						JFrame d = new  JFrame();
+					    JLabel l = new JLabel("Veuillez saisir tous les champs !" , SwingConstants.CENTER);  
 					     // Ajouter l'étiquette à la boîte de dialogue 
-					    d.add(l); 
+					    d.getContentPane().add(l); 
 					    // Définir la taille de la boîte de dialogue 
-					    d.setSize(300, 150); 
-					    // Définir la visibilité de la boîte de dialogue
-					    d.setVisible(true); 
+					    d.setPreferredSize(new Dimension(280, 200));
+					    d.setVisible(true);
+					    d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					    d.pack();
+					    d.setLocationRelativeTo(null);
 					}
-					//On ouvre le deuxième formulaire qd tout est bon ! 
 					
 	                
 				} catch (Exception e) {
@@ -318,40 +396,14 @@ public class OuvrirCompteForm  {
 		});
 		btnValider.setBackground(new Color(118, 199, 240));
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener()
-		{
-		  public void actionPerformed(ActionEvent e)
-		  {
-		    //afficher le jdialog lorsque le bouton est cliqué
-			  /*
-		    JDialog dialog = new JDialog(frame, "Welcome to WayToLearnX", true);
-		    dialog.setLocationRelativeTo(frame);
-		    dialog.pack();
-		    dialog.setVisible(true);
-		    dialog.setSize(new Dimension(100, 100)); */
-			JDialog d = new JDialog(frame, "Boite de dialogue"); 
-	      // Créer une étiquette
-	        JLabel l = new JLabel("   Ceci est une boite de dialogue.  "); 
-	     // Ajouter l'étiquette à la boîte de dialogue 
-	        d.add(l); 
-	    // Définir la taille de la boîte de dialogue 
-	        d.setSize(300, 150); 
-	    // Définir la visibilité de la boîte de dialogue
-	        d.setVisible(true); 
-		  }
-		});
-		
 		
 		//###################      Layout     #############################################################################################################################################"
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(99)
-					.addComponent(btnNewButton)
-					.addPreferredGap(ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+					.addContainerGap(516, Short.MAX_VALUE)
 					.addComponent(lblOuvrirUnCompte, GroupLayout.PREFERRED_SIZE, 352, GroupLayout.PREFERRED_SIZE)
 					.addGap(432))
 				.addGroup(groupLayout.createSequentialGroup()
@@ -400,7 +452,7 @@ public class OuvrirCompteForm  {
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(soldeInitial, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
 									.addContainerGap())))))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(1000, Short.MAX_VALUE)
 					.addComponent(btnValider)
 					.addGap(219))
@@ -409,9 +461,7 @@ public class OuvrirCompteForm  {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblOuvrirUnCompte, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnNewButton))
+					.addComponent(lblOuvrirUnCompte, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
@@ -445,7 +495,7 @@ public class OuvrirCompteForm  {
 						.addComponent(lblTautInteret, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
 						.addComponent(plafond, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
 						.addComponent(tautInteret, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(26)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
@@ -453,8 +503,8 @@ public class OuvrirCompteForm  {
 								.addComponent(soldeInitial, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 							.addGap(34)
 							.addComponent(btnBack)
-							.addContainerGap(73, Short.MAX_VALUE))
-						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addContainerGap(78, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(btnValider)
 							.addGap(47))))
