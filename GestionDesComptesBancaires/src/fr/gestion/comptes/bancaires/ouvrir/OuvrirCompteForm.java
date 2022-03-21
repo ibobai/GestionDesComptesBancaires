@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -292,6 +293,10 @@ public class OuvrirCompteForm  {
 		                listC.main(null);
 					}
 					else {
+						/*
+						JOptionPane.showInputDialog(this, "Vos saie ne son pas correcte"); */
+						
+						
 						JDialog d = new JDialog(frame, "Boite de dialogue"); 
 					      // Créer une étiquette
 					    JLabel l = new JLabel("   Veuillez saisir tous les champs ! "); 
