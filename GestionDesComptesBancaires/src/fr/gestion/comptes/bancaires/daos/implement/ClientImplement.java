@@ -1,13 +1,11 @@
 package fr.gestion.comptes.bancaires.daos.implement;
 
 import java.util.List;
-
 import fr.gestion.comptes.bancaires.dao.interfaces.ClientDAO;
 import fr.gestion.comptes.bancaires.obj.ClientObj;
 import fr.gestion.comptes.bancaires.pojos.Client;
 
 public class ClientImplement implements ClientDAO {
-
 	@Override
 	public ClientObj getClientById(Integer id) {
 		Client c = em.find(Client.class, id);
@@ -15,7 +13,6 @@ public class ClientImplement implements ClientDAO {
 		System.out.println(cc.getNom() +" "+ cc.getPrenom());
 		return cc;
 	}
-
 	@Override
 	public List getClients() {
 		List<Client> lc =  em.createQuery("From Client", Client.class).getResultList();
@@ -24,7 +21,6 @@ public class ClientImplement implements ClientDAO {
 		}
 		return lc;
 	}
-
 	@Override
 	public ClientObj updateClient(Integer id, String Change, String indic) {
 		
@@ -52,7 +48,7 @@ public class ClientImplement implements ClientDAO {
 	}
 
 	@Override
-	public List<Client> deleteClient(Integer id) {
+	public void deleteClient(Integer id) {
 		try {
 			//em.createQuery("DELETE from Client WHERE clientID ="+id);
 			
@@ -68,7 +64,6 @@ public class ClientImplement implements ClientDAO {
 			System.out.println("Client has not  been deleted "+e);
 
 		}
-		return null;
 	}
 
 	public void createClient(ClientObj co) {
