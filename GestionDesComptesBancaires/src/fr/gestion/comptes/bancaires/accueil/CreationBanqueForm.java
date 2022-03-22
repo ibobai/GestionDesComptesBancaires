@@ -130,7 +130,7 @@ public class CreationBanqueForm extends ClientImplement {
             			
             			ClientImplement c = new ClientImplement();
             		//	c.deleteClient(2);
-            			createClient(12, "eee", "hhhh", "jjjkjkj", "kji", "hgjgj", 1);
+            			//createClient(12, "eee", "hhhh", "jjjkjkj", "kji", "hgjgj", 1);
             			
             		
             			
