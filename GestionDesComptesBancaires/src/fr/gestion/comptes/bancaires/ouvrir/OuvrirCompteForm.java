@@ -132,7 +132,7 @@ public class OuvrirCompteForm  {
 		lblOuvrirUnCompte.setOpaque(true);
 		
 		
-		JLabel lblNumroDeCompte = new JLabel("Num�ro de compte");
+		JLabel lblNumroDeCompte = new JLabel("Numero de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
@@ -171,7 +171,7 @@ public class OuvrirCompteForm  {
 		lblTel.setOpaque(true);
 		lblTel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTel.setBackground(new Color(118, 199, 240));
-		
+	
 		JLabel lblFraisDeTransfert = new JLabel("Frais de transfert");
 		lblFraisDeTransfert.setOpaque(true);
 		lblFraisDeTransfert.setHorizontalAlignment(SwingConstants.CENTER);
@@ -182,7 +182,7 @@ public class OuvrirCompteForm  {
 		lblPlafond.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlafond.setBackground(new Color(118, 199, 240));
 		
-		JLabel lblPrenom = new JLabel("Pr�nom");
+		JLabel lblPrenom = new JLabel("Prenom");
 		lblPrenom.setOpaque(true);
 		lblPrenom.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrenom.setBackground(new Color(118, 199, 240));
@@ -259,6 +259,14 @@ public class OuvrirCompteForm  {
 		nomDeClient.setColumns(10);
 		
 		telDeClient = new JTextField();
+		telDeClient.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		telDeClient.setColumns(10);
 		
 		fraisDeTransfert = new JTextField();

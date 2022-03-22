@@ -197,7 +197,7 @@ public class ListeComptesForm {
 			}
 		});
 
-		btnCredite = new JButton("Cr�diter");
+		btnCredite = new JButton("Crediter");
 		btnCredite.setEnabled(false);
 		btnCredite.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
@@ -254,7 +254,7 @@ public class ListeComptesForm {
 			}
 		});
 
-		btnDiter = new JButton("D\u00E9biter");
+		btnDiter = new JButton("Debiter");
 		btnDiter.setEnabled(false);
 		btnDiter.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
