@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class DebiterCompteForm {
 
@@ -92,12 +94,36 @@ public class DebiterCompteForm {
 		lblNumroDeCompte_2_2.setBackground(new Color(118, 199, 240));
 		
 		textDebiter = new JTextField();
+		textDebiter.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		textDebiter.setColumns(10);
 		
 		textSolde = new JTextField();
+		textSolde.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		textSolde.setColumns(10);
 		
 		textMontant = new JTextField();
+		textMontant.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		textMontant.setColumns(10);
 		
 		btnValider = new JButton("Valider");
