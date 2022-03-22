@@ -238,8 +238,6 @@ public class OuvrirCompteForm  {
 		rdbtnEpargne = new JRadioButton("Epargne");
 		rdbtnEpargne.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnEpargne.setBackground(new Color(131, 224, 229));
-		
-
 		rdbtnEpargne.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -252,17 +250,13 @@ public class OuvrirCompteForm  {
 				lblPlafond.setBackground(new Color(118, 199, 240));
 				tautInteret.setEditable(true);
 				plafond.setEditable(true);
-
-
 			}
 		});
 		
 	//  ###################       champs de texte        ############################################################################################################################
 		
-		
 		nomDeClient = new JTextField();
-		//nomDeClient.setColumns(10);
-		nomDeClient.setDocument(new JTextFieldLimit(10));
+		nomDeClient.setColumns(10);
 		
 		telDeClient = new JTextField();
 		telDeClient.setColumns(10);
@@ -394,12 +388,17 @@ public class OuvrirCompteForm  {
 		btnValider.setBackground(new Color(118, 199, 240));
 		
 		
-		//############################################################## Persisting client and account #######################################
+		//###################################### Persisting client and account ################################################################
 		
 		ClientObj client = new ClientObj();
 		CompteObj compte = new CompteObj();
 		ComptecousObj compteCous = new ComptecousObj();
 		CompteepaObj compteepaCous = new CompteepaObj();
+		
+		
+		
+		
+		
 		
 		
 		//Client 

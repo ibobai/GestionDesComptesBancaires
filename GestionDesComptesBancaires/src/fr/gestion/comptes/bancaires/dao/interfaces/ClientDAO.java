@@ -23,7 +23,7 @@ public interface ClientDAO {
 	
 	public ClientObj getClientById(Integer id);
 	public List getClients();
-	public List<Client> deleteClient(Integer id);
+	public void deleteClient(Integer id);
 	public ClientObj updateClient(Integer id, String Change, String indic);
 	public void createClient(ClientObj co);
 	

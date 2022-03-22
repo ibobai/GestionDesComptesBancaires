@@ -129,12 +129,16 @@ public class CreationBanqueForm extends ClientImplement {
             			
             			
             			ClientImplement c = new ClientImplement();
+<<<<<<< HEAD
             		//	c.deleteClient(2);
             			
             			
             		
             			
             			
+=======
+            			// c.deleteClient(2); 
+>>>>>>> 973b0f8dd7c0bd75024bdc23a772275ab6671528
             			JOptionPane.showInputDialog(this, "Vous �tes autentifi� (es)");frame.setVisible(false);
                         ListeComptesForm listC = new ListeComptesForm();
                         listC.main(null);
