@@ -277,29 +277,7 @@ public class ListeComptesForm {
 		
 		
 		
-		table.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("Row clicked ! ");
-				btnModifier.setEnabled(true);
-				btnCredite.setEnabled(true);
-				btnTransferer.setEnabled(true);
-				btnTransferer.setEnabled(true);
-				btnCloturer.setEnabled(true);
-				btnDiter.setEnabled(true);
 
-
-
-//				int i = table.getSelectedRow();
-//				TableModel tm = table.getModel();
-//				System.out.println(tm.getValueAt(i, 0).toString());
-//				System.out.println(tm.getValueAt(i, 1).toString());
-//				System.out.println(tm.getValueAt(i, 2).toString());
-//				System.out.println(tm.getValueAt(i, 3).toString());
-
-
-			}
-		});
 
 		// Contrôle table
 
@@ -419,6 +397,33 @@ public class ListeComptesForm {
 		lblListDesCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblListDesCompte.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblListDesCompte.setBackground(new Color(118, 199, 240));
+		
+		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("Row clicked ! ");
+				btnModifier.setEnabled(true);
+				btnCredite.setEnabled(true);
+				btnTransferer.setEnabled(true);
+				btnCloturer.setEnabled(true);
+				btnDiter.setEnabled(true);
+				btnOuvCompte.setEnabled(true);
+
+				
+
+
+
+//				int i = table.getSelectedRow();
+//				TableModel tm = table.getModel();
+//				System.out.println(tm.getValueAt(i, 0).toString());
+//				System.out.println(tm.getValueAt(i, 1).toString());
+//				System.out.println(tm.getValueAt(i, 2).toString());
+//				System.out.println(tm.getValueAt(i, 3).toString());
+
+
+			}
+		});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
