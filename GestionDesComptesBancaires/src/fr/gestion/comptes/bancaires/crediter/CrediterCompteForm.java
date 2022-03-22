@@ -60,6 +60,8 @@ public class CrediterCompteForm {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
+
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

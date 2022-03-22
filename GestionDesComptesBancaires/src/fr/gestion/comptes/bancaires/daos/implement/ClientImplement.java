@@ -19,9 +19,9 @@ public class ClientImplement implements ClientDAO {
 	@Override
 	public List getClients() {
 		List<Client> lc =  em.createQuery("From Client", Client.class).getResultList();
-//		for(Client c : lc) {
-//			System.out.println(c.getNom());
-//		}
+		for(Client c : lc) {
+			System.out.println(c.getNom());
+		}
 		return lc;
 	}
 

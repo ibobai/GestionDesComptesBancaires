@@ -76,6 +76,8 @@ public class ModifierCompteFormCourant  {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
+
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1300, 700);

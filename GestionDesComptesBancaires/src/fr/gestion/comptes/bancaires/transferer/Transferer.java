@@ -67,6 +67,8 @@ public class Transferer {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
+
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setBackground(new Color(0, 191, 255));
 		frame.setBounds(100, 100, 1300, 700);
