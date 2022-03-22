@@ -19,78 +19,50 @@ public class ComptecousImplement implements ComptecousDAO {
 	@Override
 	public List getComptecous() {
 		List<Comptecous> lc =  em.createQuery("From Comptecous", Comptecous.class).getResultList();
-//		for(Client c : lc) {
-//			System.out.println(c.getNom());
-//		}
 		return lc;
 	}
 	
-	/*
+	
 
 	@Override
-	public ComptecousObj updateComptecousByCompteId(Integer  id) {
+	public ComptecousObj updateComptecousByCompteId(Integer id, int Change, String indic) {
+		Comptecous c = em.find(Comptecous.class, id);
+		ComptecousObj cc = modelMapper.map(c, ComptecousObj.class); 
 		
-		Client c = em.find(Client.class, id);
-		ClientObj cc = modelMapper.map(c, ClientObj.class); 
-		
-		if (indic=="N") {
-			cc.setNom(Change);
+		if (indic=="FT") {
+			cc.setFraisTrans(Change);
 		}
-		else if (indic=="P") {
-			cc.setPrenom(Change);
-		}
-        else if (indic=="T") {
-        	cc.setTel(Change);
-		}
-        else if (indic=="A") {
-        	cc.setAdresse(Change);
-		}
-        else if (indic=="E") {
-        	cc.setEmail(Change);
+		else if (indic=="SM") {
+			cc.setSoldeMin(Change);
 		}
 		
 		em.persist(cc); // sauvegarder l objet dans la base de donnée
 		return cc;
-	}  */
+	}  
 
 	@Override
 	public ComptecousObj deleteComptecousByCompteId(Integer id){
 		try {
 			//em.createQuery("DELETE from Client WHERE clientID ="+id);
 			
-			Client c = em.find(Client.class, id);
+			Comptecous c = em.find(Comptecous.class, id);
 
 			  em.getTransaction().begin();
 			  em.remove(c);
 			  em.getTransaction().commit();
 			
-			System.out.println("Client has been deleted");
+			System.out.println("Comptecous has been deleted");
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Client has not  been deleted "+e);
+			System.out.println("Comptecous has not  been deleted "+e);
 
 		}
 		return null;
 	}
 
-	public void createClient(ClientObj co) {
+	public void createComptecous(ComptecousObj co) {
 		em.persist(co);
 	}
 
-	@Override
-	public void createComptecous(ComptecousObj co) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ComptecousObj updateComptecousByCompteId(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-
-	
 
 }

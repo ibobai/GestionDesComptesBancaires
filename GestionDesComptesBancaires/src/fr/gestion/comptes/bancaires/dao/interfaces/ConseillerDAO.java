@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 import org.modelmapper.ModelMapper;
 
-import antlr.collections.List;
+import java.util.List;
 import fr.gestion.comptes.bancaires.obj.ConseillerObj;
 
 
@@ -18,8 +18,8 @@ public interface ConseillerDAO {
 	ModelMapper modelMapper = new ModelMapper();
 	
 	public ConseillerObj getClientById(Integer id);
-	public List getTransferts();
-	public  ConseillerObj updateConseiller(Integer  id);
+	public List getConseillers();
 	public ConseillerObj deleteConseiller(Integer id);
-	public ConseillerObj createConseiller();
+	public ConseillerObj updateConseiller(Integer id, String Change, String indic);
+	public void createConseiller(ConseillerObj c);
 }

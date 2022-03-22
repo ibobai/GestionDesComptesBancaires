@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 import org.modelmapper.ModelMapper;
 
-import antlr.collections.List;
+import java.util.List;
 import fr.gestion.comptes.bancaires.obj.CompteepaObj;
 import fr.gestion.comptes.bancaires.pojos.Compteepa;
 
@@ -18,9 +18,24 @@ public interface CompteepaDAO {
 	
 	ModelMapper modelMapper = new ModelMapper();
 	
-	public CompteepaObj getComptecousByCompteId(Integer id);
-	public List getCompteepa();
-	public  CompteepaObj updateCompteepaByCompteId(Integer  id);
-	public CompteepaObj deleteCompteepaByCompteId(Integer id);
-	public CompteepaObj createCompteepaByCompteId(Integer id);
+	
+	
+	
+	// get compte 
+	public CompteepaObj getCompteepaByCompteId(Integer id);
+	
+	// update
+	public CompteepaObj updateCompteepaByCompteId(Integer id, int Change, String indic);
+	
+	// supprimer 
+	public CompteepaObj deleteCompteepaObjByCompteId(Integer id);
+	
+	
+	// creation 
+	public void createCompteepa(CompteepaObj co);
+
+	// get list
+	public java.util.List getCompteepa();
+
+
 }

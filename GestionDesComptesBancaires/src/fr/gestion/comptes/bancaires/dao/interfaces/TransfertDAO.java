@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 import org.modelmapper.ModelMapper;
 
-import antlr.collections.List;
+import java.util.List;
 import fr.gestion.comptes.bancaires.obj.TransfertObj;
 import fr.gestion.comptes.bancaires.pojos.Transfert;
 
@@ -22,7 +22,7 @@ public interface TransfertDAO {
 	public List getTransferts();
 	public  TransfertObj updateTransfert(Integer  id);
 	public TransfertObj deleteTransfert(Integer id);
-	public TransfertObj createTransfert();
+	public void createTransfert(TransfertObj co);
 	
 
 }

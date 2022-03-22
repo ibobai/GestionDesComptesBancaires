@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import org.modelmapper.ModelMapper;
 
 import fr.gestion.comptes.bancaires.obj.ComptecousObj;
+import fr.gestion.comptes.bancaires.obj.CompteepaObj;
 
 public interface ComptecousDAO {
 	
@@ -19,7 +20,7 @@ public interface ComptecousDAO {
 	
 	public ComptecousObj getComptecousByCompteId(Integer id);
 	public List getComptecous();
-	public  ComptecousObj updateComptecousByCompteId(Integer  id);
 	public ComptecousObj deleteComptecousByCompteId(Integer id);
 	public void createComptecous(ComptecousObj co);
+	public ComptecousObj updateComptecousByCompteId(Integer id, int Change, String indic);
 }
