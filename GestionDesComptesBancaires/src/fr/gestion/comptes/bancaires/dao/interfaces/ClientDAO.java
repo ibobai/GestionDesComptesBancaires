@@ -14,7 +14,7 @@ import fr.gestion.comptes.bancaires.pojos.Client;
 
 public interface ClientDAO {
 
-	
+	//To check the git !!
 	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("GestionDesComptesBancaires");
 	static EntityManager em = emf.createEntityManager();
 	
