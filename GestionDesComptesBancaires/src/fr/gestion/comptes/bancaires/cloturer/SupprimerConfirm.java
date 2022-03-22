@@ -50,8 +50,8 @@ public class SupprimerConfirm {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblCompteSupprimé = new JLabel("Le compte est supprim\u00E9 !");
-		lblCompteSupprimé.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		JLabel lblCompteSupprime= new JLabel("Le compte est supprim\u00E9 !");
+		lblCompteSupprime.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		
 		JButton btnBack = new JButton("Retour \u00E0 la page d'accueil");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -75,7 +75,7 @@ public class SupprimerConfirm {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(116)
-							.addComponent(lblCompteSupprimé))
+							.addComponent(lblCompteSupprime))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(124)
 							.addComponent(btnBack)))
@@ -85,7 +85,7 @@ public class SupprimerConfirm {
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(65)
-					.addComponent(lblCompteSupprimé)
+					.addComponent(lblCompteSupprime)
 					.addGap(67)
 					.addComponent(btnBack)
 					.addContainerGap(82, Short.MAX_VALUE))
