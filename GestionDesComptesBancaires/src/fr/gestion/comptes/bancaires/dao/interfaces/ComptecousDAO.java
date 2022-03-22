@@ -21,5 +21,5 @@ public interface ComptecousDAO {
 	public List getComptecous();
 	public  ComptecousObj updateComptecousByCompteId(Integer  id);
 	public ComptecousObj deleteComptecousByCompteId(Integer id);
-	public ComptecousObj createComptecousByCompteId(Integer id);
+	public void createComptecous(ComptecousObj co);
 }

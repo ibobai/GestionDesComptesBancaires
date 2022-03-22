@@ -1,7 +1,6 @@
 package fr.gestion.comptes.bancaires.ouvrir;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -10,30 +9,28 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.print.attribute.AttributeSet;
 import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
-import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
-
 import javax.swing.SwingConstants;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
-import java.awt.event.MouseMotionAdapter;
-import java.text.NumberFormat;
-import java.awt.event.MouseEvent;
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.obj.ClientObj;
+import fr.gestion.comptes.bancaires.obj.CompteObj;
+import fr.gestion.comptes.bancaires.obj.ComptecousObj;
+import fr.gestion.comptes.bancaires.obj.CompteepaObj;
 
 public class OuvrirCompteForm  {
 
@@ -397,6 +394,28 @@ public class OuvrirCompteForm  {
 		btnValider.setBackground(new Color(118, 199, 240));
 		
 		
+		//############################################################## Persisting client and account #######################################
+		
+		ClientObj client = new ClientObj();
+		CompteObj compte = new CompteObj();
+		ComptecousObj compteCous = new ComptecousObj();
+		CompteepaObj compteepaCous = new CompteepaObj();
+		
+		
+		//Client 
+		client.setAdresse(null);
+		client.setConseillerID(0);
+		client.setPrenom(null);
+		//..
+		//.. Etc
+		
+		//Comteobje
+		//..
+		//..
+		
+		
+		//############################################################## Persisting client and account #######################################
+
 		//###################      Layout     #############################################################################################################################################"
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

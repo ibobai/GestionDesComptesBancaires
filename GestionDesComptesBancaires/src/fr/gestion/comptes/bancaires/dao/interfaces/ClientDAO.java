@@ -23,9 +23,10 @@ public interface ClientDAO {
 	
 	public ClientObj getClientById(Integer id);
 	public List getClients();
-	public ClientObj updateClient(Integer  id);
-	public ClientObj deleteClient(Integer id);
-	public ClientObj createClient(Client c);
+	public List<Client> deleteClient(Integer id);
+	public ClientObj updateClient(Integer id, String Change, String indic);
+	public void createClient(ClientObj co);
+	
 	
 
 }

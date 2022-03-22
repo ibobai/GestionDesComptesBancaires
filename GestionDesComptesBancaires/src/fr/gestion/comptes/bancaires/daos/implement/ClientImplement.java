@@ -26,27 +26,66 @@ public class ClientImplement implements ClientDAO {
 	}
 
 	@Override
-	public ClientObj updateClient(Integer id) {
+	public ClientObj updateClient(Integer id, String Change, String indic) {
+		
 		Client c = em.find(Client.class, id);
 		ClientObj cc = modelMapper.map(c, ClientObj.class); 
 		
-		return null;
+		if (indic=="N") {
+			cc.setNom(Change);
+		}
+		else if (indic=="P") {
+			cc.setPrenom(Change);
+		}
+        else if (indic=="T") {
+        	cc.setTel(Change);
+		}
+        else if (indic=="A") {
+        	cc.setAdresse(Change);
+		}
+        else if (indic=="E") {
+        	cc.setEmail(Change);
+		}
+		
+		em.persist(cc); // sauvegarder l objet dans la base de donnée
+		return cc;
 	}
 
 	@Override
-	public ClientObj deleteClient(Integer id) {
-		// TODO Auto-generated method stub
+	public List<Client> deleteClient(Integer id) {
+		try {
+			//em.createQuery("DELETE from Client WHERE clientID ="+id);
+			
+			Client c = em.find(Client.class, id);
+
+			  em.getTransaction().begin();
+			  em.remove(c);
+			  em.getTransaction().commit();
+			
+			System.out.println("Client has been deleted");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Client has not  been deleted "+e);
+
+		}
 		return null;
 	}
 
-	@Override
-	public ClientObj createClient(Client c) {
-		// TODO Auto-generated method stub
-		return null;
+	public void createClient(ClientObj co) {
+		em.persist(co);
 	}
 	
-	public void test() {
-		System.out.println("It's working ! !");
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

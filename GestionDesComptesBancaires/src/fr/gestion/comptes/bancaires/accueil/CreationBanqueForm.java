@@ -125,8 +125,16 @@ public class CreationBanqueForm extends ClientImplement {
             			
             		}
             		else if(lg.contentEquals(lg1) && mp.contentEquals(mp1)) {
+            			
+            			
+            			
             			ClientImplement c = new ClientImplement();
-            			c.getClients();
+            		//	c.deleteClient(2);
+            			createClient(12, "eee", "hhhh", "jjjkjkj", "kji", "hgjgj", 1);
+            			
+            		
+            			
+            			
             			JOptionPane.showInputDialog(this, "Vous �tes autentifi� (es)");frame.setVisible(false);
                         ListeComptesForm listC = new ListeComptesForm();
                         listC.main(null);
@@ -143,9 +151,6 @@ public class CreationBanqueForm extends ClientImplement {
                 
             }
         });
-	
-
-		
 		lblMpd = new JLabel("Mot de passe");
 		lblMpd.setOpaque(true);
 		lblMpd.setHorizontalAlignment(SwingConstants.CENTER);
