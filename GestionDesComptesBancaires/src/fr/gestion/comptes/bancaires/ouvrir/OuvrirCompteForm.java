@@ -132,7 +132,7 @@ public class OuvrirCompteForm  {
 		lblOuvrirUnCompte.setOpaque(true);
 		
 		
-		JLabel lblNumroDeCompte = new JLabel("Numéro de compte");
+		JLabel lblNumroDeCompte = new JLabel("Numï¿½ro de compte");
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNumroDeCompte.setBackground(new Color(118, 199, 240));
 		lblNumroDeCompte.setOpaque(true);
@@ -182,7 +182,7 @@ public class OuvrirCompteForm  {
 		lblPlafond.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPlafond.setBackground(new Color(118, 199, 240));
 		
-		JLabel lblPrenom = new JLabel("Prénom");
+		JLabel lblPrenom = new JLabel("Prï¿½nom");
 		lblPrenom.setOpaque(true);
 		lblPrenom.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPrenom.setBackground(new Color(118, 199, 240));
@@ -273,7 +273,7 @@ public class OuvrirCompteForm  {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
-		            e.consume();  // ignorer l'événement
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
 		        }
 		     }
 		});
@@ -284,7 +284,7 @@ public class OuvrirCompteForm  {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
-		            e.consume();  // ignorer l'événement
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
 		        }
 		     }
 		});
@@ -295,7 +295,7 @@ public class OuvrirCompteForm  {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
-		            e.consume();  // ignorer l'événement
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
 		        }
 		     }
 		});
@@ -313,7 +313,7 @@ public class OuvrirCompteForm  {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE)) {
-		            e.consume();  // ignorer l'événement
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
 		        }
 		     }
 		});
@@ -325,7 +325,7 @@ public class OuvrirCompteForm  {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
-		            e.consume();  // ignorer l'événement
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
 		        }
 		     }
 		});
@@ -343,11 +343,11 @@ public class OuvrirCompteForm  {
 
 
 		
-		JLabel lblNumCompteGénéré = new JLabel(String.valueOf(GenererNumCompte()));
-		lblNumCompteGénéré.setBackground(new Color(245, 255, 250));
+		JLabel lblNumCompteGenere = new JLabel(String.valueOf(GenererNumCompte()));
+		lblNumCompteGenere.setBackground(new Color(245, 255, 250));
 		
-		lblNumCompteGénéré.setOpaque(true);
-		lblNumCompteGénéré.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumCompteGenere.setOpaque(true);
+		lblNumCompteGenere.setHorizontalAlignment(SwingConstants.CENTER);
 	
 		// ###############        Valider       #################################################################################################################################
 		
@@ -374,9 +374,9 @@ public class OuvrirCompteForm  {
 					else {
 						JFrame d = new  JFrame();
 					    JLabel l = new JLabel("Veuillez saisir tous les champs !" , SwingConstants.CENTER);  
-					     // Ajouter l'étiquette à la boîte de dialogue 
+					     // Ajouter l'ï¿½tiquette ï¿½ la boï¿½te de dialogue 
 					    d.getContentPane().add(l); 
-					    // Définir la taille de la boîte de dialogue 
+					    // Dï¿½finir la taille de la boï¿½te de dialogue 
 					    d.setPreferredSize(new Dimension(280, 200));
 					    d.setVisible(true);
 					    d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -460,7 +460,7 @@ public class OuvrirCompteForm  {
 											.addComponent(rdbtnCourant, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
 											.addComponent(rdbtnEpargne, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-										.addComponent(lblNumCompteGénéré, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+										.addComponent(lblNumCompteGenere, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
 									.addGap(103)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(prenomDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
@@ -484,7 +484,7 @@ public class OuvrirCompteForm  {
 					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNumCompteGénéré, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNumCompteGenere, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
 					.addGap(29)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTypeDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
