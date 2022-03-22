@@ -27,8 +27,9 @@ public class ClientImplement implements ClientDAO {
 
 	@Override
 	public ClientObj updateClient(Integer id) {
-		// TODO Auto-generated method stub	
 		Client c = em.find(Client.class, id);
+		ClientObj cc = modelMapper.map(c, ClientObj.class); 
+		
 		return null;
 	}
 
