@@ -1,39 +1,31 @@
 package fr.gestion.comptes.bancaires.accueil;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-
-
-import java.awt.Font;
-
 import java.awt.Color;
 import java.awt.Cursor;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
-import javax.swing.SwingConstants;
-
-import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
-import fr.gestion.comptes.bancaires.daos.Main;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
-public class CreationBanqueForm {
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
+import fr.gestion.comptes.bancaires.daos.implement.Main;
+
+public class CreationBanqueForm extends ClientImplement {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -133,7 +125,8 @@ public class CreationBanqueForm {
             			
             		}
             		else if(lg.contentEquals(lg1) && mp.contentEquals(mp1)) {
-            			Main.getCompte(1);
+            			ClientImplement c = new ClientImplement();
+            			c.getClients();
             			JOptionPane.showInputDialog(this, "Vous �tes autentifi� (es)");frame.setVisible(false);
                         ListeComptesForm listC = new ListeComptesForm();
                         listC.main(null);

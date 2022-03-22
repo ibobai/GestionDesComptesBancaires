@@ -1,4 +1,4 @@
-package fr.gestion.comptes.bancaires.daos;
+package fr.gestion.comptes.bancaires.daos.implement;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,9 +15,9 @@ public class Main {
 	
 	public static void getCompte(Integer id) {
 		Compte p1 = em.find(Compte.class, id);
-		Comptecous c1 = em.find(Comptecous.class, id);
-		System.out.println(c1.getCompteID());
-		System.out.println(p1.getSolde());
+//		Comptecous c1 = em.find(Comptecous.class, id);
+//		System.out.println(c1.getCompteID());
+//		System.out.println(p1.getSolde());
 	}
 
 	

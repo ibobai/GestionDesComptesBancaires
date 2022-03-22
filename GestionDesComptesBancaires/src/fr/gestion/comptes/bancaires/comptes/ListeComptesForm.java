@@ -31,6 +31,7 @@ import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 
 
 import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
+import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
 
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
