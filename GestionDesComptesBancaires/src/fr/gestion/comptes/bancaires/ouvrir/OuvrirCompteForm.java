@@ -131,6 +131,7 @@ public class OuvrirCompteForm  {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblOuvrirUnCompte = new JLabel("Ouvrir un compte");
 		lblOuvrirUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
@@ -303,7 +304,7 @@ public class OuvrirCompteForm  {
 		soldeInitial.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -321,7 +322,7 @@ public class OuvrirCompteForm  {
 		soldeMinAuto.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE)) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -333,7 +334,7 @@ public class OuvrirCompteForm  {
 		tautInteret.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -375,7 +376,7 @@ public class OuvrirCompteForm  {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					
-					if(true) {
+					if((!nomDeClient.getText().equals("")) && (!prenomDeClient.getText().equals(""))&& (!telDeClient.getText().equals(""))&& (!adresseDeClient.getText().equals(""))&&(!soldeInitial.getText().equals(""))) {
 						
 						//###################################### Persisting client and account ################################################################
 						ClientImplement cI = new ClientImplement();
