@@ -56,6 +56,8 @@ public class CloturerCompteForm {
 
 		frame.setBounds(100, 100, 700, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// center la fenetre
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("\u00CAtes-vous s\u00FBr de vouloir supprimer ce compte ?");
 		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);

@@ -75,6 +75,7 @@ public class Transferer {
 		frame.setBackground(new Color(0, 191, 255));
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 
 		JButton btnValider = new JButton("Valider");
 		btnValider.addMouseMotionListener(new MouseMotionAdapter() {
