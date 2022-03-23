@@ -7,8 +7,11 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -21,20 +24,24 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 import fr.gestion.comptes.bancaires.cloturer.CloturerCompteForm;
 import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
+import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
+import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
+import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
+import fr.gestion.comptes.bancaires.obj.ComptecousObj;
+import fr.gestion.comptes.bancaires.obj.CompteepaObj;
 import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
+import fr.gestion.comptes.bancaires.pojos.Client;
+import fr.gestion.comptes.bancaires.pojos.Compte;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
-import java.awt.event.MouseAdapter;
-import javax.swing.table.DefaultTableModel;
 
 public class ListeComptesForm {
 
@@ -64,6 +71,19 @@ public class ListeComptesForm {
 				}
 			}
 		});
+	}
+
+	// Insterting a row to the table !
+	public static String[][] insertRow(String[][] m, int r, String[] data) {
+		String[][] out = new String[m.length + 1][];
+		for (int i = 0; i < r; i++) {
+			out[i] = m[i];
+		}
+		out[r] = data;
+		for (int i = r + 1; i < out.length; i++) {
+			out[i] = m[i - 1];
+		}
+		return out;
 	}
 
 	/**
@@ -101,66 +121,51 @@ public class ListeComptesForm {
 
 		// table
 
-		String data[][] = { { "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
-				{ "003", "Aman", "Delhi", "India" }, { "001", "vinod", "Bihar", "India" },
-				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
-				{ "004", "Ranjan", "Bangloor", "India" }, { "001", "vinod", "Bihar", "India" },
-				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
-				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
-				{ "003", "Aman", "Delhi", "India" }, { "004", "Ranjan", "Bangloor", "India" },
-				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
-				{ "003", "Aman", "Delhi", "India" }, { "001", "vinod", "Bihar", "India" },
-				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
-				{ "004", "Ranjan", "Bangloor", "India" }, { "001", "vinod", "Bihar", "India" },
-				{ "002", "Raju", "ABC", "Kanada" }, { "003", "Aman", "Delhi", "India" },
-				{ "001", "vinod", "Bihar", "India" }, { "002", "Raju", "ABC", "Kanada" },
-				{ "003", "Aman", "Delhi", "India" }, { "004", "Ranjan", "Bangloor", "India" } };
+		// Getting the list of clients from the database
+
+		CompteImplement ci = new CompteImplement();
+		ComptecousImplement cci = new ComptecousImplement();
+		CompteepaImplement cei = new CompteepaImplement();
+		
+		List<Compte> clientsList = ci.getComptes();
+		String[][] clientListData = {};
+		for(Compte c : clientsList) {
+			Integer i = 0;
+			ComptecousObj comptC = cci.getComptecousByCompteId(c.getCompteID());
+			CompteepaObj comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
+			String typeCompte = "Epargne";
+			if(true) {
+				typeCompte = "Courant";
+				System.out.println("The id to be searched in the comptesEouC is: "+c.getCompteID());
+				System.out.println("The compte is courant : "+comptC.getSoldeMin());
+				System.out.println("The compte is eparinge : "+comptE.getPlafond());
+
+			}
+			clientListData = insertRow(clientListData, i, new String[] {c.getNumCom()+"",typeCompte, c.getClientID()+"",c.getSolde()+""});
+			i++;
+
+		}
+
+//		System.out.println(Arrays.deepToString(clientListData));
+//		clientListData = insertRow(clientListData, 0, new String[] { "ibo","bai","sam" });
+//		System.out.println(Arrays.deepToString(clientListData));
+
+//		for(String[] c : clientsData) {
+//			System.out.println(c.toString());
+//		}
+//		
 
 		String col[] = { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" };
-		JTable table = new JTable(data, col);
+		JTable table = new JTable(clientListData, col);
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"004", "Ranjan", "Bangloor", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"004", "Ranjan", "Bangloor", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"004", "Ranjan", "Bangloor", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"001", "vinod", "Bihar", "India"},
-				{"002", "Raju", "ABC", "Kanada"},
-				{"003", "Aman", "Delhi", "India"},
-				{"004", "Ranjan", "Bangloor", "India"},
-			},
-			new String[] {
-				"   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde"
-			}
-		) {
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false
-			};
+				clientListData,
+				new String[] { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" }) {
+			boolean[] columnEditables = new boolean[] { false, false, false, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		
 
 		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		table.setFont(new Font("Verdana", Font.PLAIN, 12));
@@ -248,7 +253,7 @@ public class ListeComptesForm {
 		btnCloturer.setBackground(new Color(131, 224, 229));
 		btnCloturer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.setVisible(false);
+				// frame.setVisible(false);
 				CloturerCompteForm listC = new CloturerCompteForm();
 				listC.main(null);
 			}
@@ -274,10 +279,6 @@ public class ListeComptesForm {
 				listC.main(null);
 			}
 		});
-		
-		
-		
-
 
 		// Contrôle table
 
@@ -296,8 +297,8 @@ public class ListeComptesForm {
 //		            }
 //		        }
 //		);
-		
-		//table.setEnabled(false);
+
+		// table.setEnabled(false);
 //		ListSelectionModel cellSelectionModel = table.getSelectionModel();
 //		cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 //
@@ -316,7 +317,7 @@ public class ListeComptesForm {
 //			}
 //
 //		});
-		
+
 //		
 //		ListSelectionModel model = table.getSelectionModel();
 //		model.addListSelectionListener(new ListSelectionListener() {
@@ -333,7 +334,6 @@ public class ListeComptesForm {
 //			}
 //			
 //		});
-		
 
 //		table.addMouseListener(new MouseAdapter() {
 //			public void mousePressed(MouseEvent e) {
@@ -397,8 +397,7 @@ public class ListeComptesForm {
 		lblListDesCompte.setHorizontalAlignment(SwingConstants.CENTER);
 		lblListDesCompte.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblListDesCompte.setBackground(new Color(118, 199, 240));
-		
-		
+
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -410,10 +409,6 @@ public class ListeComptesForm {
 				btnDiter.setEnabled(true);
 				btnOuvCompte.setEnabled(true);
 
-				
-
-
-
 //				int i = table.getSelectedRow();
 //				TableModel tm = table.getModel();
 //				System.out.println(tm.getValueAt(i, 0).toString());
@@ -421,72 +416,65 @@ public class ListeComptesForm {
 //				System.out.println(tm.getValueAt(i, 2).toString());
 //				System.out.println(tm.getValueAt(i, 3).toString());
 
-
 			}
 		});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(185)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnOuvCompte, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnDiter, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnCredite, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-					.addGap(218))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(1190, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(17)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(33, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(536)
-					.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(574, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(332)
-					.addComponent(lblListDesCompte, GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(394, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-					.addGap(25)
-					.addComponent(lblListDesCompte, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-					.addGap(88)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(26)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup().addGap(185)
+						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(btnOuvCompte, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnDiter, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+						.addPreferredGap(ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnCredite, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 190,
+										GroupLayout.PREFERRED_SIZE))
+						.addGap(218))
+				.addGroup(groupLayout.createSequentialGroup().addContainerGap()
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(1190, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup().addGap(17)
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 1250, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(33, Short.MAX_VALUE))
+				.addGroup(
+						groupLayout.createSequentialGroup().addGap(536)
+								.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 190,
+										GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(574, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup().addGap(332)
+						.addComponent(lblListDesCompte, GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(394, Short.MAX_VALUE)));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(groupLayout
+				.createSequentialGroup().addContainerGap()
+				.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE).addGap(25)
+				.addComponent(lblListDesCompte, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE).addGap(88)
+				.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)
+				.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
+						.createSequentialGroup().addGap(26)
+						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(btnOuvCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnCredite, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-							.addGap(27)
-							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(btnDiter, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-							.addGap(27)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGap(27)
+						.addGroup(
+								groupLayout.createParallelGroup(Alignment.BASELINE)
+										.addComponent(btnDiter, GroupLayout.PREFERRED_SIZE, 49,
+												GroupLayout.PREFERRED_SIZE)
+										.addComponent(btnTransferer, GroupLayout.PREFERRED_SIZE, 49,
+												GroupLayout.PREFERRED_SIZE))
+						.addGap(27)
+						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 								.addComponent(btnModifier, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnCloturer, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-							.addContainerGap(76, Short.MAX_VALUE))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(btnDeconnexion, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-							.addGap(26))))
-		);
+						.addContainerGap(76, Short.MAX_VALUE)).addGroup(
+								groupLayout
+										.createSequentialGroup().addComponent(btnDeconnexion,
+												GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
+										.addGap(26)))));
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
