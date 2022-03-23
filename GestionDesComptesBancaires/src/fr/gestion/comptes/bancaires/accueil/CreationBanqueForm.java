@@ -71,7 +71,7 @@ public class CreationBanqueForm extends ClientImplement {
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		textField = new JTextField();
 		textField.setColumns(10);
 		

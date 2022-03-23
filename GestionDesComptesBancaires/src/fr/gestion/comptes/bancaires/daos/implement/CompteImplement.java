@@ -52,8 +52,10 @@ public class CompteImplement implements CompteDAO {
 	}
 
 	@Override
-	public void createCompte(CompteObj c) {
+	public void createCompte(Compte c) {
+		em.getTransaction().begin();
 		em.persist(c);
+		em.getTransaction().commit();
 	}
 
 

@@ -21,6 +21,15 @@ import javax.swing.DropMode;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
+import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
+import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
+import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
+import fr.gestion.comptes.bancaires.obj.ClientObj;
+import fr.gestion.comptes.bancaires.pojos.Client;
+import fr.gestion.comptes.bancaires.pojos.Compte;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
+import fr.gestion.comptes.bancaires.pojos.Compteepa;
 
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
@@ -206,23 +215,48 @@ public class ModifierCompteFormCourant  {
 		rdbtnEpargne.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnEpargne.setBackground(new Color(131, 224, 229));
 		
-		//Les text
+		//Les text ###########################################################################################################################
 		
-		numDeCompte = new JTextField();
+		numDeCompte = new JTextField("100212");
 		numDeCompte.setColumns(10);
+		
+		
+		ClientImplement cI = new ClientImplement();
+		CompteImplement c = new CompteImplement();
+		CompteepaImplement cE = new CompteepaImplement();
+		ComptecousImplement cC = new ComptecousImplement();
+		
+		ClientObj client = new ClientObj();
+		/*
+		Compte compte = new Compte();
+		Comptecous compteCous = new Comptecous();
+		Compteepa compteepa = new Compteepa();*/
+		
 		
 		nomDeClient = new JTextField();
 		nomDeClient.setColumns(10);
+		if (!nomDeClient.getText().equals("")) {
+			String indic = "N";
+			cI.updateClient(1, nomDeClient.getText(),indic);
+			
+		}
+		
+		
+		prenomDeClient = new JTextField();
+		prenomDeClient.setColumns(10);
 		
 		telDeClient = new JTextField();
 		telDeClient.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE)) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
 		});
+		
+		adresseDeClient = new JTextField();
+		adresseDeClient.setColumns(10);
 			
 		telDeClient.setColumns(10);
 		
@@ -230,7 +264,7 @@ public class ModifierCompteFormCourant  {
 		fraisDeTransfert.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -241,7 +275,7 @@ public class ModifierCompteFormCourant  {
 		plafond.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -252,24 +286,20 @@ public class ModifierCompteFormCourant  {
 		soldeInitial.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
 		});
 		soldeInitial.setColumns(10);
 		
-		prenomDeClient = new JTextField();
-		prenomDeClient.setColumns(10);
 		
-		adresseDeClient = new JTextField();
-		adresseDeClient.setColumns(10);
 		
 		soldeMinAuto = new JTextField();
 		soldeMinAuto.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -280,7 +310,7 @@ public class ModifierCompteFormCourant  {
 		tautInteret.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -329,6 +359,8 @@ public class ModifierCompteFormCourant  {
 			}
 		});
 		
+		
+		// #########  Layout ######################################################################################################################
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(

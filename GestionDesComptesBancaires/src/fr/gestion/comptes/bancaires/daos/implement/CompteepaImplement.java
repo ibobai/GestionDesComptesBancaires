@@ -56,8 +56,10 @@ public class CompteepaImplement implements CompteepaDAO {
 		return null;
 	}
 
-	public void createCompteepa(CompteepaObj co) {
-		em.persist(co);
+	public void createCompteepa(Compteepa compteepa) {
+		em.getTransaction().begin();
+		em.persist(compteepa);
+		em.getTransaction().commit();
 	}
 
 

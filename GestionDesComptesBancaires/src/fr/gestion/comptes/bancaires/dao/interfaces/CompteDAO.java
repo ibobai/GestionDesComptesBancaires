@@ -24,6 +24,6 @@ public interface CompteDAO {
 
 	public CompteObj updateCompte(Integer id, int Change, String indic);
 
-	public void createCompte(CompteObj c);
+	public void createCompte(Compte c);
 
 }

@@ -32,7 +32,7 @@ public interface CompteepaDAO {
 	
 	
 	// creation 
-	public void createCompteepa(CompteepaObj co);
+	public void createCompteepa(Compteepa co);
 
 	// get list
 	public java.util.List getCompteepa();

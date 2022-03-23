@@ -27,10 +27,17 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
-import fr.gestion.comptes.bancaires.obj.ClientObj;
+import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
+import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
+import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
+import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
 import fr.gestion.comptes.bancaires.obj.CompteObj;
 import fr.gestion.comptes.bancaires.obj.ComptecousObj;
 import fr.gestion.comptes.bancaires.obj.CompteepaObj;
+import fr.gestion.comptes.bancaires.pojos.Client;
+import fr.gestion.comptes.bancaires.pojos.Compte;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
+import fr.gestion.comptes.bancaires.pojos.Compteepa;
 
 public class OuvrirCompteForm  {
 
@@ -293,11 +300,11 @@ public class OuvrirCompteForm  {
 		});
 				
 		soldeInitial = new JTextField();
-		soldeInitial.setColumns(5);
+		soldeInitial.setColumns(10);
 		soldeInitial.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -315,7 +322,7 @@ public class OuvrirCompteForm  {
 		soldeMinAuto.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE)) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -327,7 +334,7 @@ public class OuvrirCompteForm  {
 		tautInteret.addKeyListener(new KeyAdapter() {
 		    public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
-		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != ',')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
@@ -370,9 +377,63 @@ public class OuvrirCompteForm  {
 				try {
 					
 					if((!nomDeClient.getText().equals("")) && (!prenomDeClient.getText().equals(""))&& (!telDeClient.getText().equals(""))&& (!adresseDeClient.getText().equals(""))&&(!soldeInitial.getText().equals(""))) {
+						
+						//###################################### Persisting client and account ################################################################
+						ClientImplement cI = new ClientImplement();
+						CompteImplement c = new CompteImplement();
+						CompteepaImplement cE = new CompteepaImplement();
+						ComptecousImplement cC = new ComptecousImplement();
+						
+						// inicier les objets 
+						
+						Client client = new Client();
+						Compte compte = new Compte();
+						Comptecous compteCous = new Comptecous();
+						Compteepa compteepa = new Compteepa();
+						
+						// compte 
+						
+						compte.setNumCom(Integer.parseInt(lblNumCompteGenere.getText()));
+						compte.setSolde(Double.parseDouble(soldeInitial.getText())); 
+						compte.setClientID(2);
+						c.createCompte(compte);
+						
+						//Client 
+						
+						client.setNom(nomDeClient.getText());
+						client.setPrenom(prenomDeClient.getText());
+						client.setTel(telDeClient.getText());
+						client.setAdresse(adresseDeClient.getText());
+						client.setEmail("chbibsoumaya@gmail.com");
+						cI.createClient(client);
+						
+						if (!plafond.getText().equals("")) {
+							
+							//Comte Epargne 
+							
+							compteepa.setPlafond(Integer.parseInt(plafond.getText()));
+							compteepa.setTauxInteret(Integer.parseInt(tautInteret.getText()));
+							compteepa.setCompteID(4);
+							cE.createCompteepa(compteepa);
+						}
+						
+						if (!fraisDeTransfert.getText().equals("")) {
+							
+							//compte Courant
+							
+							compteCous.setFraisTrans(Integer.parseInt(fraisDeTransfert.getText()));
+							compteCous.setSoldeMin(Double.parseDouble(soldeMinAuto.getText()));
+							compteCous.setCompteID(3);
+							cC.createComptecous(compteCous);
+						}
+							
 						frame.setVisible(false);
 		                ListeComptesForm listC = new ListeComptesForm();
-		                listC.main(null);
+		                listC.main(null); 
+		                
+		                /*
+		                (!nomDeClient.getText().equals("")) && (!prenomDeClient.getText().equals(""))&& (!telDeClient.getText().equals(""))&& (!adresseDeClient.getText().equals(""))&&(!soldeInitial.getText().equals(""))
+		                */	                
 					}
 					else {
 						JFrame d = new  JFrame();
@@ -397,29 +458,6 @@ public class OuvrirCompteForm  {
 		btnValider.setBackground(new Color(118, 199, 240));
 		
 		
-		//###################################### Persisting client and account ################################################################
-		
-		ClientObj client = new ClientObj();
-		CompteObj compte = new CompteObj();
-		ComptecousObj compteCous = new ComptecousObj();
-		CompteepaObj compteepaCous = new CompteepaObj();
-		
-		
-		
-		
-		
-		
-		
-		//Client 
-		client.setAdresse(null);
-		client.setConseillerID(0);
-		client.setPrenom(null);
-		//..
-		//.. Etc
-		
-		//Comteobje
-		//..
-		//..
 		
 		
 		//############################################################## Persisting client and account #######################################

@@ -71,8 +71,10 @@ public class ComptecousImplement implements ComptecousDAO {
 		return null;
 	}
 
-	public void createComptecous(ComptecousObj co) {
+	public void createComptecous(Comptecous co) {
+		em.getTransaction().begin();
 		em.persist(co);
+		em.getTransaction().commit();
 	}
 
 
