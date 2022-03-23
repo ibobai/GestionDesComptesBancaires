@@ -22,6 +22,8 @@ import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
 import javax.swing.JLabel;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CrediterCompteForm {
 
@@ -69,9 +71,24 @@ public class CrediterCompteForm {
 	
 		
 		inputCrediterUnCompte = new JTextField();
-		inputCrediterUnCompte.setColumns(10);
+		inputCrediterUnCompte.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});		inputCrediterUnCompte.setColumns(10);
 		
 		inputSolde = new JTextField();
+		inputSolde.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		inputSolde.setColumns(10);
 		
 		JButton btnValiderCrediterUnCompte = new JButton("Valider");
@@ -114,6 +131,14 @@ public class CrediterCompteForm {
 		lblMontant.setBackground(new Color(131, 224, 229));
 		
 		InputMontant = new JTextField();
+		InputMontant.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		InputMontant.setColumns(10);
 		
 		btnNewButton = new JButton("<-------");

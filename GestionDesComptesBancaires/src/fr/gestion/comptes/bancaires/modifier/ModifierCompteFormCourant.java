@@ -28,6 +28,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class ModifierCompteFormCourant  {
 
@@ -212,15 +214,48 @@ public class ModifierCompteFormCourant  {
 		nomDeClient.setColumns(10);
 		
 		telDeClient = new JTextField();
+		telDeClient.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
+			
 		telDeClient.setColumns(10);
 		
 		fraisDeTransfert = new JTextField();
+		fraisDeTransfert.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		fraisDeTransfert.setColumns(10);
 		
 		plafond = new JTextField();
+		plafond.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		plafond.setColumns(10);
 		
 		soldeInitial = new JTextField();
+		soldeInitial.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		soldeInitial.setColumns(10);
 		
 		prenomDeClient = new JTextField();
@@ -230,9 +265,25 @@ public class ModifierCompteFormCourant  {
 		adresseDeClient.setColumns(10);
 		
 		soldeMinAuto = new JTextField();
+		soldeMinAuto.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		soldeMinAuto.setColumns(10);
 		
 		tautInteret = new JTextField();
+		tautInteret.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'�v�nement
+		        }
+		     }
+		});
 		tautInteret.setColumns(10);
 		
 		

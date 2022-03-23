@@ -25,6 +25,8 @@ import javax.swing.table.JTableHeader;
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Transferer {
 
@@ -158,6 +160,15 @@ public class Transferer {
 		
 
 		txtMontant = new JTextField();
+		txtMontant.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  
+		        }
+		     }
+		});
+			
 		txtMontant.setToolTipText("");
 		txtMontant.setColumns(10);
 		System.out.println(txtMontant.getText());

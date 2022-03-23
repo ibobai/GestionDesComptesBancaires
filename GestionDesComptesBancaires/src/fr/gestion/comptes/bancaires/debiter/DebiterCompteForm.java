@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class DebiterCompteForm {
 
@@ -66,7 +68,7 @@ public class DebiterCompteForm {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel lblDebiter = new JLabel("Dï¿½biter un compte");
+		JLabel lblDebiter = new JLabel("Debiter un compte");
 		lblDebiter.setBackground(new Color(118, 199, 240));
 		lblDebiter.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDebiter.setFont(new Font("Verdana", Font.BOLD, 30));
@@ -75,7 +77,7 @@ public class DebiterCompteForm {
 
 		
 
-		JLabel lblNumroDeCompte = new JLabel("Dï¿½biter le compte Num:");
+		JLabel lblNumroDeCompte = new JLabel("Débiter le compte Num:");
 
 		lblNumroDeCompte.setOpaque(true);
 		lblNumroDeCompte.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,12 +94,36 @@ public class DebiterCompteForm {
 		lblNumroDeCompte_2_2.setBackground(new Color(118, 199, 240));
 		
 		textDebiter = new JTextField();
+		textDebiter.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
+		        }
+		     }
+		});
 		textDebiter.setColumns(10);
 		
 		textSolde = new JTextField();
+		textSolde.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
+		        }
+		     }
+		});
 		textSolde.setColumns(10);
 		
 		textMontant = new JTextField();
+		textMontant.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+		        char c = e.getKeyChar();
+		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
+		            e.consume();  // ignorer l'ï¿½vï¿½nement
+		        }
+		     }
+		});
 		textMontant.setColumns(10);
 		
 		btnValider = new JButton("Valider");
