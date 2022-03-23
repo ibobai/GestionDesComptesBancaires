@@ -21,7 +21,7 @@ public interface ClientDAO {
 	ModelMapper modelMapper = new ModelMapper();
 
 	
-	public ClientObj getClientById(Integer id);
+	public Client getClientById(Integer id);
 	public List getClients();
 	public void deleteClient(Integer id);
 	public ClientObj updateClient(Integer id, String Change, String indic);

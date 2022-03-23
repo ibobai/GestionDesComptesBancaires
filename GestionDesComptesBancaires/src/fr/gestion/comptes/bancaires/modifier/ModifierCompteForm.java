@@ -29,7 +29,8 @@ import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
 import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
 import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
 import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
-import fr.gestion.comptes.bancaires.obj.ClientObj;
+import fr.gestion.comptes.bancaires.pojos.Client;
+import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
 import fr.gestion.comptes.bancaires.pojos.Compteepa;
 
@@ -93,24 +94,34 @@ public class ModifierCompteForm  {
 		
 		ListeComptesForm lcf = new ListeComptesForm();
 		ArrayList theRawa = lcf.getTheSelectedRaw();
+		ClientImplement cImplement = new ClientImplement();
 		CompteImplement ci = new CompteImplement();
 		ComptecousImplement cci = new ComptecousImplement();
 		CompteepaImplement cei = new CompteepaImplement();
 		Integer i = 0;
-//		Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
-//		Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
-
+		
+		
+		
+		
+		Compte c = ci.getCompteByNumeroCompte((Integer.parseInt(theRawa.get(0).toString())));
+		Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
+		Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
+		
+		
+		
+		
+		
 		// System.out.println("Id compteCoups : " + comptC.getCompteCouID());
 		// System.out.println("Id compteepas : " + comptE.getCompteEpaID());
-//		String typeCompte = "Pas de type";
-//
-//		// Type assgnement
-//		if (comptC.getCompteCouID() > 0) {
-//			typeCompte = "Courant";
-//		}
-//		if (comptE.getCompteEpaID() > 0) {
-//			typeCompte = "Epargne";
-//		}
+		String typeCompte = "Pas de type";
+
+		// Type assgnement
+		if (comptC.getCompteCouID() > 0) {
+			typeCompte = "Courant";
+		}
+		if (comptE.getCompteEpaID() > 0) {
+			typeCompte = "Epargne";
+		}
 		//#################################################################################
 		
 		
@@ -243,12 +254,11 @@ public class ModifierCompteForm  {
 		//  ClientObj updateClient(Integer id, String Change, String indic)
 		
 		
-		ClientImplement cI = new ClientImplement();
-		CompteImplement c = new CompteImplement();
-		CompteepaImplement cE = new CompteepaImplement();
-		ComptecousImplement cC = new ComptecousImplement();
-		
-		ClientObj client = new ClientObj();
+//		CompteImplement c = new CompteImplement();
+//		CompteepaImplement cE = new CompteepaImplement();
+//		ComptecousImplement cC = new ComptecousImplement();
+//		
+//		ClientObj client = new ClientObj();
 		/*
 		Compte compte = new Compte();
 		Comptecous compteCous = new Comptecous();
@@ -257,11 +267,11 @@ public class ModifierCompteForm  {
 		
 		nomDeClient = new JTextField();
 		nomDeClient.setColumns(10);
-		if (!nomDeClient.getText().equals("")) {
-			String indic = "N";
-			cI.updateClient(1, nomDeClient.getText(),indic);
-			
-		}
+//		if (!nomDeClient.getText().equals("")) {
+//			String indic = "N";
+//			cI.updateClient(1, nomDeClient.getText(),indic);
+//			
+//		}
 		
 		
 		prenomDeClient = new JTextField();
@@ -349,37 +359,88 @@ public class ModifierCompteForm  {
 //		rdbtnEpargne.addActionListener(this);
 //		rdbtnCourant.addActionListener(this);
 
-		rdbtnCourant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				lblTautInteret.setBackground(new Color(192, 192, 192));
-				lblPlafond.setBackground(new Color(192, 192, 192));
-				tautInteret.setEditable(false);
-				plafond.setEditable(false);
-				
-				lblSoldeMinAuto.setBackground(new Color(118, 199, 240));
-				lblFraisDeTransfert.setBackground(new Color(118, 199, 240));
-				soldeMinAuto.setEditable(true);
-				fraisDeTransfert.setEditable(true);
-
-			}
-		});
 		
-		rdbtnEpargne.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				lblSoldeMinAuto.setBackground(new Color(192, 192, 192));
-				lblFraisDeTransfert.setBackground(new Color(192, 192, 192));
-				soldeMinAuto.setEditable(false);
-				fraisDeTransfert.setEditable(false);
-				
-				lblTautInteret.setBackground(new Color(118, 199, 240));
-				lblPlafond.setBackground(new Color(118, 199, 240));
-				tautInteret.setEditable(true);
-				plafond.setEditable(true);
-
-
-			}
-		});
+		
+		if(typeCompte.equals("Courant")) {
+			
+			Compte theCompte = c;
+			Client theClient = cImplement.getClientById(c.getClientID());
+			Comptecous theCompteCous = comptC;
+			
+			
+			nomDeClient.setText(theClient.getNom());
+			prenomDeClient.setText(theClient.getPrenom());
+			telDeClient.setText(theClient.getTel());
+			adresseDeClient.setText(theClient.getAdresse());
+			
+			soldeMinAuto.setText(theCompteCous.getSoldeMin()+"");
+			fraisDeTransfert.setText(theCompteCous.getFraisTrans()+"");
+			
+			soldeInitial.setText(theCompte.getSolde()+"");
+			
+			
+			
+			lblTautInteret.setBackground(new Color(192, 192, 192));
+			lblPlafond.setBackground(new Color(192, 192, 192));
+			tautInteret.setEditable(false);
+			plafond.setEditable(false);
+			rdbtnCourant.setSelected(true);
+			//rdbtnEpargne.enable(false);
+			
+			lblSoldeMinAuto.setBackground(new Color(118, 199, 240));
+			lblFraisDeTransfert.setBackground(new Color(118, 199, 240));
+			soldeMinAuto.setEditable(true);
+			fraisDeTransfert.setEditable(true);
+			
+			
+			
+			
+		}if(typeCompte.equals("Epargne")) {
+			
+			Compte theCompte = c;
+			Client theClient = cImplement.getClientById(c.getClientID());
+			Compteepa theCompteE = comptE;
+			
+			nomDeClient.setText(theClient.getNom());
+			prenomDeClient.setText(theClient.getPrenom());
+			telDeClient.setText(theClient.getTel());
+			adresseDeClient.setText(theClient.getAdresse());
+			
+			tautInteret.setText(theCompteE.getTauxInteret()+"");
+			plafond.setText(theCompteE.getPlafond()+"");
+			
+			soldeInitial.setText(theCompte.getSolde()+"");
+			
+			
+			
+			lblSoldeMinAuto.setBackground(new Color(192, 192, 192));
+			lblFraisDeTransfert.setBackground(new Color(192, 192, 192));
+			soldeMinAuto.setEditable(false);
+			fraisDeTransfert.setEditable(false);
+			rdbtnEpargne.setSelected(true);
+			//rdbtnCourant.enable(false);
+			
+			lblTautInteret.setBackground(new Color(118, 199, 240));
+			lblPlafond.setBackground(new Color(118, 199, 240));
+			tautInteret.setEditable(true);
+			plafond.setEditable(true);
+		}
+		
+//		rdbtnCourant.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				
+//
+//			}
+//		});
+//		
+//		rdbtnEpargne.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				
+//			
+//
+//
+//			}
+//		});
 		
 		
 		//Le compte clické de la liste des comptes : 

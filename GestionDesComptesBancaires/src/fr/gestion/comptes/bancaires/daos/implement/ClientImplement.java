@@ -7,9 +7,9 @@ import fr.gestion.comptes.bancaires.pojos.Client;
 
 public class ClientImplement implements ClientDAO {
 	@Override
-	public ClientObj getClientById(Integer id) {
+	public Client getClientById(Integer id) {
 		Client c = em.find(Client.class, id);
-		ClientObj cc = modelMapper.map(c, ClientObj.class);   //ON appelle la fonction de mapping pour mapper de Client vers clientObj
+		Client cc = modelMapper.map(c, Client.class);   //ON appelle la fonction de mapping pour mapper de Client vers clientObj
 		System.out.println(cc.getNom() +" "+ cc.getPrenom());
 		return cc;
 	}
