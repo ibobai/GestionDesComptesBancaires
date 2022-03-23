@@ -22,6 +22,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
+import fr.gestion.comptes.bancaires.pojos.Compte;
 
 public class CrediterCompteForm {
 
@@ -56,6 +58,7 @@ public class CrediterCompteForm {
 	public CrediterCompteForm() {
 		initialize();
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -100,16 +103,7 @@ public class CrediterCompteForm {
 				btnValiderCrediterUnCompte.setCursor(cur1);
 			}
 		});
-		btnValiderCrediterUnCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
-		btnValiderCrediterUnCompte.setBackground(new Color(118, 199, 240));
-		btnValiderCrediterUnCompte.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
-                ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
-            }
-        });
-		
+	
 		
 		
 		JLabel lblNumeroCompte = new JLabel("Numéro Compte");
@@ -161,18 +155,46 @@ public class CrediterCompteForm {
 		lblcrediterUnCompte.setOpaque(true);
 
 
+		
+		
 		//Le compte clické de la liste des comptes : 
 		
 		ListeComptesForm lcf = new ListeComptesForm();
-		ArrayList theRaw = lcf.getTheSelectedRaw();
-		System.out.println("The selected raw saize is : "+ theRaw.size());
+		ArrayList theRawa = lcf.getTheSelectedRaw();
+		System.out.println("The selected raw saize is : "+ theRawa.size());
 		System.out.println("We are in créditer ! ");
-		System.out.println("The numero of the account  : "+theRaw.get(0));
-		numeroCompte.setText(theRaw.get(0)+"");
-//		for (Object val : theRaw) {
-//		    System.out.print(val + " From the table créditer !");
-//		}
+		System.out.println("The numero of the account  : "+theRawa.get(0));
+		numeroCompte.setText(theRawa.get(0)+"");
+		
+		for (Object val : theRawa) {
+		    System.out.print(val + " From the table créditer !");
+		}
+		
+		//Compte info
+		
+		CompteImplement ci = new CompteImplement();
+		Compte c = ci.getCompteByNumeroCompte((Integer.parseInt(theRawa.get(0).toString())));
+		//System.out.println(c.getSolde() + " This is the solde ");
+		solde.setText(c.getSolde()+"");
+		
 
+		
+		btnValiderCrediterUnCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
+		btnValiderCrediterUnCompte.setBackground(new Color(118, 199, 240));
+		btnValiderCrediterUnCompte.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+            	Double theSolde = c.getSolde();
+            	System.out.println("The actual solde is : "+theSolde);
+            	System.out.println("The solde text is : "+solde.getText());
+            	Double theAddedSolde = theSolde +  Double.parseDouble(montant.getText());
+            	c.setSolde(c.getSolde() + Double.parseDouble(montant.getText()));
+            	System.out.println("The after solde is  : " + theAddedSolde);
+            	//ci.createCompte(c);
+                frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+            }
+        });
 		
 /////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -25,7 +25,7 @@ public class CompteepaImplement implements CompteepaDAO {
 		if(res.size() > 0) {
 			return res.get(0);
 		}else {
-			System.out.println("Didin't find a compteepa ! ");
+		//	System.out.println("Didin't find a compteepa ! ");
 			return new Compteepa();
 		}
 	}

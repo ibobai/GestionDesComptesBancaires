@@ -1,10 +1,14 @@
 package fr.gestion.comptes.bancaires.daos.implement;
 
 import java.util.List;
+
+import javax.persistence.TypedQuery;
+
 import fr.gestion.comptes.bancaires.dao.interfaces.CompteDAO;
 import fr.gestion.comptes.bancaires.obj.CompteObj;
 import fr.gestion.comptes.bancaires.pojos.Client;
 import fr.gestion.comptes.bancaires.pojos.Compte;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
 
 public class CompteImplement implements CompteDAO {
 
@@ -56,6 +60,25 @@ public class CompteImplement implements CompteDAO {
 		em.getTransaction().begin();
 		em.persist(c);
 		em.getTransaction().commit();
+	}
+
+	@Override
+	public Compte getCompteByNumeroCompte(Integer numeroCompte) {
+		Object cc = em.createQuery("SELECT b FROM Comptecous b WHERE b.compteID = "+numeroCompte);
+		//ComptecousObj cc = modelMapper.map(c, ComptecousObj.class);   //ON appelle la fonction de mapping pour mapper de Client vers clientObj
+		TypedQuery<Compte> q = em.createQuery("SELECT b FROM Compte b WHERE b.numCom ="+numeroCompte, Compte.class); 
+		List<Compte> res = q.getResultList();
+//		 for (Comptecous str : res)
+//	      { 		      
+//	           System.out.println(str.getCompteCouID() + " This is the id of the comptC"); 		
+//	      }
+//		ComptecousObj ccc = new ComptecousObj();
+		if(res.size() > 0) {
+			return res.get(0);
+		}else {
+			System.out.println("Didin't find a comptecous ! ");
+			return new Compte();
+		}	
 	}
 
 

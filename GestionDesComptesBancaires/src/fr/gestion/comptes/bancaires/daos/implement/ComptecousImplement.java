@@ -26,9 +26,11 @@ public class ComptecousImplement implements ComptecousDAO {
 		if(res.size() > 0) {
 			return res.get(0);
 		}else {
-			System.out.println("Didin't find a comptecous ! ");
+			//System.out.println("Didin't find a comptecous ! ");
 			return new Comptecous();
-		}	}
+		}	
+		
+	}
 
 	
 

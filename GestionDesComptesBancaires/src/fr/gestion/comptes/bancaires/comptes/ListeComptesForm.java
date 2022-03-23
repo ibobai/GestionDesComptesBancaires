@@ -89,7 +89,7 @@ public class ListeComptesForm {
 	//Returning the selected raw
 	static ArrayList theRaw = new ArrayList();
 	public ArrayList getTheSelectedRaw() {
-		return this.theRaw;
+		return theRaw;
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class ListeComptesForm {
 			Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
 			Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
 
-			System.out.println("Id compteCoups  : " + comptC.getCompteCouID());
-			System.out.println("Id compteepas   : " + comptE.getCompteEpaID());
+			//System.out.println("Id compteCoups  : " + comptC.getCompteCouID());
+			//System.out.println("Id compteepas   : " + comptE.getCompteEpaID());
 			String typeCompte = "Pas de type";
 
 			// Type assgnement
@@ -212,11 +212,14 @@ public class ListeComptesForm {
 				btnCredite.setCursor(cur1);
 			}
 		});
+		
 		btnCredite.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnCredite.setBackground(new Color(131, 224, 229));
 		btnCredite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
+				CrediterCompteForm listC = new CrediterCompteForm();
+				listC.main(null);
 			}
 		});
 
@@ -413,18 +416,22 @@ public class ListeComptesForm {
 			//	btnOuvCompte.setEnabled(true);
 
 				
-				
+				theRaw = new ArrayList();
 				int i = table.getSelectedRow();
 				TableModel tm = table.getModel();
 //				System.out.println(tm.getValueAt(i, 0).toString());
 //				System.out.println(tm.getValueAt(i, 1).toString());
 //				System.out.println(tm.getValueAt(i, 2).toString());
 //				System.out.println(tm.getValueAt(i, 3).toString());
-				
+//				
 				theRaw.add(tm.getValueAt(i, 0).toString());
 				theRaw.add(tm.getValueAt(i, 1).toString()); 
 				theRaw.add(tm.getValueAt(i, 2).toString()); 
 				theRaw.add(tm.getValueAt(i, 3).toString()); 
+				
+				for(Object o : theRaw) {
+					System.out.print(" "+o+" ");
+				}
 				
 			}
 		});
