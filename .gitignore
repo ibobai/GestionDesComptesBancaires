@@ -6,6 +6,7 @@
 
 #maven
 /GestionDesComptesBancaires/bin/META-INF/persistence.xml
+/src/META-INF/persistence.xml
 
 target/
 pom.xml.tag

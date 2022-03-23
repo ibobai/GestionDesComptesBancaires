@@ -215,10 +215,13 @@ public class ModifierCompteFormCourant  {
 		rdbtnEpargne.setHorizontalAlignment(SwingConstants.CENTER);
 		rdbtnEpargne.setBackground(new Color(131, 224, 229));
 		
-		//Les text ###########################################################################################################################
+		//########  Les text s  ###########################################################################################################################
 		
 		numDeCompte = new JTextField("100212");
 		numDeCompte.setColumns(10);
+		
+		
+		//  ClientObj updateClient(Integer id, String Change, String indic)
 		
 		
 		ClientImplement cI = new ClientImplement();

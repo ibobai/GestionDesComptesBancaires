@@ -20,12 +20,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
 import fr.gestion.comptes.bancaires.cloturer.CloturerCompteForm;
@@ -131,14 +133,14 @@ public class ListeComptesForm {
 		String[][] clientListData = {};
 		for(Compte c : clientsList) {
 			Integer i = 0;
-			ComptecousObj comptC = cci.getComptecousByCompteId(c.getCompteID());
-			CompteepaObj comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
+//			ComptecousObj comptC = cci.getComptecousByCompteId(c.getCompteID());
+//			CompteepaObj comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
 			String typeCompte = "Epargne";
 			if(true) {
-				typeCompte = "Courant";
-				System.out.println("The id to be searched in the comptesEouC is: "+c.getCompteID());
-				System.out.println("The compte is courant : "+comptC.getSoldeMin());
-				System.out.println("The compte is eparinge : "+comptE.getPlafond());
+//				typeCompte = "Courant";
+//				System.out.println("The id to be searched in the comptesEouC is: "+c.getCompteID());
+//				System.out.println("The compte is courant : "+comptC.getSoldeMin());
+//				System.out.println("The compte is eparinge : "+comptE.getPlafond());
 
 			}
 			clientListData = insertRow(clientListData, i, new String[] {c.getNumCom()+"",typeCompte, c.getClientID()+"",c.getSolde()+""});
@@ -179,6 +181,8 @@ public class ListeComptesForm {
 
 ////////////////////////////////////////// Fin  TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 
+//##########  Modifier ###############################################################################################
+		
 		btnModifier = new JButton("Modifier");
 		btnModifier.setEnabled(false);
 		btnModifier.addMouseMotionListener(new MouseMotionAdapter() {
@@ -196,8 +200,13 @@ public class ListeComptesForm {
 				frame.setVisible(false);
 				ModifierCompteFormCourant listC = new ModifierCompteFormCourant();
 				listC.main(null);
+				JTextField numDeCompte = new JTextField("100212");
+				numDeCompte.setColumns(10);
+				
 			}
 		});
+		
+// #######  #############################################################################################################################"
 
 		btnCredite = new JButton("Crediter");
 		btnCredite.setEnabled(false);
@@ -213,8 +222,6 @@ public class ListeComptesForm {
 		btnCredite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
-				CrediterCompteForm listC = new CrediterCompteForm();
-				listC.main(null);
 			}
 		});
 
@@ -406,12 +413,13 @@ public class ListeComptesForm {
 				btnDiter.setEnabled(true);
 				btnOuvCompte.setEnabled(true);
 
-//				int i = table.getSelectedRow();
-//				TableModel tm = table.getModel();
-//				System.out.println(tm.getValueAt(i, 0).toString());
-//				System.out.println(tm.getValueAt(i, 1).toString());
-//				System.out.println(tm.getValueAt(i, 2).toString());
-//				System.out.println(tm.getValueAt(i, 3).toString());
+				int i = table.getSelectedRow();
+				TableModel tm = table.getModel();
+				
+				System.out.println(tm.getValueAt(i, 0).toString());
+				System.out.println(tm.getValueAt(i, 1).toString());
+				System.out.println(tm.getValueAt(i, 2).toString());
+				System.out.println(tm.getValueAt(i, 3).toString());
 
 			}
 		});
