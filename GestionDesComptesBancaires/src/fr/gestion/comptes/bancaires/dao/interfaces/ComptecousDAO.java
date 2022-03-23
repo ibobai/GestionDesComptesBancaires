@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 
 import fr.gestion.comptes.bancaires.obj.ComptecousObj;
 import fr.gestion.comptes.bancaires.obj.CompteepaObj;
+import fr.gestion.comptes.bancaires.pojos.Comptecous;
 
 public interface ComptecousDAO {
 	
@@ -21,6 +22,6 @@ public interface ComptecousDAO {
 	public ComptecousObj getComptecousByCompteId(Integer id);
 	public List getComptecous();
 	public ComptecousObj deleteComptecousByCompteId(Integer id);
-	public void createComptecous(ComptecousObj co);
+	public void createComptecous(Comptecous co);
 	public ComptecousObj updateComptecousByCompteId(Integer id, int Change, String indic);
 }

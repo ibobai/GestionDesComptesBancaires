@@ -65,9 +65,17 @@ public class ClientImplement implements ClientDAO {
 
 		}
 	}
-
+	
+	
+	public void createClient(Client co) {
+		  em.getTransaction().begin();
+		  em.persist(co);
+		  em.getTransaction().commit();
+	}
+	
+	@Override
 	public void createClient(ClientObj co) {
-		em.persist(co);
+		
 	}
 	
 	
