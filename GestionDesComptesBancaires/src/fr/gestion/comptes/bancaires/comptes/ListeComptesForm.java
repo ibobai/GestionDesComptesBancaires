@@ -157,11 +157,8 @@ public class ListeComptesForm {
 
 		String col[] = { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" };
 		JTable table = new JTable(clientListData, col);
-		table.setModel(new DefaultTableModel(
-				clientListData,
-				new String[] { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" }) {
+		table.setModel(new DefaultTableModel(clientListData,new String[] { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" }) {
 			boolean[] columnEditables = new boolean[] { false, false, false, false };
-
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -180,7 +177,7 @@ public class ListeComptesForm {
 		header.setBackground(new Color(123, 167, 220));
 		header.setFont(new Font("Verdana", Font.BOLD, 14));
 
-////////////////////////////////////////// TABLE ///////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////// Fin  TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 
 		btnModifier = new JButton("Modifier");
 		btnModifier.setEnabled(false);
