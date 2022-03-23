@@ -43,6 +43,7 @@ import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
 import fr.gestion.comptes.bancaires.pojos.Client;
 import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
+import fr.gestion.comptes.bancaires.pojos.Compteepa;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
 
 public class ListeComptesForm {
@@ -128,22 +129,27 @@ public class ListeComptesForm {
 		CompteImplement ci = new CompteImplement();
 		ComptecousImplement cci = new ComptecousImplement();
 		CompteepaImplement cei = new CompteepaImplement();
-		
+
 		List<Compte> clientsList = ci.getComptes();
 		String[][] clientListData = {};
-		for(Compte c : clientsList) {
+		for (Compte c : clientsList) {
 			Integer i = 0;
-//			ComptecousObj comptC = cci.getComptecousByCompteId(c.getCompteID());
-//			CompteepaObj comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
-			String typeCompte = "Epargne";
-			if(true) {
-//				typeCompte = "Courant";
-//				System.out.println("The id to be searched in the comptesEouC is: "+c.getCompteID());
-//				System.out.println("The compte is courant : "+comptC.getSoldeMin());
-//				System.out.println("The compte is eparinge : "+comptE.getPlafond());
+			Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
+			Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
 
+			System.out.println("Id compteCoups  : " + comptC.getCompteCouID());
+			System.out.println("Id compteepas   : " + comptE.getCompteEpaID());
+			String typeCompte = "Pas de type";
+
+			// Type assgnement
+			if (comptC.getCompteCouID() > 0) {
+				typeCompte = "Courant";
 			}
-			clientListData = insertRow(clientListData, i, new String[] {c.getNumCom()+"",typeCompte, c.getClientID()+"",c.getSolde()+""});
+			if (comptE.getCompteEpaID() > 0) {
+				typeCompte = "Epargne";
+			}
+			clientListData = insertRow(clientListData, i,
+					new String[] { c.getNumCom() + "", typeCompte, c.getClientID() + "", c.getSolde() + "" });
 			i++;
 
 		}
@@ -159,8 +165,10 @@ public class ListeComptesForm {
 
 		String col[] = { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" };
 		JTable table = new JTable(clientListData, col);
-		table.setModel(new DefaultTableModel(clientListData,new String[] { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" }) {
+		table.setModel(new DefaultTableModel(clientListData,
+				new String[] { "   Num\u00E9ro de Compte  ", "    Type de Compte", "   Cilent", "    Solde" }) {
 			boolean[] columnEditables = new boolean[] { false, false, false, false };
+
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
@@ -182,7 +190,7 @@ public class ListeComptesForm {
 ////////////////////////////////////////// Fin  TABLE ///////////////////////////////////////////////////////////////////////////////////////////
 
 //##########  Modifier ###############################################################################################
-		
+
 		btnModifier = new JButton("Modifier");
 		btnModifier.setEnabled(false);
 		btnModifier.addMouseMotionListener(new MouseMotionAdapter() {
@@ -202,10 +210,10 @@ public class ListeComptesForm {
 				listC.main(null);
 				JTextField numDeCompte = new JTextField("100212");
 				numDeCompte.setColumns(10);
-				
+
 			}
 		});
-		
+
 // #######  #############################################################################################################################"
 
 		btnCredite = new JButton("Crediter");
@@ -411,11 +419,11 @@ public class ListeComptesForm {
 				btnTransferer.setEnabled(true);
 				btnCloturer.setEnabled(true);
 				btnDiter.setEnabled(true);
-				btnOuvCompte.setEnabled(true);
+				// btnOuvCompte.setEnabled(true);
 
 				int i = table.getSelectedRow();
 				TableModel tm = table.getModel();
-				
+
 				System.out.println(tm.getValueAt(i, 0).toString());
 				System.out.println(tm.getValueAt(i, 1).toString());
 				System.out.println(tm.getValueAt(i, 2).toString());

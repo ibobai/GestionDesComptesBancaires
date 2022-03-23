@@ -391,12 +391,7 @@ public class OuvrirCompteForm  {
 						Comptecous compteCous = new Comptecous();
 						Compteepa compteepa = new Compteepa();
 						
-						// compte 
 						
-						compte.setNumCom(Integer.parseInt(lblNumCompteGenere.getText()));
-						compte.setSolde(Double.parseDouble(soldeInitial.getText())); 
-						compte.setClientID(2);
-						c.createCompte(compte);
 						
 						//Client 
 						
@@ -404,8 +399,15 @@ public class OuvrirCompteForm  {
 						client.setPrenom(prenomDeClient.getText());
 						client.setTel(telDeClient.getText());
 						client.setAdresse(adresseDeClient.getText());
-						client.setEmail("chbibsoumaya@gmail.com");
+						client.setEmail("nom@gmail.com");
 						cI.createClient(client);
+						
+                        // compte 
+						
+						compte.setNumCom(Integer.parseInt(lblNumCompteGenere.getText()));
+						compte.setSolde(Double.parseDouble(soldeInitial.getText())); 
+						compte.setClientID(client.getClientID());
+						c.createCompte(compte);
 						
 						if (!plafond.getText().equals("")) {
 							
@@ -413,7 +415,7 @@ public class OuvrirCompteForm  {
 							
 							compteepa.setPlafond(Integer.parseInt(plafond.getText()));
 							compteepa.setTauxInteret(Integer.parseInt(tautInteret.getText()));
-							compteepa.setCompteID(4);
+							compteepa.setCompteID(compte.getCompteID());
 							cE.createCompteepa(compteepa);
 						}
 						
@@ -423,7 +425,7 @@ public class OuvrirCompteForm  {
 							
 							compteCous.setFraisTrans(Integer.parseInt(fraisDeTransfert.getText()));
 							compteCous.setSoldeMin(Double.parseDouble(soldeMinAuto.getText()));
-							compteCous.setCompteID(3);
+							compteCous.setCompteID(compte.getCompteID());
 							cC.createComptecous(compteCous);
 						}
 							
