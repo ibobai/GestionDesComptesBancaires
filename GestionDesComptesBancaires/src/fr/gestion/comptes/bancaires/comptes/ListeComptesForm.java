@@ -18,6 +18,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -30,13 +31,13 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
 import fr.gestion.comptes.bancaires.accueil.CreationBanqueForm;
-import fr.gestion.comptes.bancaires.cloturer.CloturerCompteForm;
+import fr.gestion.comptes.bancaires.cloturer.SupprimerConfirm;
 import fr.gestion.comptes.bancaires.crediter.CrediterCompteForm;
 import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
 import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
 import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
-import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
+import fr.gestion.comptes.bancaires.modifier.ModifierCompteForm;
 import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
 import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
@@ -85,9 +86,10 @@ public class ListeComptesForm {
 		}
 		return out;
 	}
-	
-	//Returning the selected raw
+
+	// Returning the selected raw
 	static ArrayList theRaw = new ArrayList();
+
 	public ArrayList getTheSelectedRaw() {
 		return theRaw;
 	}
@@ -108,7 +110,6 @@ public class ListeComptesForm {
 
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 
-
 		// table
 
 		// Getting the list of clients from the database
@@ -124,8 +125,8 @@ public class ListeComptesForm {
 			Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
 			Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
 
-			//System.out.println("Id compteCoups  : " + comptC.getCompteCouID());
-			//System.out.println("Id compteepas   : " + comptE.getCompteEpaID());
+			// System.out.println("Id compteCoups : " + comptC.getCompteCouID());
+			// System.out.println("Id compteepas : " + comptE.getCompteEpaID());
 			String typeCompte = "Pas de type";
 
 			// Type assgnement
@@ -193,7 +194,7 @@ public class ListeComptesForm {
 		btnModifier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
-				ModifierCompteFormCourant listC = new ModifierCompteFormCourant();
+				ModifierCompteForm listC = new ModifierCompteForm();
 				listC.main(null);
 				JTextField numDeCompte = new JTextField("100212");
 				numDeCompte.setColumns(10);
@@ -212,7 +213,7 @@ public class ListeComptesForm {
 				btnCredite.setCursor(cur1);
 			}
 		});
-		
+
 		btnCredite.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnCredite.setBackground(new Color(131, 224, 229));
 		btnCredite.addActionListener(new ActionListener() {
@@ -256,8 +257,17 @@ public class ListeComptesForm {
 		btnCloturer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// frame.setVisible(false);
-				CloturerCompteForm listC = new CloturerCompteForm();
-				listC.main(null);
+				// CloturerCompteForm listC = new CloturerCompteForm();
+				int input = JOptionPane.showConfirmDialog(null, "Voulez vous vraiment clôturer ce compte ? ",
+						"Choisissez une option...", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+				if (input == 0) {
+					Compte c = ci.getCompteByNumeroCompte((Integer.parseInt(theRaw.get(0).toString())));
+					ci.deleteCompte(c.getCompteID());
+					JOptionPane.showMessageDialog(frame,
+						    "Le compte à été clôturé !");
+					main(null);
+				}
+			
 			}
 		});
 
@@ -400,9 +410,6 @@ public class ListeComptesForm {
 		lblListDesCompte.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblListDesCompte.setBackground(new Color(118, 199, 240));
 
-		
-		
-		
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -413,9 +420,8 @@ public class ListeComptesForm {
 				btnCloturer.setEnabled(true);
 				btnDiter.setEnabled(true);
 
-			//	btnOuvCompte.setEnabled(true);
+				// btnOuvCompte.setEnabled(true);
 
-				
 				theRaw = new ArrayList();
 				int i = table.getSelectedRow();
 				TableModel tm = table.getModel();
@@ -425,14 +431,14 @@ public class ListeComptesForm {
 //				System.out.println(tm.getValueAt(i, 3).toString());
 //				
 				theRaw.add(tm.getValueAt(i, 0).toString());
-				theRaw.add(tm.getValueAt(i, 1).toString()); 
-				theRaw.add(tm.getValueAt(i, 2).toString()); 
-				theRaw.add(tm.getValueAt(i, 3).toString()); 
-				
-				for(Object o : theRaw) {
-					System.out.print(" "+o+" ");
+				theRaw.add(tm.getValueAt(i, 1).toString());
+				theRaw.add(tm.getValueAt(i, 2).toString());
+				theRaw.add(tm.getValueAt(i, 3).toString());
+
+				for (Object o : theRaw) {
+					System.out.print(" " + o + " ");
 				}
-				
+
 			}
 		});
 

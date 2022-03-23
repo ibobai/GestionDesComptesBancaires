@@ -1,24 +1,28 @@
 package fr.gestion.comptes.bancaires.modifier;
 
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import java.awt.Cursor;
-
-import javax.swing.JPanel;
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+
 import javax.swing.ButtonGroup;
-import javax.swing.DropMode;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 import fr.gestion.comptes.bancaires.daos.implement.ClientImplement;
@@ -26,24 +30,13 @@ import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
 import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
 import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
 import fr.gestion.comptes.bancaires.obj.ClientObj;
-import fr.gestion.comptes.bancaires.pojos.Client;
-import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
 import fr.gestion.comptes.bancaires.pojos.Compteepa;
 
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-
-public class ModifierCompteFormCourant  {
+public class ModifierCompteForm  {
 
 	private JFrame frame;
-	private JTextField numDeCompte;
+	private JTextField numeroCompte;
 	private JTextField nomDeClient;
 	private JTextField telDeClient;
 	private JTextField fraisDeTransfert;
@@ -61,7 +54,7 @@ public class ModifierCompteFormCourant  {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ModifierCompteFormCourant window = new ModifierCompteFormCourant();
+					ModifierCompteForm window = new ModifierCompteForm();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,7 +66,7 @@ public class ModifierCompteFormCourant  {
 	/**
 	 * Create the application.
 	 */
-	public ModifierCompteFormCourant() {
+	public ModifierCompteForm() {
 		initialize();
 	}
 
@@ -94,6 +87,32 @@ public class ModifierCompteFormCourant  {
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
+		
+		
+		//Type de compte et les imports###########################################################"
+		
+		ListeComptesForm lcf = new ListeComptesForm();
+		ArrayList theRawa = lcf.getTheSelectedRaw();
+		CompteImplement ci = new CompteImplement();
+		ComptecousImplement cci = new ComptecousImplement();
+		CompteepaImplement cei = new CompteepaImplement();
+		Integer i = 0;
+//		Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
+//		Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());/// Is returning a null value
+
+		// System.out.println("Id compteCoups : " + comptC.getCompteCouID());
+		// System.out.println("Id compteepas : " + comptE.getCompteEpaID());
+//		String typeCompte = "Pas de type";
+//
+//		// Type assgnement
+//		if (comptC.getCompteCouID() > 0) {
+//			typeCompte = "Courant";
+//		}
+//		if (comptE.getCompteEpaID() > 0) {
+//			typeCompte = "Epargne";
+//		}
+		//#################################################################################
+		
 		
 		JLabel lblModifierUnCompte = new JLabel("Modifier un compte");
 		lblModifierUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));
@@ -217,8 +236,8 @@ public class ModifierCompteFormCourant  {
 		
 		//########  Les text s  ###########################################################################################################################
 		
-		numDeCompte = new JTextField("100212");
-		numDeCompte.setColumns(10);
+		numeroCompte = new JTextField("");
+		numeroCompte.setColumns(10);
 		
 		
 		//  ClientObj updateClient(Integer id, String Change, String indic)
@@ -363,6 +382,13 @@ public class ModifierCompteFormCourant  {
 		});
 		
 		
+		//Le compte clické de la liste des comptes : 
+	
+		System.out.println("The selected raw saize is : "+ theRawa.size());
+		System.out.println("We are in débiter ! ");
+		System.out.println("The numero of the account  : "+theRawa.get(0));
+		numeroCompte.setText(theRawa.get(0)+"");
+		
 		// #########  Layout ######################################################################################################################
 
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -411,7 +437,7 @@ public class ModifierCompteFormCourant  {
 											.addComponent(rdbtnCourant, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
 											.addComponent(rdbtnEpargne, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-										.addComponent(numDeCompte, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
+										.addComponent(numeroCompte, GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
 									.addGap(103)
 									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 										.addComponent(prenomDeClient, GroupLayout.PREFERRED_SIZE, 240, GroupLayout.PREFERRED_SIZE)
@@ -431,7 +457,7 @@ public class ModifierCompteFormCourant  {
 					.addGap(68)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblNumroDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(numDeCompte, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
+						.addComponent(numeroCompte, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 					.addGap(29)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblTypeDeCompte, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)

@@ -15,7 +15,7 @@ import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
-import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
+import fr.gestion.comptes.bancaires.modifier.ModifierCompteForm;
 
 import javax.swing.JLabel;
 

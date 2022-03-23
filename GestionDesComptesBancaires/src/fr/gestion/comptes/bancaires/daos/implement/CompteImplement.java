@@ -37,7 +37,7 @@ public class CompteImplement implements CompteDAO {
 	}
 
 	@Override
-	public CompteObj deleteCompte(Integer id) {
+	public Compte deleteCompte(Integer id) {
 		try {
 			//em.createQuery("DELETE from Client WHERE clientID ="+id);
 			

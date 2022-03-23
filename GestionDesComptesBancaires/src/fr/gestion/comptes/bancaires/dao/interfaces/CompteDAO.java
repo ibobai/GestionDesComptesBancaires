@@ -22,7 +22,7 @@ public interface CompteDAO {
 	
 	public Compte getCompteByNumeroCompte(Integer numeroCompte);
 	
-	public CompteObj deleteCompte(Integer id);
+	public Compte deleteCompte(Integer id);
 
 	public CompteObj updateCompte(Integer id, int Change, String indic);
 

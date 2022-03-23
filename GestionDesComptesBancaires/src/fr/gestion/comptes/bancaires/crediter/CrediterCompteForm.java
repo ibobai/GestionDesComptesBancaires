@@ -165,11 +165,11 @@ public class CrediterCompteForm {
 		System.out.println("We are in créditer ! ");
 		System.out.println("The numero of the account  : "+theRawa.get(0));
 		numeroCompte.setText(theRawa.get(0)+"");
-		
-		for (Object val : theRawa) {
-		    System.out.print(val + " From the table créditer !");
-		}
-		
+//		
+//		for (Object val : theRawa) {
+//		    System.out.print(val + " From the table créditer !");
+//		}
+//		
 		//Compte info
 		
 		CompteImplement ci = new CompteImplement();
@@ -189,7 +189,7 @@ public class CrediterCompteForm {
             	Double theAddedSolde = theSolde +  Double.parseDouble(montant.getText());
             	c.setSolde(c.getSolde() + Double.parseDouble(montant.getText()));
             	System.out.println("The after solde is  : " + theAddedSolde);
-            	//ci.createCompte(c);
+            	ci.createCompte(c);
                 frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
                 listC.main(null);

@@ -17,7 +17,11 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
+import fr.gestion.comptes.bancaires.daos.implement.CompteImplement;
+import fr.gestion.comptes.bancaires.pojos.Compte;
+
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
 import java.awt.event.MouseEvent;
 
 public class CloturerCompteForm {
@@ -73,14 +77,7 @@ public class CloturerCompteForm {
 				btnSupprimer.setCursor(cur1);
 			}
 		});
-		btnSupprimer.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSupprimer.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                //frame.setVisible(false);
-                SupprimerConfirm listC = new SupprimerConfirm();
-                listC.main(null);
-            }
-        });
+	
 		
 		
 		JButton btnAnnuler = new JButton("Annuler");
@@ -95,12 +92,29 @@ public class CloturerCompteForm {
 		btnAnnuler.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAnnuler.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
+                //frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
                 listC.main(null);
             }
         });
 		
+		
+		System.out.println("We are in cloturer !");
+		ListeComptesForm lcf = new ListeComptesForm();
+		ArrayList theRawa = lcf.getTheSelectedRaw();
+		CompteImplement ci = new CompteImplement();
+		Compte c = ci.getCompteByNumeroCompte((Integer.parseInt(theRawa.get(0).toString())));
+		
+		btnSupprimer.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnSupprimer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+            	ci.deleteCompte(c.getCompteID());
+                //frame.setVisible(false);
+            	SupprimerConfirm listC = new SupprimerConfirm();
+                listC.main(null);
+            }
+        });
+		//System.out.println(c.getSolde() + " This is the solde ");
 		
 		
 		
