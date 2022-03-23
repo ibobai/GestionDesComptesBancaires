@@ -3,12 +3,11 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<persistence-unit name="GestionDesComptesBancaires"
-		transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="GestionDesComptesBancaires">
 		<class>fr.gestion.comptes.bancaires.pojos.Client</class>
-		<class>fr.gestion.comptes.bancaires.pojos.Compte</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Comptecous</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Compteepa</class>
+		<class>fr.gestion.comptes.bancaires.pojos.Compte</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Conseiller</class>
 		<class>fr.gestion.comptes.bancaires.pojos.Transfert</class>
 
@@ -19,6 +18,9 @@
 				value="jdbc:mysql://localhost:3307/isnbank" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.connection.username" value="root" />
+			<property name="dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+
 		</properties>
 	</persistence-unit>
 </persistence>

@@ -16,9 +16,12 @@ public class ClientImplement implements ClientDAO {
 	@Override
 	public List getClients() {
 		List<Client> lc =  em.createQuery("From Client", Client.class).getResultList();
+		System.out.println("Listing all the client ! ");
+		
 		for(Client c : lc) {
 			System.out.println(c.getNom());
 		}
+		
 		return lc;
 	}
 	@Override
@@ -43,7 +46,7 @@ public class ClientImplement implements ClientDAO {
         	cc.setEmail(Change);
 		}
 		
-		em.persist(cc); // sauvegarder l objet dans la base de donnée
+		em.persist(cc); // sauvegarder l objet dans la base de donnï¿½e
 		return cc;
 	}
 

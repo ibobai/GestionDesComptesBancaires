@@ -74,7 +74,7 @@ public class CloturerCompteForm {
 		btnSupprimer.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSupprimer.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
+                //frame.setVisible(false);
                 SupprimerConfirm listC = new SupprimerConfirm();
                 listC.main(null);
             }

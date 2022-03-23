@@ -16,7 +16,7 @@ public class CompteImplement implements CompteDAO {
 	}
 
 	@Override
-	public List getCompte() {
+	public List getComptes() {
 		List<Compte> lc =  em.createQuery("From Compte", Compte.class).getResultList();
 		return lc;
 	}

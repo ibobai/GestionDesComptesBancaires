@@ -18,7 +18,7 @@ public interface CompteDAO {
 	
 	public CompteObj getCompteById(Integer id);
 	
-	public List getCompte();
+	public List getComptes();
 	
 	public CompteObj deleteCompte(Integer id);
 
