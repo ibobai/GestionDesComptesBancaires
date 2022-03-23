@@ -22,7 +22,7 @@ public interface CompteepaDAO {
 	
 	
 	// get compte 
-	public CompteepaObj getCompteepaByCompteId(Integer id);
+	public Compteepa getCompteepaByCompteId(Integer id);
 	
 	// update
 	public CompteepaObj updateCompteepaByCompteId(Integer id, int Change, String indic);

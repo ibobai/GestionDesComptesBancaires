@@ -19,7 +19,7 @@ public interface ComptecousDAO {
 	
 	ModelMapper modelMapper = new ModelMapper();
 	
-	public ComptecousObj getComptecousByCompteId(Integer id);
+	public Comptecous getComptecousByCompteId(Integer id);
 	public List getComptecous();
 	public ComptecousObj deleteComptecousByCompteId(Integer id);
 	public void createComptecous(Comptecous co);

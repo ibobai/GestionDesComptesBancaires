@@ -41,6 +41,7 @@ import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
 import fr.gestion.comptes.bancaires.pojos.Client;
 import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
+import fr.gestion.comptes.bancaires.pojos.Compteepa;
 import fr.gestion.comptes.bancaires.transferer.Transferer;
 
 public class ListeComptesForm {
@@ -131,15 +132,19 @@ public class ListeComptesForm {
 		String[][] clientListData = {};
 		for(Compte c : clientsList) {
 			Integer i = 0;
-			ComptecousObj comptC = cci.getComptecousByCompteId(c.getCompteID());
-			CompteepaObj comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
-			String typeCompte = "Epargne";
-			if(true) {
-				typeCompte = "Courant";
-				System.out.println("The id to be searched in the comptesEouC is: "+c.getCompteID());
-				System.out.println("The compte is courant : "+comptC.getSoldeMin());
-				System.out.println("The compte is eparinge : "+comptE.getPlafond());
+			Comptecous comptC = cci.getComptecousByCompteId(c.getCompteID());
+			Compteepa comptE = cei.getCompteepaByCompteId(c.getCompteID());///Is returning a null value
 
+			System.out.println("Id compteCoups  : " + comptC.getCompteCouID());
+			System.out.println("Id compteepas   : " + comptE.getCompteEpaID());
+			String typeCompte = "Pas de type";
+			
+			//Type assgnement
+			if(comptC.getCompteCouID() > 0) {
+				typeCompte = "Courant";
+			}
+			if(comptE.getCompteEpaID() > 0) {
+				typeCompte = "Epargne";
 			}
 			clientListData = insertRow(clientListData, i, new String[] {c.getNumCom()+"",typeCompte, c.getClientID()+"",c.getSolde()+""});
 			i++;
@@ -407,7 +412,7 @@ public class ListeComptesForm {
 				btnTransferer.setEnabled(true);
 				btnCloturer.setEnabled(true);
 				btnDiter.setEnabled(true);
-				btnOuvCompte.setEnabled(true);
+			//	btnOuvCompte.setEnabled(true);
 
 //				int i = table.getSelectedRow();
 //				TableModel tm = table.getModel();

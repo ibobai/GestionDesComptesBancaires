@@ -1,6 +1,5 @@
 package fr.gestion.comptes.bancaires.daos.implement;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -12,20 +11,26 @@ import fr.gestion.comptes.bancaires.pojos.Comptecous;
 public class ComptecousImplement implements ComptecousDAO {
 
 	@Override
-	public ComptecousObj getComptecousByCompteId(Integer id) {
+	public Comptecous getComptecousByCompteId(Integer id) {
 		//Comptecous c = em.find(Comptecous.class, id);
 		
 		Object cc = em.createQuery("SELECT b FROM Comptecous b WHERE b.compteID = "+id);
 		//ComptecousObj cc = modelMapper.map(c, ComptecousObj.class);   //ON appelle la fonction de mapping pour mapper de Client vers clientObj
 		TypedQuery<Comptecous> q = em.createQuery("SELECT b FROM Comptecous b WHERE b.compteID = "+id, Comptecous.class); 
 		List<Comptecous> res = q.getResultList();
-		 for (Comptecous str : res)
-	      { 		      
-	           System.out.println(str.getCompteCouID() + " This is the id of the comptC"); 		
-	      }
-		ComptecousObj ccc = new ComptecousObj();
-		return  ccc;
-	}
+//		 for (Comptecous str : res)
+//	      { 		      
+//	           System.out.println(str.getCompteCouID() + " This is the id of the comptC"); 		
+//	      }
+//		ComptecousObj ccc = new ComptecousObj();
+		if(res.size() > 0) {
+			return res.get(0);
+		}else {
+			System.out.println("Didin't find a comptecous ! ");
+			return new Comptecous();
+		}	}
+
+	
 
 	@Override
 	public List getComptecous() {
