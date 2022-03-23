@@ -49,6 +49,7 @@ public class SupprimerConfirm {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblCompteSupprime= new JLabel("Le compte est supprim\u00E9 !");
 		lblCompteSupprime.setFont(new Font("Tahoma", Font.PLAIN, 18));

@@ -71,6 +71,8 @@ public class CreationBanqueForm extends ClientImplement {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
@@ -165,10 +167,16 @@ public class CreationBanqueForm extends ClientImplement {
 		InputUtilisateur.setColumns(10);
 		
 		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		 btnAnnuler.setBackground(new Color(118, 199, 240));
+		 btnAnnuler.setFont(new Font("Verdana", Font.PLAIN, 15));
+		 btnAnnuler.addMouseMotionListener(new MouseMotionAdapter() {
+				@Override
+				public void mouseMoved(MouseEvent e) {
+					Cursor  cur1 = new Cursor(Cursor.HAND_CURSOR);
+					 btnAnnuler.setCursor(cur1);
+					
+				}
+			});
 		
 		passwordField = new JPasswordField();
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -187,27 +195,27 @@ public class CreationBanqueForm extends ClientImplement {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(148, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED))
 							.addGroup(groupLayout.createSequentialGroup()
 								.addComponent(lblUtilisateur, GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-								.addGap(143))))
+								.addGap(143)))
+						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
 					.addGap(4)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(passwordField)
 						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
 							.addComponent(textField, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-							.addComponent(InputUtilisateur, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)))
+							.addComponent(InputUtilisateur, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+						.addComponent(passwordField, 603, 603, 603))
 					.addGap(210))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(645, Short.MAX_VALUE)
+					.addContainerGap(627, Short.MAX_VALUE)
 					.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-					.addGap(103)
-					.addComponent(btnAnnuler)
-					.addGap(343))
+					.addGap(83)
+					.addComponent(btnAnnuler, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+					.addGap(326))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(398, Short.MAX_VALUE)
 					.addComponent(lblLogo, GroupLayout.PREFERRED_SIZE, 531, GroupLayout.PREFERRED_SIZE)
@@ -223,13 +231,13 @@ public class CreationBanqueForm extends ClientImplement {
 						.addComponent(lblUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
 						.addComponent(InputUtilisateur, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
 					.addGap(31)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(passwordField)
-						.addComponent(lblMpd, GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
-					.addGap(74)
+					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblMpd, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+					.addGap(49)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnValiderCreationBanque, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnAnnuler))
+						.addComponent(btnAnnuler, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
 					.addGap(165)
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 						.addGroup(groupLayout.createSequentialGroup()

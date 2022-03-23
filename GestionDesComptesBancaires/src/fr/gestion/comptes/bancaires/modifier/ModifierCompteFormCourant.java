@@ -84,6 +84,7 @@ public class ModifierCompteFormCourant  {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblModifierUnCompte = new JLabel("Modifier un compte");
 		lblModifierUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));

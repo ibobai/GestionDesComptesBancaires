@@ -124,6 +124,7 @@ public class OuvrirCompteForm  {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblOuvrirUnCompte = new JLabel("Ouvrir un compte");
 		lblOuvrirUnCompte.setFont(new Font("Verdana", Font.BOLD, 30));

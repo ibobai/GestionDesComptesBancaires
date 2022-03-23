@@ -67,6 +67,7 @@ public class DebiterCompteForm {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1300, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		
 		JLabel lblDebiter = new JLabel("Debiter un compte");
 		lblDebiter.setBackground(new Color(118, 199, 240));
