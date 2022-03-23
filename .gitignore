@@ -5,7 +5,7 @@
 .classpath
 
 #maven
-persistence.xml
+/GestionDesComptesBancaires/bin/META-INF/persistence.xml
 
 target/
 pom.xml.tag

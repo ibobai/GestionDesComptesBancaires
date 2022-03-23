@@ -62,8 +62,6 @@ public class CreationBanqueForm extends ClientImplement {
 	}
 	
 	
-	
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -109,6 +107,7 @@ public class CreationBanqueForm extends ClientImplement {
 				
 			}
 		});
+		
 		btnValiderCreationBanque.setBackground(new Color(118, 199, 240));
 		btnValiderCreationBanque.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValiderCreationBanque.addActionListener(new ActionListener() {

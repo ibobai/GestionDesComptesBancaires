@@ -58,7 +58,7 @@ public class SupprimerConfirm {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                frame.setVisible(false);
+                //frame.setVisible(false);
                 ListeComptesForm listC = new ListeComptesForm();
                 listC.main(null);
             }
