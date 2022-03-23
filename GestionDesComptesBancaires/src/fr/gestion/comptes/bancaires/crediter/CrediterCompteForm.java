@@ -1,37 +1,35 @@
 package fr.gestion.comptes.bancaires.crediter;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Cursor;
-
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
-import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
-import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
-
-import javax.swing.JLabel;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
+
+import fr.gestion.comptes.bancaires.comptes.ListeComptesForm;
 
 public class CrediterCompteForm {
 
 	private JLabel lblcrediterUnCompte;
 	private JFrame frame;
-	private JTextField inputCrediterUnCompte;
-	private JTextField inputSolde;
-	private JTextField InputMontant;
+	private JTextField numeroCompte;
+	private JTextField solde;
+	private JTextField montant;
 	private JButton btnNewButton;
 
 	/**
@@ -47,7 +45,9 @@ public class CrediterCompteForm {
 					e.printStackTrace();
 				}
 			}
+			
 		});
+
 	}
 
 	/**
@@ -71,18 +71,18 @@ public class CrediterCompteForm {
 	
 	
 		
-		inputCrediterUnCompte = new JTextField();
-		inputCrediterUnCompte.addKeyListener(new KeyAdapter() {
+		numeroCompte = new JTextField();
+		numeroCompte.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
 		            e.consume();  // ignorer l'�v�nement
 		        }
 		     }
-		});		inputCrediterUnCompte.setColumns(10);
+		});		numeroCompte.setColumns(10);
 		
-		inputSolde = new JTextField();
-		inputSolde.addKeyListener(new KeyAdapter() {
+		solde = new JTextField();
+		solde.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
@@ -90,7 +90,7 @@ public class CrediterCompteForm {
 		        }
 		     }
 		});
-		inputSolde.setColumns(10);
+		solde.setColumns(10);
 		
 		JButton btnValiderCrediterUnCompte = new JButton("Valider");
 		btnValiderCrediterUnCompte.addMouseMotionListener(new MouseMotionAdapter() {
@@ -112,11 +112,11 @@ public class CrediterCompteForm {
 		
 		
 		
-		JLabel lblCrediterCompte = new JLabel("Cr\u00E9diter un compte");
-		lblCrediterCompte.setOpaque(true);
-		lblCrediterCompte.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCrediterCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
-		lblCrediterCompte.setBackground(new Color(131, 224, 229));
+		JLabel lblNumeroCompte = new JLabel("Numéro Compte");
+		lblNumeroCompte.setOpaque(true);
+		lblNumeroCompte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNumeroCompte.setFont(new Font("Verdana", Font.PLAIN, 15));
+		lblNumeroCompte.setBackground(new Color(131, 224, 229));
 
 		
 		JLabel lblSolde = new JLabel("Solde");
@@ -131,8 +131,8 @@ public class CrediterCompteForm {
 		lblMontant.setFont(new Font("Verdana", Font.PLAIN, 15));
 		lblMontant.setBackground(new Color(131, 224, 229));
 		
-		InputMontant = new JTextField();
-		InputMontant.addKeyListener(new KeyAdapter() {
+		montant = new JTextField();
+		montant.addKeyListener(new KeyAdapter() {
 			public void keyTyped(KeyEvent e) {
 		        char c = e.getKeyChar();
 		        if ( !(Character.isDigit(c)) && (c != KeyEvent.VK_BACK_SPACE) && (c != '.')) {
@@ -140,7 +140,7 @@ public class CrediterCompteForm {
 		        }
 		     }
 		});
-		InputMontant.setColumns(10);
+		montant.setColumns(10);
 		
 		btnNewButton = new JButton("<-------");
 		btnNewButton.setFont(new Font("Verdana", Font.PLAIN, 15));
@@ -161,7 +161,18 @@ public class CrediterCompteForm {
 		lblcrediterUnCompte.setOpaque(true);
 
 
+		//Le compte clické de la liste des comptes : 
 		
+		ListeComptesForm lcf = new ListeComptesForm();
+		ArrayList theRaw = lcf.getTheSelectedRaw();
+		System.out.println("The selected raw saize is : "+ theRaw.size());
+		System.out.println("We are in créditer ! ");
+		System.out.println("The numero of the account  : "+theRaw.get(0));
+		numeroCompte.setText(theRaw.get(0)+"");
+//		for (Object val : theRaw) {
+//		    System.out.print(val + " From the table créditer !");
+//		}
+
 		
 /////////////  Layout	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,14 +185,14 @@ public class CrediterCompteForm {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(222)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblCrediterCompte, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNumeroCompte, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
 					.addGap(77)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(InputMontant)
-						.addComponent(inputSolde)
-						.addComponent(inputCrediterUnCompte, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
+						.addComponent(montant)
+						.addComponent(solde)
+						.addComponent(numeroCompte, GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))
 					.addContainerGap(144, Short.MAX_VALUE))
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(64)
@@ -201,16 +212,16 @@ public class CrediterCompteForm {
 					.addComponent(lblcrediterUnCompte, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 					.addGap(114)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblCrediterCompte, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(inputCrediterUnCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNumeroCompte, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+						.addComponent(numeroCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(30)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblSolde, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(inputSolde, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(solde, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(28)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblMontant, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-						.addComponent(InputMontant, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
+						.addComponent(montant, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
 					.addGap(71)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnValiderCrediterUnCompte, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)

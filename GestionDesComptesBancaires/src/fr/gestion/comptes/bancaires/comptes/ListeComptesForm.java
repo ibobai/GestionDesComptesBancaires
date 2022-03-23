@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -37,10 +37,7 @@ import fr.gestion.comptes.bancaires.daos.implement.ComptecousImplement;
 import fr.gestion.comptes.bancaires.daos.implement.CompteepaImplement;
 import fr.gestion.comptes.bancaires.debiter.DebiterCompteForm;
 import fr.gestion.comptes.bancaires.modifier.ModifierCompteFormCourant;
-import fr.gestion.comptes.bancaires.obj.ComptecousObj;
-import fr.gestion.comptes.bancaires.obj.CompteepaObj;
 import fr.gestion.comptes.bancaires.ouvrir.OuvrirCompteForm;
-import fr.gestion.comptes.bancaires.pojos.Client;
 import fr.gestion.comptes.bancaires.pojos.Compte;
 import fr.gestion.comptes.bancaires.pojos.Comptecous;
 import fr.gestion.comptes.bancaires.pojos.Compteepa;
@@ -88,6 +85,12 @@ public class ListeComptesForm {
 		}
 		return out;
 	}
+	
+	//Returning the selected raw
+	static ArrayList theRaw = new ArrayList();
+	public ArrayList getTheSelectedRaw() {
+		return this.theRaw;
+	}
 
 	/**
 	 * Create the application.
@@ -105,22 +108,6 @@ public class ListeComptesForm {
 
 		frame.getContentPane().setBackground(new Color(190, 247, 251));
 
-		/*
-		 * 
-		 * table = new JTable(); table.setBorder(null);
-		 * table.setColumnSelectionAllowed(true); table.setFont(new Font("Verdana",
-		 * Font.PLAIN, 15)); table.setBackground(new Color(118, 199, 240));
-		 * table.setModel(new DefaultTableModel( new Object[][] { {"Type de compte",
-		 * "Numero de compte", "Lib\u00E9ll\u00E9 Client", "Solde"}, {"", "", "", null},
-		 * {null, null, null, null}, {null, null, null, null}, {null, null, null, null},
-		 * {null, null, null, null}, {null, null, null, null}, {null, null, null, null},
-		 * {null, null, null, null}, }, new String[] { "New column", "New column",
-		 * "New column", "New column" } ));
-		 * table.getColumnModel().getColumn(0).setPreferredWidth(154);
-		 * table.getColumnModel().getColumn(1).setPreferredWidth(154);
-		 * table.getColumnModel().getColumn(2).setPreferredWidth(154);
-		 * table.getColumnModel().getColumn(3).setPreferredWidth(154);
-		 */
 
 		// table
 
@@ -359,7 +346,7 @@ public class ListeComptesForm {
 		///////// #######################################################################################
 
 		btnOuvCompte = new JButton("Ouvrir un compte");
-		btnOuvCompte.setEnabled(false);
+		btnOuvCompte.setEnabled(true);
 		btnOuvCompte.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
@@ -410,6 +397,9 @@ public class ListeComptesForm {
 		lblListDesCompte.setFont(new Font("Verdana", Font.BOLD, 30));
 		lblListDesCompte.setBackground(new Color(118, 199, 240));
 
+		
+		
+		
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -419,16 +409,23 @@ public class ListeComptesForm {
 				btnTransferer.setEnabled(true);
 				btnCloturer.setEnabled(true);
 				btnDiter.setEnabled(true);
-				// btnOuvCompte.setEnabled(true);
 
+			//	btnOuvCompte.setEnabled(true);
+
+				
+				
 				int i = table.getSelectedRow();
 				TableModel tm = table.getModel();
-
-				System.out.println(tm.getValueAt(i, 0).toString());
-				System.out.println(tm.getValueAt(i, 1).toString());
-				System.out.println(tm.getValueAt(i, 2).toString());
-				System.out.println(tm.getValueAt(i, 3).toString());
-
+//				System.out.println(tm.getValueAt(i, 0).toString());
+//				System.out.println(tm.getValueAt(i, 1).toString());
+//				System.out.println(tm.getValueAt(i, 2).toString());
+//				System.out.println(tm.getValueAt(i, 3).toString());
+				
+				theRaw.add(tm.getValueAt(i, 0).toString());
+				theRaw.add(tm.getValueAt(i, 1).toString()); 
+				theRaw.add(tm.getValueAt(i, 2).toString()); 
+				theRaw.add(tm.getValueAt(i, 3).toString()); 
+				
 			}
 		});
 
