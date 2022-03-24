@@ -76,6 +76,15 @@ public class ModifierCompteForm  {
 	
 	JRadioButton rdbtnEpargne;
 	JRadioButton rdbtnCourant;
+	String typeCompte;
+	Compte theCompte;
+	Client theClient;
+	Compteepa theCompteE;
+	Comptecous theCompteCous;
+	ClientImplement cImplement = new ClientImplement();
+	CompteImplement ci = new CompteImplement();
+	ComptecousImplement cci = new ComptecousImplement();
+	CompteepaImplement cei = new CompteepaImplement();
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -94,10 +103,6 @@ public class ModifierCompteForm  {
 		
 		ListeComptesForm lcf = new ListeComptesForm();
 		ArrayList theRawa = lcf.getTheSelectedRaw();
-		ClientImplement cImplement = new ClientImplement();
-		CompteImplement ci = new CompteImplement();
-		ComptecousImplement cci = new ComptecousImplement();
-		CompteepaImplement cei = new CompteepaImplement();
 		Integer i = 0;
 		
 		
@@ -113,7 +118,7 @@ public class ModifierCompteForm  {
 		
 		// System.out.println("Id compteCoups : " + comptC.getCompteCouID());
 		// System.out.println("Id compteepas : " + comptE.getCompteEpaID());
-		String typeCompte = "Pas de type";
+		typeCompte = "Pas de type";
 
 		// Type assgnement
 		if (comptC.getCompteCouID() > 0) {
@@ -156,15 +161,6 @@ public class ModifierCompteForm  {
 		});
 		btnValider.setFont(new Font("Verdana", Font.PLAIN, 15));
 		btnValider.setBackground(new Color(118, 199, 240));
-	
-	
-		btnValider.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frame.setVisible(false);
-                ListeComptesForm listC = new ListeComptesForm();
-                listC.main(null);
-			}
-		});
 		btnValider.setBackground(new Color(118, 199, 240));
 		
 		
@@ -363,9 +359,9 @@ public class ModifierCompteForm  {
 		
 		if(typeCompte.equals("Courant")) {
 			
-			Compte theCompte = c;
-			Client theClient = cImplement.getClientById(c.getClientID());
-			Comptecous theCompteCous = comptC;
+			theCompte = c;
+			theClient = cImplement.getClientById(c.getClientID());
+			theCompteCous = comptC;
 			
 			
 			nomDeClient.setText(theClient.getNom());
@@ -397,9 +393,9 @@ public class ModifierCompteForm  {
 			
 		}if(typeCompte.equals("Epargne")) {
 			
-			Compte theCompte = c;
-			Client theClient = cImplement.getClientById(c.getClientID());
-			Compteepa theCompteE = comptE;
+			theCompte = c;
+			theClient = cImplement.getClientById(c.getClientID());
+			theCompteE = comptE;
 			
 			nomDeClient.setText(theClient.getNom());
 			prenomDeClient.setText(theClient.getPrenom());
@@ -442,6 +438,52 @@ public class ModifierCompteForm  {
 //			}
 //		});
 		
+		
+
+		btnValider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(typeCompte.equals("Courant")) {
+					
+					//Pour le client
+					theClient.setAdresse(adresseDeClient.getText());
+					theClient.setNom(nomDeClient.getText());
+					theClient.setPrenom(prenomDeClient.getText());
+					theClient.setTel(telDeClient.getText());
+					cImplement.createClient(theClient);
+					
+					
+					//Pour le compteType
+					theCompteCous.setFraisTrans(Integer.parseInt(fraisDeTransfert.getText()));
+					theCompteCous.setSoldeMin(Integer.parseInt(soldeMinAuto.getText()));
+					cci.createComptecous(comptC);
+					
+					//Pour le compte
+					theCompte.setSolde(Double.parseDouble(soldeInitial.getText()));
+					ci.createCompte(c);
+					
+				}if(typeCompte.equals("Epargne")) {
+					//Pour le client
+					theClient.setAdresse(adresseDeClient.getText());
+					theClient.setNom(nomDeClient.getText());
+					theClient.setPrenom(prenomDeClient.getText());
+					theClient.setTel(telDeClient.getText());
+					cImplement.createClient(theClient);
+					
+					
+					//Pour le compteType
+					theCompteE.setPlafond(Integer.parseInt(plafond.getText()));
+					theCompteE.setTauxInteret(Integer.parseInt(tautInteret.getText()));
+					
+					//Pour le compte
+					theCompte.setSolde(Double.parseDouble(soldeInitial.getText()));
+					ci.createCompte(c);
+				}
+				
+				frame.setVisible(false);
+                ListeComptesForm listC = new ListeComptesForm();
+                listC.main(null);
+			}
+		});
 		
 		//Le compte clické de la liste des comptes : 
 	
